@@ -21,8 +21,8 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "IGBO"
-  : "IGBO - International General Biology Olympiad";
+  ? title + " | " + "Mitosisphere"
+  : "Mitosisphere";
 ---
 
 <!DOCTYPE html>
@@ -32,23 +32,23 @@ const makeTitle = title
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <meta content="igbo is cool" property="og:description" />
+    <meta content="Powering progress, one cell at a time." property="og:description" />
     <meta content="/logo.png" property="og:image" />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="IGBO is a sus sus amogus."
+      description="Mitosisphere - Powering Progress, One Cell at a Time"
       canonical={canonicalURL}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `IGBO - International General Biology Olympiad`,
+          title: `Mitosisphere - Powering Progress, One Cell at a Time`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "IGBO Homepage Screenshot",
+          alt: "Mitosisphere Homepage Screenshot",
         },
       }}
     />
