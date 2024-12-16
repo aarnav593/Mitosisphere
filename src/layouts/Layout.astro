@@ -6,7 +6,6 @@ import "@fontsource-variable/inter/index.css";
 import '@fontsource-variable/bricolage-grotesque';
 
 
-
 export interface Props {
   title: string;
 }
@@ -38,13 +37,13 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Mitosisphere - Powering Progress, One Cell at a Time"
+      description="Mitosisphere"
       canonical={canonicalURL}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Mitosisphere - Powering Progress, One Cell at a Time`,
+          title: `Mitosisphere`,
           image: resolvedImageWithDomain,
         },
         image: {
