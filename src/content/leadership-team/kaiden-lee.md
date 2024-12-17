@@ -1,9 +1,10 @@
 ---
 draft: false
 name: "Kaiden Lee"
-title: "Head Exam Writer & Web Designer"
+order: 3
+title: "Content Director & Web Designer"
 avatar: {
-    src: "https://picsum.photos/200",
+    src: "/avatars/ubiquitin.png",
     alt: "Kaiden Lee"
 }
 publishDate: "2024-12-13 15:39"
