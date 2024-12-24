@@ -1,11 +1,11 @@
 ---
 draft: false
-name: "Aryan Adappa"
+name: "Brian Lu"
 order: 1
 title: ""
 avatar: {
-    src: "/avatars/shadows.png",
-    alt: "Aryan Adappa"
+    src: "/avatars/brian.png",
+    alt: "Brian Lu"
 }
 publishDate: "2024-12-13 15:39"
 ---

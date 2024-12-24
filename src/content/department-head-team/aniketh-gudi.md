@@ -1,8 +1,8 @@
 ---
 draft: false
 name: "Aniketh Gudi"
-order: 5
-title: "Director of Logistics and Resources"
+order: 3
+title: "Head Resource Coordinator"
 avatar: {
     src: "/avatars/infrqtion.png",
     alt: "Aniketh Gudi"

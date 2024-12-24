@@ -1,8 +1,8 @@
 ---
 draft: false
 name: "Shriyan Junnuthulla"
-order: 4
-title: "Vice President"
+order: 1
+title: "Head of Exam Development"
 avatar: {
     src: "/avatars/nebulin.png",
     alt: "Shriyan Junnuthulla"

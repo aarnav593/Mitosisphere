@@ -8,21 +8,42 @@ import Sectionhead from "@components/sectionhead.astro";
 ---
 
 <Layout title="">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <Container>
     <main
-    class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-    <div class="py-6 md:order-1 hidden md:block">
-      <img src="/logo.png"></img>
-    </div>
-    <div>
-      <h1
-        class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-       About Us
-      </h1>
-      <p class="text-lg mt-4 text-slate-600 max-w-xl">
-        We are a group of passionate biology students preparing for the USA Biolympiad (USABO). Our initiative Mitosisphere aims to provide a high-quality resource that mirrors the difficulty of national-level biology exams.
-      </p>
-      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+    class="md:pb-24">
+    <Sectionhead>
+      <Fragment slot="title">About Us</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+    <p class="text-lg text-slate-600 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
+      We are a group of passionate biology students preparing for the USA Biolympiad (USABO). Our initiative <b>Mitosisphere</b> aims to provide a high-quality resource that mirrors the difficulty of national-level biology exams. <br> <br>
+      Our exam, the \(p + q = 1\), covers vast categories including anatomy, molecular biology, genetics, and ecology. Our team aims to help students gauge their knowledge, improve problem-solving skills, and familiarize themselves with the exam format. <b>Mitosisphere</b> will serve as both a learning platform and a practice tool for students to excel in future competitions.
+    </p>
+  </main>
+  </Container>
+  <Container>
+    <main
+    class="md:pb-24">
+    <Sectionhead>
+      <Fragment slot="title">Join!</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+    <div class="text-lg text-slate-600 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
+      <p>Interested in joining our initiative? We are always welcoming new members, especially <b>web designers</b> to create a professional online presence
+      and <b>International branches</b> (outside the U.S.) to expand our reach.</p><br>
+      <p>Be part of a global movement to inspire and support future biologists. As we are still a small organization, there are currently plenty of <b>core leadership positions</b> still available!</p>
+      <div class="max-w-3xl grid grid-rows-1 space-y-5 md:space-y-0 md:grid-cols-2 md:space-x-4 mt-[2em]">
+        <Link
+          href="#"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdBh6WyA76PXna-xQyIC8KQlsWNW37gEcx2WW1JVwAYg3YHiQ/viewform"
+          target="_blank"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          style="primary">
+
+          Fill Out our Interest Form
+        </Link>
         <Link
           href="#"
           href="https://discord.gg/Sq3nTXyS6D"
@@ -30,7 +51,7 @@ import Sectionhead from "@components/sectionhead.astro";
           class="flex gap-1 items-center justify-center"
           rel="noopener"
           style="discord">
-          <img src="/discordicon.png" style="height: 15px; padding-right: 5px;"></img>
+          <img src="/discordicon.png" style="height: 15px; padding-right: 10px;"></img>
 
           Join our Discord Server
         </Link>
@@ -42,23 +63,11 @@ import Sectionhead from "@components/sectionhead.astro";
     <main
     class="md:pb-24">
     <Sectionhead>
-      <Fragment slot="title">Our Exams</Fragment>
-      <Fragment slot="desc"></Fragment>
-    </Sectionhead>
-    <p class="text-lg text-slate-600 max-w-2xl place-self-center text-center">
-      amogus impostors are sus
-    </p>
-  </main>
-  </Container>
-  <Container>
-    <main
-    class="md:pb-24">
-    <Sectionhead>
       <Fragment slot="title">Contact</Fragment>
       <Fragment slot="desc"></Fragment>
     </Sectionhead>
 
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-8 md:mt-16">
+    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-3xl mt-8 md:mt-16">
       <div>
         <h2 class="font-medium text-2xl text-gray-800">Contact Mitosisphere</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">

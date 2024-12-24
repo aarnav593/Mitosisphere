@@ -2,7 +2,7 @@
 draft: false
 name: "Krishiv Potluri"
 order: 2
-title: ""
+title: "Head of Quality Assurance"
 avatar: {
     src: "/avatars/kishpish.png",
     alt: "Krishiv Potluri"
