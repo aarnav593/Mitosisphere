@@ -1,7 +1,71 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
 ---
 
 <Layout title="">
-  <center><p>we can add shit later</p></center>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <Container>
+    <main class="mt-[150px] lg:mt-[200px] mb-[150px]">
+    <p class="mt-16 mb-8 text-5xl md:text-7xl font-bold lg:tracking-tight">
+      Competitions
+    </p>
+    <p class="text-lg text-slate-600 text-[1.5rem] md:text-[1.6rem] leading-tight max-w-2xl lg:max-w-4xl text-left">
+      The Mitosisphere exam series is a two-round biology contest that tests students on the whole of biology, in addition to their logical and analytical skills.
+    </p>
+    <Link
+    href="#"
+    href="https://forms.gle/7oaq31kiAhSstxwY6"
+    target="_blank"
+    class="flex gap-1 items-center justify-center w-full md:w-[447px] mt-10"
+    rel="noopener"
+    style="muted">
+
+    Sign Up!
+  </Link>
+  </main>
+  </Container>
+  <Container>
+    <main class="md:pt-[30px] mb-[150px]">
+      <p class="mt-16 mb-[30px] text-5xl font-bold lg:tracking-tight place-self-center">
+        Rules & Information
+      </p>
+    <div class="leading-tight text-[1.25rem] text-slate-600 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
+      <p>Open to high school students globally, the first round, the \(p+q=1\), will take place on <b>January 25th, 2025</b> online. Other information about the competition, including the question distribution, logistics, and prizes, can be found on our rules document.</p>
+      <Link
+          href="#"
+          href="/rules.pdf"
+          target="_blank"
+          class="flex gap-1 items-center justify-center w-full md:w-[300px] place-self-center mt-10"
+          rel="noopener"
+          style="primary">
+
+          Rules Document
+        </Link>
+    </div>
+  </main>
+  </Container>
+  <Container>
+    <main class="md:pt-[30px] mb-[150px]">
+      <p class="mt-16 mb-[30px] text-5xl font-bold lg:tracking-tight place-self-center">
+        \( p+q=1 \)
+      </p>
+    <div class="leading-tight text-[1.25rem] text-slate-600 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
+      <p>The \(p+q=1\) is the first round of our competition, designed to correspond to the difficulty of the USABO Opens exam. The test consists of 50 questions to be completed in 50 minutes. There will be 45 multiple-choice questions and 5 multi-select questions following the style of the USABO.</p>
+    </div>
+  </main>
+  </Container>
+  <Container>
+    <main class="md:pt-[30px] mb-[150px]">
+      <p class="mt-16 mb-[30px] text-5xl font-bold lg:tracking-tight place-self-center">
+        \( (p+q)^2=1 \)
+      </p>
+    <div class="leading-tight text-[1.25rem] text-slate-600 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
+      <p>The \((p+q)^2=1\) is the second round of our competition, designed to correspond to the difficulty of the USABO Semifinals exam. The test consists of 120 questions to be completed in 120 minutes. There will be 60 multiple-choice questions, 30 multiple-true/false or multi-select questions, and 10 short free-response questions.</p>
+    </div>
+  </main>
+  </Container>
 </Layout>
