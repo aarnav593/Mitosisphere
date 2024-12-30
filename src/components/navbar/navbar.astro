@@ -58,7 +58,7 @@ const menuitems = [
                       >
                       <span> {item.title}</span>
                       {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse uppercase text-white bg-indigo-600 rounded-full">
+                        <span class="ml-1 px-2 py-0.5 text-[10px]">
                           New
                         </span>
                       )}
@@ -74,8 +74,11 @@ const menuitems = [
         let navitems = document.getElementsByClassName("navitem");
         let path = window.location.pathname;
         for (let navitem of navitems) {
-          if (path === navitem.id) {
+          if (path.replaceAll("/", "") === navitem.id.replaceAll("/", "")) {
             navitem.classList.remove("text-gray-600");
+            navitem.classList.remove("transition-all");
+            navitem.classList.remove("duration-300");
+            navitem.classList.remove("ease-in-out");
             navitem.classList.add("text-[#ff6200]");
           }
         }
