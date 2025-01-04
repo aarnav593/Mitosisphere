@@ -2,7 +2,7 @@
 draft: false
 name: "Kaiden Lee"
 order: 3
-title: "CTO"
+title: "Chief Operating Officer"
 avatar: {
     src: "/avatars/ubiquitin.png",
     alt: "Kaiden Lee"
