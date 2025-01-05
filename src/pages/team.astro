@@ -71,7 +71,7 @@ let outreachTeam = await getCollection("outreach-team", ({ data }) => {
 
     <h2 class="font-bold text-2xl text-gray-800 mt-[3em] md:mt-[5em] place-self-center">Department Heads</h2>
 
-    <div class="grid md:grid-cols-4 md:grid-cols-2 gap-10 mx-auto md:max-w-[75rem] mt-6">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-10 mx-auto md:max-w-[75rem] mt-6">
       {
         departmentHeadTeam.sort((a,b) => a.data.order - b.data.order).map((teamMemberEntry) => (
         <div class="group">
@@ -133,7 +133,7 @@ let outreachTeam = await getCollection("outreach-team", ({ data }) => {
 
     <h2 class="font-bold text-2xl text-gray-800 mt-[3em] md:mt-[5em] place-self-center">Content Team</h2>
 
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-6">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-10 mx-auto md:max-w-[75rem] mt-6">
       {
         contentTeam.sort((a,b) => a.data.order - b.data.order).map((teamMemberEntry) => (
         <div class="group">
