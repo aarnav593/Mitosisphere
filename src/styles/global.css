@@ -1,0 +1,17 @@
+html
+{
+    height: 100%;
+
+}
+body {
+    border: 1px solid transparent !important;
+    padding-bottom: 20px;
+}
+
+.nomargin {
+    margin: 0 auto;
+}
+
+.superround {
+    border-radius: var(--rounded-btn, 0.5rem) !important;
+}

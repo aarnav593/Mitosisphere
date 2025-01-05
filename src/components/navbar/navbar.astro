@@ -29,7 +29,7 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg">
-          <img src="/favicon.png" style="display: inline; height: 50px; margin-right: 10px; border-radius: 5px;"></img>
+          <img src="/favicon.png" style="display: inline; height: 50px; margin-right: 10px; border-radius: 5px;" alt="Mitosisphere"></img>
           <span class="font-extrabold text-slate-800">Mitosisphere</span>
         </a>
         <div class="block lg:hidden">
@@ -54,7 +54,7 @@ const menuitems = [
                     <a
                       href={item.path}
                       id={item.path}
-                      class="navitem flex lg:px-3 py-2 items-center font-semibold text-gray-600 hover:text-[#ff6200] transition-all duration-300 ease-in-out"
+                      class="navitem flex lg:px-3 py-2 items-center font-semibold text-gray-800 hover:text-[#ff6200] transition-all duration-300 ease-in-out"
                       >
                       <span> {item.title}</span>
                       {item.badge && (
@@ -75,7 +75,7 @@ const menuitems = [
         let path = window.location.pathname;
         for (let navitem of navitems) {
           if (path.replaceAll("/", "") === navitem.id.replaceAll("/", "")) {
-            navitem.classList.remove("text-gray-600");
+            navitem.classList.remove("text-gray-800");
             navitem.classList.remove("transition-all");
             navitem.classList.remove("duration-300");
             navitem.classList.remove("ease-in-out");
