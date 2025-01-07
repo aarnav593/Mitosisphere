@@ -6,6 +6,6 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mitosisphere.netlify.app",
+  site: "https://mitosisphere.org",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
