@@ -7,6 +7,7 @@ html
 body {
     border: 1px solid transparent !important;
     padding-bottom: 20px;
+    background-color: #cbc8c8;
 }
 
 .nomargin {
@@ -22,24 +23,25 @@ body {
     padding-bottom:1vw;
     min-width: 100vw;
     display: block;
-    background: rgb(155,173,255);
-    background: -moz-radial-gradient(circle, rgba(155,173,255,1) 0%, rgba(117,117,252,1) 44%, rgba(158,175,255,1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(155,173,255,1) 0%, rgba(117,117,252,1) 44%, rgba(158,175,255,1) 100%);
-    background: radial-gradient(circle, rgba(155,173,255,1) 0%, rgba(117,117,252,1) 44%, rgba(158,175,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9badff",endColorstr="#9eafff",GradientType=1);
+    
 }
 .navstyle {
     position: fixed;
     top: 0px;
     right: 0;
     left: 0;
-    width: 100%; 
+    width: 100vw; 
+    min-width: 100vw;
     z-index: 99;
     transition: all 0.3s ease-out 0s;
+    background-color: rgb(206,223,253);
+    -webkit-box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
 }
-
+/*
 .innernav {
-    background-color: #cedffd;
+    background-color: rgb(206,223,253);
     border-radius: 10px;
     padding: 0.1vw;
     padding-right: 1.5vw;
@@ -47,4 +49,4 @@ body {
     -webkit-box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
     box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
-}
+}*/
