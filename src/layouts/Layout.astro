@@ -62,5 +62,36 @@ const makeTitle = title
         content-visibility: auto;
       }
     </style>
+    <script>
+      let navele;
+      function headscroll() {
+        navele.classList.remove("unscrolled");
+        navele.classList.add("scrolled");
+      }
+      function headunscroll() {
+        navele.classList.add("unscrolled");
+        navele.classList.remove("scrolled");
+      }
+      navele = document.getElementsByClassName("navstyle")?.[0];
+      if (screen.width <= 1023) {
+        headscroll();
+      }
+       window.addEventListener('scroll', function() {
+        if (screen.width > 1023) {
+          if (scrollY < 10) {
+            headunscroll();
+          } else {
+            headscroll();
+          }
+        }
+      });
+      window.addEventListener('resize', function() {
+        if (screen.width <= 1023) {
+          headscroll();
+        } else {
+          headunscroll();
+        }
+      });
+    </script>
   </body>
 </html>

@@ -28,7 +28,7 @@ const menuitems = [
 ];
 ---
 
-<Container class="navstyle">
+<Container class="navstyle unscrolled">
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
@@ -41,7 +41,7 @@ const menuitems = [
         </div>
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
+        <ul class="navlist flex flex-col lg:flex-row lg:gap-3">
           {
             menuitems.map((item, index) => (
               <>

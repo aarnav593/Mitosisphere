@@ -1,13 +1,13 @@
-html
-{
+html {
     height: 100%;
     overflow-x: hidden;
-
+    overscroll-behavior: none;
 }
 body {
+    overscroll-behavior: none;
     border: 1px solid transparent !important;
     padding-bottom: 20px;
-    background-color: #cbc8c8;
+    background-color: #eeeeee;
 }
 
 .nomargin {
@@ -23,7 +23,7 @@ body {
     padding-bottom:1vw;
     min-width: 100vw;
     display: block;
-    
+    margin-bottom: 100px;
 }
 .navstyle {
     position: fixed;
@@ -34,6 +34,8 @@ body {
     min-width: 100vw;
     z-index: 99;
     transition: all 0.3s ease-out 0s;
+}
+.scrolled {
     background-color: rgb(206,223,253);
     -webkit-box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 1px 5px 0.05px rgba(0,0,0,0.75);
