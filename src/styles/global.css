@@ -6,7 +6,6 @@ html {
 body {
     overscroll-behavior: none;
     border: 1px solid transparent !important;
-    padding-bottom: 20px;
     background-color: #eeeeee;
 }
 
@@ -23,7 +22,6 @@ body {
     padding-bottom:1vw;
     min-width: 100vw;
     display: block;
-    margin-bottom: 100px;
 }
 .navstyle {
     position: fixed;
