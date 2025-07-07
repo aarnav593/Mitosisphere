@@ -5,76 +5,108 @@ import { Icon } from "astro-icon/components";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import '../styles/global.css';
-
 ---
 
+<Layout title="Mitosisphere - Competitions">
+  <style>
+    :root {
+      --primary-purple: #8b5cf6;
+      --primary-blue: #3b82f6;
+    }
+    .link-primary {
+      background-color: var(--primary-purple);
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+      border: 1px solid transparent;
+    }
+    .link-primary:hover {
+      background-color: var(--primary-blue);
+    }
+    .glow-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0) 70%);
+      filter: blur(40px);
+      z-index: 0;
+    }
+    .title-sheen {
+       background: linear-gradient(100deg, #d1d5db 20%, #ffffff 50%, #d1d5db 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 
-<Layout title="">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <Container class="head bg-gradient-to-tr from-[#e8ded3] via-[#ced3cc] via-50% to-[#85adbf]">
-    <main class="mt-[150px] lg:mt-[200px] mb-[150px]">
-    <p class="mt-16 mb-8 max-[376px]:text-[2.6rem] text-5xl md:text-7xl font-bold lg:tracking-tight">
-      Competitions
-    </p>
-    <p class="text-lg text-slate-750 md:text-[1.6rem] leading-tight max-w-2xl lg:max-w-4xl text-left">
-      The Mitosisphere exam series is a two-round biology contest that tests students on the whole of biology, in addition to their logical and analytical skills.
-    </p>
-    
-    <Link
-    href="#"
-    href="https://forms.gle/7oaq31kiAhSstxwY6"
-    target="_blank"
-    class="superround flex gap-1 items-center justify-center w-full md:w-[447px] mt-10"
-    rel="noopener"
-    style="primary">
 
-    Sign Up!
-  </Link>
-  
-  </main>
-  
-  </Container>
-  
-  <Container>
-    <main class="md:pt-[30px] mb-[150px]">
-      
-      
-      <p class="mt-16 mb-[30px] max-[376px]:text-[2.6rem] text-5xl font-bold lg:tracking-tight place-self-center">
-        Rules & Information
-      </p>
-    <div class="leading-tight text-[1.25rem] text-slate-750 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
-      <p>Open to high school students globally, the first round, the \(p+q=1\), will take place on <b>January 25th, 2025</b> online. Students will be able to take the exam any time between 12:00 AM and 11:59 PM EST through a proctoring software. Other information about the competition, including the question distribution, logistics, and prizes, can be found on our rules document.</p>
-      <Link
-          href="#"
-          href="/rules.pdf"
+  <div class="relative overflow-hidden bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/50 to-blue-900/50"></div>
+    <div class="glow-effect"></div>
+    <Container class="relative z-10">
+      <main class="py-24 md:py-32 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight title-sheen">
+          Competitions
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-gray-300 mt-6">
+          We run two competitions, similar to the USABO Open and Semifinal Exams.
+          Testing Info for the 2025 Season will come out later this year.
+        </p>
+        <Link
+          href="https://forms.gle/7oaq31kiAhSstxwY6"
           target="_blank"
-          class="superround flex gap-1 items-center justify-center w-full md:w-[300px] place-self-center mt-10"
-          rel="noopener"
-          style="primary">
-
-          Rules Document
+          class:list={["superround flex gap-1 items-center justify-center w-full md:w-[240px] mt-10 text-lg font-semibold link-primary mx-auto"]}
+          rel="noopener">
+          Sign Up!
         </Link>
-    </div>
-  </main>
-  </Container>
-  <Container>
-    <main class="md:pt-[30px] mb-[150px]">
-      <p class="mt-16 mb-[30px] max-[376px]:text-[2.6rem] text-5xl font-bold lg:tracking-tight place-self-center">
-        \( p+q=1 \)
-      </p>
-    <div class="leading-tight text-[1.25rem] text-slate-750 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
-      <p>The \(p+q=1\) is the first round of our competition, designed to correspond to the difficulty of the USABO Opens exam. The test consists of 50 questions to be completed in 50 minutes. There will be 45 multiple-choice questions and 5 multi-select questions following the style of the USABO.</p>
-    </div>
-  </main>
-  </Container>
-  <Container>
-    <main class="md:pt-[30px] mb-[150px]">
-      <p class="mt-16 mb-[30px] max-[376px]:text-[2.6rem] text-5xl font-bold lg:tracking-tight place-self-center">
-        \( (p+q)^2=1 \)
-      </p>
-    <div class="leading-tight text-[1.25rem] text-slate-750 max-w-xl lg:max-w-3xl place-self-center text-left md:text-justify">
-      <p>The \((p+q)^2=1\) is the second round of our competition, designed to correspond to the difficulty of the USABO Semifinals exam. The test consists of 120 questions to be completed in 120 minutes. There will be 60 multiple-choice questions, 30 multiple-true/false or multi-select questions, and 10 short free-response questions.</p>
-    </div>
-  </main>
-  </Container>
+      </main>
+    </Container>
+  </div>
+  
+  <div class="bg-blue-50/40 py-16 md:py-20">
+    <Container>
+      <main class="text-center">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-800">
+          Rules & Information
+        </h2>
+        <div class="mt-8 max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+          <p>
+            Open to high school students globally, the first round, the \(p+q=1\), will take place on <b>January 25th, 2025</b> online. Students will be able to take the exam any time between 12:00 AM and 11:59 PM EST. More information about the competition can be found in our rules document.
+          </p>
+          <Link
+              href="/rules.pdf"
+              target="_blank"
+              class:list={["superround flex gap-1 items-center justify-center w-full md:w-[300px] mx-auto mt-10 font-semibold link-primary"]}
+              rel="noopener">
+              Rules Document
+          </Link>
+        </div>
+      </main>
+    </Container>
+  </div>
+  
+  <div class="bg-white py-16 md:py-20">
+    <Container class="space-y-16">
+      <div class="text-center">
+        <h3 class="text-4xl md:text-5xl font-bold text-gray-800">
+          \( p+q=1 \)
+        </h3>
+        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+          The \(p+q=1\) is the first round of our competition, corresponding to the difficulty of the USABO Opens exam. The test consists of 50 questions to be completed in 50 minutes, including 45 multiple-choice and 5 multi-select questions.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <h3 class="text-4xl md:text-5xl font-bold text-gray-800">
+          \( (p+q)^2=1 \)
+        </h3>
+        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+          The \((p+q)^2=1\) is the second round, corresponding to the USABO Semifinals exam. The test consists of 120 questions in 120 minutes, including multiple-choice, multiple-true/false, and short free-response questions.
+        </p>
+      </div>
+    </Container>
+  </div>
 </Layout>

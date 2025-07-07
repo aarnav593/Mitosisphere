@@ -8,67 +8,108 @@ import Sectionhead from "@components/sectionhead.astro";
 import '../styles/global.css';
 ---
 
-<Layout title="Mitosisphere - Explore, Innovate, Succeed">
+<Layout title="Mitosisphere - Multiplying Learning; One division at a time">
   <style>
-    .content-section {
-      background-color: white;
-      position: relative;
-      z-index: 1;
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     }
 
+    :root {
+      --primary-purple: #8b5cf6; 
+      --primary-blue: #3b82f6;   
+      --light-purple: #c4b5fd;   
+      --light-blue: #93c5fd;    
+      --dark-bg: #111827;        
+      --text-dark: #1f2937;
+      --text-light: #d1d5db;     
+    }
+
+    .link-primary {
+      background-color: var(--primary-purple);
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+      border: 1px solid transparent;
+    }
+    .link-primary:hover {
+      background-color: var(--primary-blue);
+    }
+    
+    .glow-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0) 70%);
+      filter: blur(40px);
+      z-index: 0;
+    }
+    
+    .title-sheen {
+       background: linear-gradient(
+        100deg,
+        #d1d5db 20%,
+        #ffffff 50%,
+        #d1d5db 80%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   </style>
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <canvas id="biology-bg"></canvas>
-
-  <div class="head text-gray-900 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-tr from-[#e8ded3] via-[#ced3cc] via-50% to-[#85adbf]"></div>
-    <Container class="relative">
-      <main class="text-center py-24 md:py-10">
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-gray-900">
-          Hello, we are Mitosisphere
-        </h1>
-        <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-gray-800">
-          We're a group of passionate biology students preparing for the USA Biolympiad (USABO). Our initiative, <b>Mitosisphere</b>, aims to provide a high-quality resource that mirrors the difficulty of national-level biology exams.
-        </p>
-        <div class="mt-8">
-          <Link href="/competitions" style="primary" class="superround text-lg">
-            Learn More
-          </Link>
+  <div class="relative overflow-hidden bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/50 to-blue-900/50"></div>
+    <div class="glow-effect"></div>
+    <Container class="relative z-10">
+      <main class="text-center py-24 md:py-32">
+        <div class="mb-4">
+          <img src="../public/favicon.png" alt="Mitosisphere Logo" class="mx-auto w-28 h-28 md:w-36 md:h-36" />
         </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight title-sheen">
+          Mitosisphere
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-gray-300 mt-6">
+          High-quality resources for the USA Biolympiad
+        </p>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-gray-300 mt-6">
+          Multiplying learning one division at a time
+        </p>
       </main>
     </Container>
   </div>
 
-  <div class="content-section">
+  <div class="bg-white">
     <Container>
-      <main class="py-6">
+      <main class="py-16">
         <Sectionhead>
-          <Fragment slot="title"><span class="text-gray-900">Our Exams</span></Fragment>
-          <Fragment slot="desc" class="text-gray-700">
+          <Fragment slot="title"><span class="text-gray-800">Our Exams</span></Fragment>
+          <Fragment slot="desc" class="text-gray-600">
             Our exam series is designed to challenge and educate, covering a wide range of biological topics.
           </Fragment>
         </Sectionhead>
         <div class="grid md:grid-cols-3 gap-8 mt-12">
-          <div class="bg-slate-50 p-8 rounded-lg text-center border border-slate-200 shadow-sm">
-            <Icon name="uil:dna" class="w-12 h-12 mx-auto mb-4 text-cyan-600" />
-            <h3 class="text-2xl font-bold mb-2 text-gray-900">Learn</h3>
-            <p class="text-gray-700">
+          <div class="bg-purple-50 p-8 rounded-lg text-center border border-purple-200 shadow-sm">
+            <Icon name="uil:dna" class="w-12 h-12 mx-auto mb-4 text-purple-600" />
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Learn</h3>
+            <p class="text-gray-600">
               Our exams cover cellular and molecular biology, genetics, evolution, anatomy and physiology, ecology, and biochemistry.
             </p>
           </div>
-          <div class="bg-slate-50 p-8 rounded-lg text-center border border-slate-200 shadow-sm">
-            <Icon name="uil:brain" class="w-12 h-12 mx-auto mb-4 text-teal-600" />
-            <h3 class="text-2xl font-bold mb-2 text-gray-900">Think</h3>
-            <p class="text-gray-700">
-              Our questions are concept-based, requiring data interpretation and application of biological principles to complex scenarios.
+          <div class="bg-blue-50 p-8 rounded-lg text-center border border-blue-200 shadow-sm">
+            <Icon name="uil:brain" class="w-12 h-12 mx-auto mb-4 text-blue-600" />
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Think</h3>
+            <p class="text-gray-600">
+              Our questions are concept-based, requiring data interpretation and application of biological principles.
             </p>
           </div>
-          <div class="bg-slate-50 p-8 rounded-lg text-center border border-slate-200 shadow-sm">
-            <Icon name="uil:microscope" class="w-12 h-12 mx-auto mb-4 text-emerald-600" />
-            <h3 class="text-2xl font-bold mb-2 text-gray-900">Improve</h3>
-            <p class="text-gray-700">
+          <div class="bg-indigo-50 p-8 rounded-lg text-center border border-indigo-200 shadow-sm">
+            <Icon name="uil:microscope" class="w-12 h-12 mx-auto mb-4 text-indigo-600" />
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Improve</h3>
+            <p class="text-gray-600">
               With high-quality questions and guided solutions, our exams serve as both a learning platform and a practice tool.
             </p>
           </div>
@@ -77,29 +118,28 @@ import '../styles/global.css';
     </Container>
   </div>
 
-  <div class="content-section bg-slate-50">
+  <div class="bg-blue-50/40">
     <Container>
       <main class="py-20 text-center">
         <Sectionhead>
-          <Fragment slot="title"><span class="text-gray-900">Join Us!</span></Fragment>
-          <Fragment slot="desc" class="text-gray-700">
+          <Fragment slot="title"><span class="text-gray-800">Join Us!</span></Fragment>
+          <Fragment slot="desc" class="text-gray-600">
             We are always looking for passionate individuals to join our team.
           </Fragment>
         </Sectionhead>
         <div class="max-w-3xl mx-auto mt-8">
-          <p class="text-lg leading-relaxed text-gray-800">
-            Interested in joining our initiative? We are always welcoming new members, especially <b>web designers</b> to create a professional online presence and <b>international branches</b> (outside the U.S.) to expand our reach.
+          <p class="text-lg leading-relaxed text-gray-700">
+            Interested in joining our initiative? We are welcoming new members, especially <b>web designers</b> and <b>international branches</b> to expand our reach.
           </p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-800">
-            Be part of a global movement to inspire and support future biologists. As we are still a small organization, there are currently plenty of core leadership positions available!
+          <p class="mt-4 text-lg leading-relaxed text-gray-700">
+            Be part of a global movement to inspire and support future biologists. There are plenty of core leadership positions available!
           </p>
           <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
             <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSdBh6WyA76PXna-xQyIC8KQlsWNW37gEcx2WW1JVwAYg3YHiQ/viewform"
               target="_blank"
-              class="superround"
+              class:list={["superround link-primary"]}
               rel="noopener"
-              style="primary"
             >
               <Icon name="uil:file-alt" class="w-5 h-5 mr-2" />
               Staff Form
@@ -107,9 +147,8 @@ import '../styles/global.css';
             <Link
               href="https://discord.gg/Sq3nTXyS6D"
               target="_blank"
-              class="superround"
+              class:list={["superround link-primary"]}
               rel="noopener"
-              style="primary"
             >
               <Icon name="simple-icons:discord" class="w-5 h-5 mr-2" />
               Join our Discord
@@ -124,14 +163,14 @@ import '../styles/global.css';
     <div class="container mx-auto px-4 pl-6 flex flex-col items-left gap-3">
       <div class="font-bold text-lg">Mitosisphere</div>
       <div class="flex items-left space-x-2">
-        <Icon class="w-5 h-5 text-white" name="uil:envelope" />
-        <a href="mailto:mitosisphere@gmail.com" class="hover:underline text-white">
+        <Icon class="w-5 h-5 text-purple-400" name="uil:envelope" />
+        <a href="mailto:mitosisphere@gmail.com" class="hover:text-purple-300 transition-colors">
           mitosisphere@gmail.com
         </a>
       </div>
       <div class="flex items-left space-x-2">
-        <Icon class="w-5 h-5 text-white" name="simple-icons:discord" />
-        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" rel="noopener" class="hover:underline text-white">
+        <Icon class="w-5 h-5 text-blue-400" name="simple-icons:discord" />
+        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" rel="noopener" class="hover:text-blue-300 transition-colors">
           Join our Discord
         </a>
       </div>

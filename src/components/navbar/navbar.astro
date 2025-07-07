@@ -7,7 +7,7 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 const menuitems = [
   {
     title: "Home",
-    path:"/",
+    path: "/",
   },
   {
     title: "Competitions",
@@ -28,65 +28,67 @@ const menuitems = [
 ];
 ---
 
-<Container class="navstyle unscrolled">
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
-    <Astronav>
-      <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="text-lg">
-          <img src="/favicon.png" style="display: inline; height: 50px; margin-right: 10px; border-radius: 5px;" alt="Mitosisphere"></img>
-          <span class="font-extrabold text-slate-800">Mitosisphere</span>
-        </a>
-        <div class="block lg:hidden">
-          <MenuIcon class="w-4 h-4 text-gray-800" />
+<header id="navbar" class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-transparent scrolled:bg-white scrolled:shadow-lg">
+  <Container>
+    <div class="flex flex-col lg:flex-row justify-between items-center py-4">
+      <Astronav>
+        <div class="flex w-full lg:w-auto items-center justify-between">
+          <a href="/" class="text-lg flex items-center">
+            <img src="/favicon.png" class="h-10 w-10 mr-3 rounded-md" alt="Mitosisphere Logo" />
+            <span class="font-extrabold text-black scrolled:text-slate-800 transition-colors duration-300">
+              Mitosisphere
+            </span>
+          </a>
+          <div class="block lg:hidden">
+            <MenuIcon class="w-5 h-5 text-black scrolled:text-slate-700 transition-colors duration-300" />
+          </div>
         </div>
-      </div>
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="navlist flex flex-col lg:flex-row lg:gap-3">
-          {
-            menuitems.map((item, index) => (
-              <>
-                {item.children && (
-                  <Dropdown
-                    title={item.title}
-                    children={item.children}
-                    lastItem={index === menuitems.length - 1}
-                  />
-                )}
+        
+        <MenuItems class="hidden w-full lg:w-auto mt-4 lg:flex lg:mt-0 lg:h-auto lg:shadow-none absolute lg:relative top-full left-0 bg-transparent lg:bg-transparent backdrop-blur-0 shadow-none rounded-b-lg p-4 lg:p-0">
+          <ul class="flex flex-col lg:flex-row lg:gap-2">
+            {
+              menuitems.map((item) => (
+                <li>
+                  <a
+                    href={item.path}
+                    id={item.path}
+                    class="navitem is-active:font-semibold relative flex lg:px-3 py-2 items-center font-medium text-black scrolled:text-slate-600 transition-colors duration-300 ease-in-out hover:opacity-80 scrolled:hover:text-purple-600 after:absolute after:bottom-1.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 after:bg-white scrolled:after:bg-purple-600 is-active:scrolled:text-purple-600"
+                  >
+                    <span>{item.title}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </MenuItems>
+      </Astronav>
+    </div>
+  </Container>
+</header>
 
-                {!item.children && (
-                  <li>
-                    <a
-                      href={item.path}
-                      id={item.path}
-                      class="navitem flex lg:px-3 py-2 items-center font-semibold text-gray-800 hover:text-[#ff6200] transition-all duration-300 ease-in-out"
-                      >
-                      <span> {item.title}</span>
-                      {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px]">
-                          New
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                )}
-              </>
-            ))
-          }
-        </ul>
-      </MenuItems>
-      <script>
-        let navitems = document.getElementsByClassName("navitem");
-        let path = window.location.pathname;
-        for (let navitem of navitems) {
-          if (path.replaceAll("/", "") === navitem.id.replaceAll("/", "")) {
-            navitem.classList.remove("text-gray-800");
-            navitem.classList.remove("transition-all");
-            navitem.classList.remove("duration-300");
-            navitem.classList.remove("ease-in-out");
-            navitem.classList.add("text-[#ff6200]");
-          }
-        }
-      </script>
-    </Astronav>
-  </header>
-</Container>
+<script>
+  const nav = document.querySelector("#navbar");
+  if (nav) {
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 10);
+    });
+  }
+
+  function highlightActiveLink() {
+    const navitems = document.querySelectorAll(".navitem");
+    const currentPath = window.location.pathname.endsWith('/') && window.location.pathname.length > 1 ? window.location.pathname.slice(0, -1) : window.location.pathname;
+    
+    navitems.forEach(navitem => {
+      const itemPathAttr = navitem.getAttribute('id');
+      const itemPath = itemPathAttr.endsWith('/') && itemPathAttr.length > 1 ? itemPathAttr.slice(0, -1) : itemPathAttr;
+
+      navitem.classList.remove("is-active");
+
+      if (currentPath === itemPath) {
+        navitem.classList.add("is-active");
+      }
+    });
+  }
+  
+  document.addEventListener('astro:page-load', highlightActiveLink);
+</script>
