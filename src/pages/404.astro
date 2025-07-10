@@ -1,17 +1,129 @@
 ---
-import Container from "@components/container.astro";
-import Layout from "@layouts/Layout.astro";
-import '../styles/global.css';
-
+import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout title="404 Not Found">
-  <Container>
-    <div class="flex items-center justify-center h-[calc(100vh-170px)]">
-      <div class="mt-16 text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">404</h1>
-        <p class="text-lg mt-4 text-slate-600">Page not found.</p>
-      </div>
+  <div id="bounce-container">
+    <img src="/logo.png" alt="Bouncing Logo" class="logo" />
+  </div>
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="text-center">
+      <h1 class="text-6xl lg:text-7xl font-bold text-[#000000] drop-shadow-lg">404</h1>
+      <p class="text-xl mt-4 text-[#000000] drop-shadow-md">Maybe you were looking for one of my sister cells?</p>
     </div>
-  </Container>
+  </div>
 </Layout>
+
+<style>
+  /* The bounce container takes up the full screen and acts as our canvas */
+  #bounce-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* Your light blue background */
+    overflow: hidden; /* Prevent logos from leaving the screen */
+  }
+
+  /* Every logo will have this style */
+  .logo {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    will-change: transform; /* Performance optimization for animation */
+  }
+</style>
+
+<script>
+  // Find the HTML elements we need
+  const container = document.getElementById('bounce-container');
+  const firstLogo = document.querySelector('.logo');
+
+  // This array will hold the data for every logo on the screen
+  const logos = [];
+
+  // Function to create a new logo object with random properties
+  function createLogo(element, x, y) {
+    return {
+      el: element,
+      x: x,
+      y: y,
+      // Random velocity for x and y directions
+      vx: (Math.random() - 0.5) * 4,
+      vy: (Math.random() - 0.5) * 4,
+      width: element.clientWidth,
+      height: element.clientHeight,
+    };
+  }
+
+  // Add the very first logo to our array
+  logos.push(createLogo(firstLogo, window.innerWidth / 2, window.innerHeight / 2));
+
+  // The main animation loop that runs on every frame
+  function animate() {
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
+    // Loop through every logo and update its position
+    logos.forEach(logo => {
+      // Update position based on velocity
+      logo.x += logo.vx;
+      logo.y += logo.vy;
+
+      // Check for collision with vertical walls
+      if (logo.x + logo.width > containerWidth || logo.x < 0) {
+        logo.vx *= -1; // Reverse horizontal direction
+      }
+
+      // Check for collision with horizontal walls
+      if (logo.y + logo.height > containerHeight || logo.y < 0) {
+        logo.vy *= -1; // Reverse vertical direction
+      }
+
+      // Apply the new position to the actual HTML element
+      logo.el.style.transform = `translate3d(${logo.x}px, ${logo.y}px, 0)`;
+    });
+
+    // Ask the browser to run this function again on the next frame
+    requestAnimationFrame(animate);
+  }
+
+  // This function doubles the number of logos
+  function doubleLogos() {
+    const currentLogoCount = logos.length;
+    // We only loop through the logos that existed at the start of the function
+    for (let i = 0; i < currentLogoCount; i++) {
+      const parentLogo = logos[i];
+      
+      // Create a copy of the logo element
+      const newLogoEl = parentLogo.el.cloneNode(true);
+      container.appendChild(newLogoEl);
+      
+      // Create a new logo object, starting at the parent's position
+      const newLogo = createLogo(newLogoEl, parentLogo.x, parentLogo.y);
+      logos.push(newLogo);
+    }
+  }
+
+  // Start the animation loop
+  animate();
+
+  // Set an interval to run the doubling function every 2 seconds (2000 ms)
+  // A counter to track how many times we've doubled
+let doublingCount = 0;
+
+// Store the interval in a variable so we can stop it later
+const doublingInterval = setInterval(() => {
+  // Check if the limit has been reached
+  if (doublingCount >= 7) {
+    clearInterval(doublingInterval); // This stops the doubling
+    return;
+  }
+
+  // If the limit isn't reached, double the logos and count it
+  doubleLogos();
+  doublingCount++;
+}, 2000);
+</script>
