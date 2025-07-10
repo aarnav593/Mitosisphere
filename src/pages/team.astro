@@ -31,10 +31,6 @@ let outreachTeam = await getCollection("outreach-team", ({ data }) => {
 });
 ---
 
-<Layout title="About">
-  <Container class="head bg-gradient-to-tr from-[#e8ded3] via-[#ced3cc] via-50% to-[#85adbf]">
-    <main class="mt-[150px] lg:mt-[200px] mb-[150px]">
-        <!-- Google tag (gtag.js) -->
 <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
@@ -43,14 +39,35 @@ let outreachTeam = await getCollection("outreach-team", ({ data }) => {
 
   gtag('config', 'G-MTGS0M0Q0Q');
 </script>
-    <p class="mt-16 mb-8 max-[376px]:text-[2.6rem] text-5xl md:text-7xl font-bold lg:tracking-tight">
-      Our Team
-    </p>
-    <p class="text-lg text-slate-750 md:text-[1.6rem] leading-tight max-w-2xl lg:max-w-4xl text-left">
-      Powering Progress, One Cell at a Time
-    </p>
-  </main>
+<Layout title="About">
+   <div class="relative overflow-hidden bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/50 to-blue-900/50"></div>
+    <div class="glow-effect"></div>
+    <Container class="relative z-10">
+      <main class="text-center py-24 md:py-32">
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight title-sheen">
+          Our Team
+        </h1>
+       
+      </main>
+    </Container>
+  </div>
   </Container>
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
   <Container>
     
 
