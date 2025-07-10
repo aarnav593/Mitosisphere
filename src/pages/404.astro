@@ -1,17 +1,111 @@
 ---
-import Container from "@components/container.astro";
-import Layout from "@layouts/Layout.astro";
-import '../styles/global.css';
-
+import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout title="404 Not Found">
-  <Container>
-    <div class="flex items-center justify-center h-[calc(100vh-170px)]">
-      <div class="mt-16 text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">404</h1>
-        <p class="text-lg mt-4 text-slate-600">Page not found.</p>
-      </div>
+  <div id="bounce-container">
+    <img src="/logo.png" alt="Bouncing Logo" class="logo" />
+  </div>
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="text-center">
+      <h1 class="text-6xl lg:text-7xl font-bold text-[#000000] drop-shadow-lg">404</h1>
+      <p class="text-xl mt-4 text-[#000000] drop-shadow-md">Maybe you were looking for one of my sister cells?</p>
     </div>
-  </Container>
+  </div>
 </Layout>
+
+<style>
+  
+  #bounce-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; 
+    overflow: hidden; 
+  }
+
+  
+  .logo {
+    position: absolute;
+    width: 100px; 
+    height: 100px;
+    will-change: transform; 
+  }
+</style>
+
+<script>
+  
+  type Logo = {
+    el: HTMLImageElement;
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    width: number;
+    height: number;
+  };
+
+  const container = document.getElementById('bounce-container') as HTMLElement;
+  const firstLogo = document.querySelector('.logo') as HTMLImageElement;
+
+  if (container && firstLogo) {
+    const logos: Logo[] = [];
+
+    function createLogo(element: HTMLImageElement, x: number, y: number): Logo {
+      return {
+        el: element,
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * 4,
+        vy: (Math.random() - 0.5) * 4,
+        width: element.clientWidth,
+        height: element.clientHeight,
+      };
+    }
+
+    logos.push(createLogo(firstLogo, window.innerWidth / 2, window.innerHeight / 2));
+
+    function animate() {
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+      logos.forEach(logo => {
+        logo.x += logo.vx;
+        logo.y += logo.vy;
+        if (logo.x + logo.width > containerWidth || logo.x < 0) {
+          logo.vx *= -1;
+        }
+        if (logo.y + logo.height > containerHeight || logo.y < 0) {
+          logo.vy *= -1;
+        }
+        logo.el.style.transform = `translate3d(${logo.x}px, ${logo.y}px, 0)`;
+      });
+      requestAnimationFrame(animate);
+    }
+
+    function doubleLogos() {
+      const currentLogoCount = logos.length;
+      for (let i = 0; i < currentLogoCount; i++) {
+        const parentLogo = logos[i];
+        const newLogoEl = parentLogo.el.cloneNode(true) as HTMLImageElement;
+        container.appendChild(newLogoEl);
+        const newLogo = createLogo(newLogoEl, parentLogo.x, parentLogo.y);
+        logos.push(newLogo);
+      }
+    }
+
+    animate();
+
+    let doublingCount = 0;
+    const doublingInterval = setInterval(() => {
+      if (doublingCount >= 7) {
+        clearInterval(doublingInterval);
+        return;
+      }
+      doubleLogos();
+      doublingCount++;
+    }, 2000);
+  }
+</script>
