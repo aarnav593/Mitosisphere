@@ -16,114 +16,96 @@ import Layout from '@layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* The bounce container takes up the full screen and acts as our canvas */
+  
   #bounce-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #ffffff; /* Your light blue background */
-    overflow: hidden; /* Prevent logos from leaving the screen */
+    background-color: #ffffff; 
+    overflow: hidden; 
   }
 
-  /* Every logo will have this style */
+  
   .logo {
     position: absolute;
-    width: 100px; /* Adjust size as needed */
+    width: 100px; 
     height: 100px;
-    will-change: transform; /* Performance optimization for animation */
+    will-change: transform; 
   }
 </style>
 
 <script>
-  // Find the HTML elements we need
-  const container = document.getElementById('bounce-container');
-  const firstLogo = document.querySelector('.logo');
+  
+  type Logo = {
+    el: HTMLImageElement;
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    width: number;
+    height: number;
+  };
 
-  // This array will hold the data for every logo on the screen
-  const logos = [];
+  const container = document.getElementById('bounce-container') as HTMLElement;
+  const firstLogo = document.querySelector('.logo') as HTMLImageElement;
 
-  // Function to create a new logo object with random properties
-  function createLogo(element, x, y) {
-    return {
-      el: element,
-      x: x,
-      y: y,
-      // Random velocity for x and y directions
-      vx: (Math.random() - 0.5) * 4,
-      vy: (Math.random() - 0.5) * 4,
-      width: element.clientWidth,
-      height: element.clientHeight,
-    };
-  }
+  if (container && firstLogo) {
+    const logos: Logo[] = [];
 
-  // Add the very first logo to our array
-  logos.push(createLogo(firstLogo, window.innerWidth / 2, window.innerHeight / 2));
-
-  // The main animation loop that runs on every frame
-  function animate() {
-    const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight;
-
-    // Loop through every logo and update its position
-    logos.forEach(logo => {
-      // Update position based on velocity
-      logo.x += logo.vx;
-      logo.y += logo.vy;
-
-      // Check for collision with vertical walls
-      if (logo.x + logo.width > containerWidth || logo.x < 0) {
-        logo.vx *= -1; // Reverse horizontal direction
-      }
-
-      // Check for collision with horizontal walls
-      if (logo.y + logo.height > containerHeight || logo.y < 0) {
-        logo.vy *= -1; // Reverse vertical direction
-      }
-
-      // Apply the new position to the actual HTML element
-      logo.el.style.transform = `translate3d(${logo.x}px, ${logo.y}px, 0)`;
-    });
-
-    // Ask the browser to run this function again on the next frame
-    requestAnimationFrame(animate);
-  }
-
-  // This function doubles the number of logos
-  function doubleLogos() {
-    const currentLogoCount = logos.length;
-    // We only loop through the logos that existed at the start of the function
-    for (let i = 0; i < currentLogoCount; i++) {
-      const parentLogo = logos[i];
-      
-      // Create a copy of the logo element
-      const newLogoEl = parentLogo.el.cloneNode(true);
-      container.appendChild(newLogoEl);
-      
-      // Create a new logo object, starting at the parent's position
-      const newLogo = createLogo(newLogoEl, parentLogo.x, parentLogo.y);
-      logos.push(newLogo);
+    function createLogo(element: HTMLImageElement, x: number, y: number): Logo {
+      return {
+        el: element,
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * 4,
+        vy: (Math.random() - 0.5) * 4,
+        width: element.clientWidth,
+        height: element.clientHeight,
+      };
     }
+
+    logos.push(createLogo(firstLogo, window.innerWidth / 2, window.innerHeight / 2));
+
+    function animate() {
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+      logos.forEach(logo => {
+        logo.x += logo.vx;
+        logo.y += logo.vy;
+        if (logo.x + logo.width > containerWidth || logo.x < 0) {
+          logo.vx *= -1;
+        }
+        if (logo.y + logo.height > containerHeight || logo.y < 0) {
+          logo.vy *= -1;
+        }
+        logo.el.style.transform = `translate3d(${logo.x}px, ${logo.y}px, 0)`;
+      });
+      requestAnimationFrame(animate);
+    }
+
+    function doubleLogos() {
+      const currentLogoCount = logos.length;
+      for (let i = 0; i < currentLogoCount; i++) {
+        const parentLogo = logos[i];
+        const newLogoEl = parentLogo.el.cloneNode(true) as HTMLImageElement;
+        container.appendChild(newLogoEl);
+        const newLogo = createLogo(newLogoEl, parentLogo.x, parentLogo.y);
+        logos.push(newLogo);
+      }
+    }
+
+    animate();
+
+    let doublingCount = 0;
+    const doublingInterval = setInterval(() => {
+      if (doublingCount >= 7) {
+        clearInterval(doublingInterval);
+        return;
+      }
+      doubleLogos();
+      doublingCount++;
+    }, 2000);
   }
-
-  // Start the animation loop
-  animate();
-
-  // Set an interval to run the doubling function every 2 seconds (2000 ms)
-  // A counter to track how many times we've doubled
-let doublingCount = 0;
-
-// Store the interval in a variable so we can stop it later
-const doublingInterval = setInterval(() => {
-  // Check if the limit has been reached
-  if (doublingCount >= 7) {
-    clearInterval(doublingInterval); // This stops the doubling
-    return;
-  }
-
-  // If the limit isn't reached, double the logos and count it
-  doubleLogos();
-  doublingCount++;
-}, 2000);
 </script>
