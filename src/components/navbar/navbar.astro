@@ -28,19 +28,19 @@ const menuitems = [
 ];
 ---
 
-<header id="navbar" class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-transparent scrolled:bg-white scrolled:shadow-lg">
+<header id="navbar" class="sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-[#cedffd] shadow-lg">
   <Container>
     <div class="flex flex-col lg:flex-row justify-between items-center py-4">
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
           <a href="/" class="text-lg flex items-center">
-            <img src="/favicon.png" class="h-10 w-10 mr-3 rounded-md" alt="Mitosisphere Logo" />
-            <span class="font-extrabold text-black scrolled:text-slate-800 transition-colors duration-300">
+            <img src="/logo.png" class="h-10 w-10 mr-3 rounded-md" alt="Mitosisphere Logo" />
+            <span class="font-extrabold text-slate-800 transition-colors duration-300">
               Mitosisphere
             </span>
           </a>
           <div class="block lg:hidden">
-            <MenuIcon class="w-5 h-5 text-black scrolled:text-slate-700 transition-colors duration-300" />
+            <MenuIcon class="w-5 h-5 text-slate-700 transition-colors duration-300" />
           </div>
         </div>
         
@@ -52,7 +52,7 @@ const menuitems = [
                   <a
                     href={item.path}
                     id={item.path}
-                    class="navitem is-active:font-semibold relative flex lg:px-3 py-2 items-center font-medium text-black scrolled:text-slate-600 transition-colors duration-300 ease-in-out hover:opacity-80 scrolled:hover:text-purple-600 after:absolute after:bottom-1.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 after:bg-white scrolled:after:bg-purple-600 is-active:scrolled:text-purple-600"
+                    class="navitem is-active:font-semibold relative flex lg:px-3 py-2 items-center font-medium text-slate-600 transition-colors duration-300 ease-in-out hover:opacity-80 hover:text-purple-600 after:absolute after:bottom-1.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 after:bg-purple-600 is-active:text-purple-600"
                   >
                     <span>{item.title}</span>
                   </a>
@@ -67,13 +67,6 @@ const menuitems = [
 </header>
 
 <script>
-  const nav = document.querySelector("#navbar");
-  if (nav) {
-    window.addEventListener("scroll", () => {
-      nav.classList.toggle("scrolled", window.scrollY > 10);
-    });
-  }
-
   function highlightActiveLink() {
     const navitems = document.querySelectorAll(".navitem");
     const currentPath = window.location.pathname.endsWith('/') && window.location.pathname.length > 1 ? window.location.pathname.slice(0, -1) : window.location.pathname;
