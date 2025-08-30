@@ -1,0 +1,78 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import '../styles/global.css';
+
+---
+
+<Layout title="Mitosisphere - Initiatives">
+  <style>
+    /* Elegant & Academic Modern Palette (from main page) */
+    :root {
+      --color-logo-purple: #9A50D8;
+      --color-logo-blue: #3FB8D3;
+      --color-logo-text: #6A6AD4;
+
+      --color-bg: #F8FAFC;         /* A very light, cool gray (slate-50) */
+      --color-card-bg: #FFFFFF;     /* Pure white for cards to lift them */
+      
+      --color-heading: #1E293B;      /* A deep, rich slate for headings (slate-800) */
+      --color-body: #475569;         /* A softer slate for body text (slate-600) */
+      --color-subtle-text: #94A3B8;  /* A lighter slate for muted text (slate-400) */
+
+      --color-border: #E2E8F0;       /* A subtle border color (slate-200) */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-body);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-heading);
+      font-weight: 700;
+    }
+    
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MTGS0M0Q0Q');
+</script>
+
+  <div class="bg-slate-50 border-b border-slate-200">
+    <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-800">
+        Our Initiatives
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto text-slate-600 mt-6">
+        Check back soon for more information!
+      </p>
+    </Container>
+  </div>
+
+  <main>
+    <section class="bg-white py-24 md:py-32">
+      <Container class="text-center">
+        <Icon name="uil:constructor" class="w-16 h-16 mx-auto text-slate-400" />
+        <h2 class="mt-8 text-3xl md:text-4xl font-bold tracking-tight text-slate-700">
+          Under Construction
+        </h2>
+      </Container>
+    </section>
+  </main>
+</Layout>

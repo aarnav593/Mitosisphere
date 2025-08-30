@@ -5,45 +5,73 @@ import { Icon } from "astro-icon/components";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import '../styles/global.css';
+
 ---
 
 <Layout title="Mitosisphere - Competitions">
   <style>
+    /* Elegant & Academic Modern Palette (from main page) */
     :root {
-      --primary-purple: #8b5cf6;
-      --primary-blue: #3b82f6;
+      --color-logo-purple: #9A50D8;
+      --color-logo-blue: #3FB8D3;
+      --color-logo-text: #6A6AD4;
+
+      --color-bg: #F8FAFC;         /* A very light, cool gray (slate-50) */
+      --color-card-bg: #FFFFFF;     /* Pure white for cards to lift them */
+      
+      --color-heading: #1E293B;      /* A deep, rich slate for headings (slate-800) */
+      --color-body: #475569;         /* A softer slate for body text (slate-600) */
+      --color-subtle-text: #94A3B8;  /* A lighter slate for muted text (slate-400) */
+
+      --color-border: #E2E8F0;       /* A subtle border color (slate-200) */
+      --color-accent-border: #CBD5E1; /* A slightly stronger border for hover (slate-300) */
     }
-    .link-primary {
-      background-color: var(--primary-purple);
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-body);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-heading);
+      font-weight: 700;
+    }
+    
+    .hero-button {
+      background-color: var(--color-logo-text);
       color: white;
-      transition: background-color 0.2s ease-in-out;
-      border: 1px solid transparent;
+      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.3);
+      transition: all 0.3s ease;
     }
-    .link-primary:hover {
-      background-color: var(--primary-blue);
+    .hero-button:hover {
+      transform: translateY(-2px);
+      background-color: #5555C3; /* A slightly darker shade of the logo text color */
+      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.35);
     }
-    .glow-effect {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0) 70%);
-      filter: blur(40px);
-      z-index: 0;
+    
+    .competition-card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      text-align: left;
     }
-    .title-sheen {
-       background: linear-gradient(100deg, #d1d5db 20%, #ffffff 50%, #d1d5db 80%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .competition-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent-border);
+      box-shadow: 0 10px 30px -10px rgba(30, 41, 59, 0.1);
     }
   </style>
 
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- Google tag (gtag.js) -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -52,70 +80,80 @@ import '../styles/global.css';
   gtag('config', 'G-MTGS0M0Q0Q');
 </script>
 
-  <div class="relative overflow-hidden bg-gray-900 text-white">
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/50 to-blue-900/50"></div>
-    <div class="glow-effect"></div>
-    <Container class="relative z-10">
-      <main class="py-24 md:py-32 text-center">
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight title-sheen">
-          Competitions
-        </h1>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-gray-300 mt-6">
-          We run two competitions, similar to the USABO Open and Semifinal Exams.
-          Testing Info for the 2025 Season will come out later this year.
-        </p>
-        <Link
-          href="https://forms.gle/7oaq31kiAhSstxwY6"
-          target="_blank"
-          class:list={["superround flex gap-1 items-center justify-center w-full md:w-[240px] mt-10 text-lg font-semibold link-primary mx-auto"]}
-          rel="noopener">
-          Sign Up!
-        </Link>
-      </main>
+  <div class="bg-slate-50 border-b border-slate-200">
+    <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-800">
+        Our Competitions
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto text-slate-600 mt-6">
+        We run two annual competitions analogous to the USABO Open and Semifinal exams. Testing info for the 2025 season will be released later this year.
+      </p>
     </Container>
   </div>
-  
-  <div class="bg-blue-50/40 py-16 md:py-20">
-    <Container>
-      <main class="text-center">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-800">
-          Rules & Information
-        </h2>
-        <div class="mt-8 max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-          <p>
-            Open to high school students globally, the first round, the \(p+q=1\), will take place on <b>January 25th, 2025</b> online. Students will be able to take the exam any time between 12:00 AM and 11:59 PM EST. More information about the competition can be found in our rules document.
+
+  <main>
+    <section class="bg-white py-16 md:py-24">
+      <Container>
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight">
+            Rules & Information
+          </h2>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+            Open to high school students globally, our exams will take place online. They will be available to take all day. Explore the complete guidelines in our official rules document!
           </p>
-          <Link
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+             <Link
+              href="https://forms.gle/7oaq31kiAhSstxwY6"
+              target="_blank"
+              class:list={["inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-button"]}
+              rel="noopener">
+              Sign Up for Updates
+            </Link>
+            <Link
               href="/rules.pdf"
               target="_blank"
-              class:list={["superround flex gap-1 items-center justify-center w-full md:w-[300px] mx-auto mt-10 font-semibold link-primary"]}
+              class:list={["inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm !bg-slate-100 !text-slate-700 border !border-slate-200 hover:!bg-white hover:!border-slate-400 transition-colors"]}
               rel="noopener">
-              Rules Document
-          </Link>
+              Read the Rules
+            </Link>
+          </div>
         </div>
-      </main>
-    </Container>
-  </div>
-  
-  <div class="bg-white py-16 md:py-20">
-    <Container class="space-y-16">
-      <div class="text-center">
-        <h3 class="text-4xl md:text-5xl font-bold text-gray-800">
-          \( p+q=1 \)
-        </h3>
-        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-          The \(p+q=1\) is the first round of our competition, corresponding to the difficulty of the USABO Opens exam. The test consists of 50 questions to be completed in 50 minutes, including 45 multiple-choice and 5 multi-select questions.
-        </p>
-      </div>
+      </Container>
+    </section>
 
-      <div class="text-center">
-        <h3 class="text-4xl md:text-5xl font-bold text-gray-800">
-          \( (p+q)^2=1 \)
-        </h3>
-        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-          The \((p+q)^2=1\) is the second round, corresponding to the USABO Semifinals exam. The test consists of 120 questions in 120 minutes, including multiple-choice, multiple-true/false, and short free-response questions.
-        </p>
-      </div>
-    </Container>
-  </div>
+    <section class="bg-slate-50 py-16 md:py-24 border-t border-slate-200">
+      <Container>
+        <Sectionhead>
+          <Fragment slot="title">Competition Rounds</Fragment>
+          <Fragment slot="desc">Our two-round system is designed to challenge and prepare students for national-level biology competitions.</Fragment>
+        </Sectionhead>
+        
+        <div class="mt-12 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div class="competition-card p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <Icon name="uil:file-alt" class="w-8 h-8 flex-shrink-0" style=`color: ${'var(--color-logo-blue)'}` />
+              <h3 class="text-2xl md:text-3xl font-bold text-slate-800">
+                \(p+q=1\)
+              </h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              This is the first round of our competition, mirroring the difficulty of the USABO Open exam. The test consists of 50 questions to be completed in 50 minutes, including 45 multiple-choice and 5 multi-select questions.
+            </p>
+          </div>
+
+          <div class="competition-card p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <Icon name="uil:file-check-alt" class="w-8 h-8 flex-shrink-0" style=`color: ${'var(--color-logo-purple)'}` />
+              <h3 class="text-2xl md:text-3xl font-bold text-slate-800">
+                \((p+q)^2=1\)
+              </h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              This second round corresponds to the USABO Semifinals exam. The test consists of 120 questions in 120 minutes, featuring multiple-choice, multiple-true/false, and short free-response questions.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
 </Layout>
