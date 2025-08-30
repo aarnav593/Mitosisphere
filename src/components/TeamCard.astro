@@ -1,0 +1,43 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+
+interface Props {
+  name: string;
+  role: string;
+  avatar: ImageMetadata;
+  // bio?: string; // Uncomment if you add a bio to your content files
+}
+
+const { name, role, avatar } = Astro.props;
+---
+<div class="group" style="perspective: 1000px; width: 18rem; height: 24rem;">
+  <div class="relative w-full h-full duration-1000 group-hover:[transform:rotateY(180deg)]" style="transform-style: preserve-3d;">
+    <!-- Front of the card -->
+    <div class="absolute w-full h-full bg-white rounded-lg shadow-lg overflow-hidden" style="backface-visibility: hidden; -webkit-backface-visibility: hidden;">
+       <Picture
+          src={avatar}
+          alt={`A portrait of ${name}`}
+          widths={[288, 576]}
+          sizes="(max-width: 288px) 100vw, 288px"
+          class="w-full h-full object-cover"
+        />
+      <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/20 to-transparent">
+        <h3 class="text-white text-2xl font-bold text-shadow-md">{name}</h3>
+      </div>
+    </div>
+    <!-- Back of the card -->
+    <div class="absolute w-full h-full bg-slate-800 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center text-center" style="transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden;">
+      <h3 class="text-white text-3xl font-bold mb-2">{name}</h3>
+      <p class="text-amber-400 text-xl font-semibold mb-4">{role}</p>
+      <!--
+      {bio && <p class="text-gray-300">{bio}</p>}
+      -->
+    </div>
+  </div>
+</div>
+<style>
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+</style>
