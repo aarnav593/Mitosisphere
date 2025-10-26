@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
+import { Image } from 'astro:assets';
 import '../styles/global.css';
 
 const leadershipTeam = [
@@ -30,7 +31,7 @@ const sectionLeads = [
   {
     name: 'Aarnav Suwal',
     role: 'Chief Technology Officer',
-    imgSrc: '/Staff_Photos/Staff photos/Aarnav.png'
+    imgSrc: '/Staff_Photos/Staff photos/Aarnav.jpeg'
   },
   {
     name: 'Candace Pun',
@@ -58,7 +59,7 @@ const generalTeam = [
   {
     name: 'Dipisha Subedi',
     role: 'Technology Team',
-    imgSrc: '/Staff_Photos/Staff photos/Dipisha.png'
+    imgSrc: '/Staff_Photos/Staff photos/Dipisha.jpg'
   },
   {
     name: 'Yuva Gade',
@@ -140,8 +141,6 @@ const generalTeam = [
     role: 'Technology Team',
     imgSrc: 'https://placehold.co/400x400/E2E8F0/475569?text=MK'
   },
-
-
 ];
 ---
 
@@ -171,7 +170,12 @@ const generalTeam = [
       font-weight: 700;
     }
 
-    /* Individual photo adjustments */
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 9999px;
+    }
+
     img[alt="Profile photo of Yuva Gade"] {
       object-position: center 20%;
     }
@@ -182,7 +186,6 @@ const generalTeam = [
 
     img[alt="Profile photo of Candace Pun"] {
       object-position: center 15%;
-      transform: scale(1.3);
     }
   </style>
 
@@ -219,7 +222,15 @@ const generalTeam = [
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
           {leadershipTeam.map(member => (
             <div class="text-center">
-              <img class="rounded-full h-40 w-40 mx-auto object-cover" src={member.imgSrc} alt={`Profile photo of ${member.name}`} />
+              <Image
+                src={member.imgSrc}
+                alt={`Profile photo of ${member.name}`}
+                width={160}
+                height={160}
+                format="webp"
+                loading="lazy"
+                class="mx-auto"
+              />
               <h3 class="text-xl font-bold mt-4 text-slate-800">{member.name}</h3>
               <p class="text-base text-logo-text font-semibold">{member.role}</p>
             </div>
@@ -233,11 +244,19 @@ const generalTeam = [
         <div class="text-center">
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-4">Section Leads</h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 max-w-2xl mx-auto mt-12">
+        <div class="grid grid-cols-3 gap-x-8 max-w-4xl mx-auto mt-12">
           {sectionLeads.map(member => (
             <div class="text-center">
-              <img class="rounded-full h-36 w-36 mx-auto object-cover" src={member.imgSrc} alt={`Profile photo of ${member.name}`} />
-              <h3 class="text-lg font-bold mt-4 text-slate-800">{member.name}</h3>
+              <Image
+                src={member.imgSrc}
+                alt={`Profile photo of ${member.name}`}
+                width={160}
+                height={160}
+                format="webp"
+                loading="lazy"
+                class="mx-auto"
+              />
+              <h3 class="text-xl font-bold mt-4 text-slate-800">{member.name}</h3>
               <p class="text-base text-logo-text font-semibold">{member.role}</p>
             </div>
           ))}
@@ -253,9 +272,17 @@ const generalTeam = [
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 max-w-6xl mx-auto mt-12">
           {generalTeam.map(member => (
             <div class="text-center">
-              <img class="rounded-full h-28 w-28 mx-auto object-cover" src={member.imgSrc} alt={`Profile photo of ${member.name}`} />
-              <h3 class="text-base font-bold mt-3 text-slate-800">{member.name}</h3>
-              <p class="text-sm text-slate-500 font-medium">{member.role}</p>
+              <Image
+                src={member.imgSrc}
+                alt={`Profile photo of ${member.name}`}
+                width={160}
+                height={160}
+                format="webp"
+                loading="lazy"
+                class="mx-auto"
+              />
+              <h3 class="text-xl font-bold mt-4 text-slate-800">{member.name}</h3>
+              <p class="text-base text-logo-text font-semibold">{member.role}</p>
             </div>
           ))}
         </div>
