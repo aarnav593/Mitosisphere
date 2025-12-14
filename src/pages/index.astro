@@ -1,251 +1,703 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Link from "@components/ui/link.astro";
-import { Icon } from "astro-icon/components";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import '../styles/global.css';
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Mitosisphere: Multiplying Success, One Division at a Time">
-  <style>
-    /* NEW: Elegant & Academic Modern Palette */
-    :root {
-      --color-logo-purple: #9A50D8;
-      --color-logo-blue: #3FB8D3;
-      --color-logo-text: #6A6AD4;
-
-      --color-bg: #F8FAFC;         /* A very light, cool gray (slate-50) */
-      --color-card-bg: #FFFFFF;     /* Pure white for cards to lift them */
-      
-      --color-heading: #1E293B;      /* A deep, rich slate for headings (slate-800) */
-      --color-body: #475569;         /* A softer slate for body text (slate-600) */
-      --color-subtle-text: #94A3B8;  /* A lighter slate for muted text (slate-400) */
-
-      --color-border: #E2E8F0;       /* A subtle border color (slate-200) */
-      --color-accent-border: #CBD5E1; /* A slightly stronger border for hover (slate-300) */
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-body);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--color-heading);
-      font-weight: 700;
-    }
-    
-    .hero-button {
-      background-color: var(--color-logo-text);
-      color: white;
-      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.3);
-      transition: all 0.3s ease;
-    }
-    .hero-button:hover {
-      transform: translateY(-2px);
-      background-color: #5555C3; /* A slightly darker shade of the logo text color */
-      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.35);
-    }
-
-    .hero-secondary-button {
-      background-color: transparent;
-      color: var(--color-logo-text);
-      border: 1px solid var(--color-border);
-      transition: all 0.3s ease;
-    }
-    .hero-secondary-button:hover {
-      background-color: var(--color-card-bg);
-      border-color: var(--color-logo-text);
-      transform: translateY(-2px);
-    }
-    
-    .initiative-card {
-      background-color: var(--color-card-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 0.75rem;
-      transition: all 0.3s ease;
-    }
-    .initiative-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--color-accent-border);
-      box-shadow: 0 10px 30px -10px rgba(30, 41, 59, 0.1);
-    }
-    
-    .join-team-section {
-      background-color: #312E81; /* A deep, elegant indigo */
-    }
-    .join-team-section h2,
-    .join-team-section p {
-      color: white;
-    }
-    .join-team-section .link-primary {
-      background-color: white;
-      color: #312E81;
-      font-weight: 700;
-      box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
-    }
-    .join-team-section .link-primary:hover {
-       background-color: #F0F2FF;
-    }
-
-    footer {
-      background-color: var(--color-card-bg);
-      border-top: 1px solid var(--color-border);
-      color: var(--color-subtle-text);
-    }
-    footer a {
-      color: var(--color-body);
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: var(--color-logo-text);
-      text-decoration: underline;
-    }
-
-  </style>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MTGS0M0Q0Q');
-  </script>
-
-  <div class="bg-slate-50">
-    <Container class="text-center pt-16 pb-16 md:pt-24 md:pb-24">
-      <img src="/logo.png" alt="Mitosisphere Logo" class="mx-auto w-40 h-40 md:w-52 md:h-52 mb-8" />
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-slate-800">
-        Empowering the Next Generation of <span style=`color: ${'var(--color-logo-text)'}`>Scholars</span>.
-      </h1>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto text-slate-600 mt-6">
-        Mitosisphere provides expert-designed resources for advanced biology.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-        <Link
-          href="/initiatives"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-button"
-        >
-          Explore Resources
-        </Link>
-        <Link
-          href="/competitions"
-          class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-secondary-button"
-        >
-          View Competitions
-        </Link>
+<Layout title="Mitosisphere — Multiplying Success, One Division at a Time">
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-content">
+      <div class="logo" onclick="scrollToSection('hero')">
+        <img src="/logo.png" alt="Mitosisphere Logo">
+        mitosisphere.
       </div>
-    </Container>
-  </div>
+      <div class="nav-links">
+        <a onclick="scrollToSection('hero')">Home</a>
+        <a onclick="scrollToSection('initiatives')">Initiatives</a>
+        <a onclick="scrollToSection('competitions')">Competitions</a>
+        <a onclick="scrollToSection('partners')">Partners</a>
+        <a onclick="scrollToSection('team')">Team</a>
+      </div>
+    </div>
+  </nav>
 
-  <main>
-    <section class="bg-white py-16 md:py-24 border-y border-slate-200">
-      <Container>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-4xl mx-auto">
-          <div>
-            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-blue)'}`>1000+</p>
-            <p class="text-slate-700 mt-3 text-lg">Exam Competitors from 19 Countries</p>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    
+    <!-- DNA Helix Animation -->
+    <div class="dna-helix">
+      <div class="dna-strand">
+        <div class="base-pair" style="top: 0%; animation-delay: 0s;"></div>
+        <div class="base-pair" style="top: 10%; animation-delay: 0.2s;"></div>
+        <div class="base-pair" style="top: 20%; animation-delay: 0.4s;"></div>
+        <div class="base-pair" style="top: 30%; animation-delay: 0.6s;"></div>
+        <div class="base-pair" style="top: 40%; animation-delay: 0.8s;"></div>
+        <div class="base-pair" style="top: 50%; animation-delay: 1s;"></div>
+        <div class="base-pair" style="top: 60%; animation-delay: 1.2s;"></div>
+        <div class="base-pair" style="top: 70%; animation-delay: 1.4s;"></div>
+        <div class="base-pair" style="top: 80%; animation-delay: 1.6s;"></div>
+        <div class="base-pair" style="top: 90%; animation-delay: 1.8s;"></div>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-badge">🎄 Season's Greetings from Mitosisphere</div>
+      <div class="typing-title">
+        <div class="typing-line" id="typingText"></div>
+        <span class="cursor"></span>
+      </div>
+      <p class="hero-subtitle">
+        Expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" onclick="scrollToSection('initiatives')">
+          Explore Resources →
+        </a>
+        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="btn btn-secondary">
+          Join Discord Community
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section id="stats">
+    <!-- Cell Division Animation -->
+    <div class="cell-animation" style="left: 8%; top: 50%;">
+      <div class="cell" style="animation-delay: 0s;"></div>
+      <div class="cell" style="animation-delay: 1s; border-color: var(--blue);"></div>
+    </div>
+
+    <div class="stats-container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="1000">0</div>
+          <div class="stat-label">Competition Participants<br>from 19 Countries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="553">0</div>
+          <div class="stat-label">Active Community Members</div>
+          <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">
+            <span class="discord-icon"></span>
+            Join our Discord →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Cell Division Animation on right -->
+    <div class="cell-animation" style="right: 8%; left: auto; top: 50%;">
+      <div class="cell" style="animation-delay: 0.5s; border-color: var(--indigo);"></div>
+      <div class="cell" style="animation-delay: 1.5s;"></div>
+    </div>
+  </section>
+
+  <!-- Initiatives Carousel -->
+  <section id="initiatives">
+    <div class="section-title">
+      <h2><span class="typing-line">Our Initiatives</span></h2>
+      <p>Comprehensive programs to power your biology journey</p>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
+        <!-- Initiative 1: Competitions -->
+        <div class="initiative-card active">
+          <div class="initiative-icon">🏆</div>
+          <h3>Competitions</h3>
+          <div class="initiative-status">Active</div>
+          <p>Challenge yourself with our comprehensive competition suite: p+q series (Open & Semifinals), BioBowl (Science Bowl format), and Monthly Challenges for continuous practice throughout the year.</p>
+        </div>
+
+        <!-- Initiative 2: Lamhaj's Guide -->
+        <div class="initiative-card">
+          <div class="initiative-icon">📚</div>
+          <h3>Lamhaj's Guide to USABO</h3>
+          <div class="initiative-status">Available Now</div>
+          <p>Comprehensive study guide covering strategies, resources, and test-taking techniques for USABO success. Created by lamhaj with expert insights and proven methods.</p>
+        </div>
+
+        <!-- Initiative 3: Monthly Challenges -->
+        <div class="initiative-card">
+          <div class="initiative-icon">📅</div>
+          <h3>Monthly Challenges</h3>
+          <div class="initiative-status">Running</div>
+          <p>Stay sharp year-round! New question sets every month with varied difficulty levels, community discussions, and detailed solutions to keep your skills fresh.</p>
+        </div>
+
+        <!-- Initiative 4: BioBlitz -->
+        <div class="initiative-card">
+          <div class="initiative-icon">⚡</div>
+          <h3>BioBlitz</h3>
+          <div class="initiative-status coming-soon">Coming Soon</div>
+          <p>Fast-paced, Math Dash-style biology game launching January-February 2025. Make studying competitive and fun while sharpening your skills against students worldwide.</p>
+          <a href="https://bioblitz.net/emailList.html" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
+            Join Mailing List
+          </a>
+        </div>
+
+        <!-- Initiative 5: Mentorship -->
+        <div class="initiative-card">
+          <div class="initiative-icon">🤝</div>
+          <h3>Mentorship Program</h3>
+          <div class="initiative-status">Active</div>
+          <p>Free personalized coaching from IBO medalists and ISEF finalists. Get expert guidance on USABO preparation, research competitions, internship applications, and more.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNus46S6bVyhOg34M5q6AKYT6MIoIsTjNDT9EixfXXbRxBCw/viewform" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
+            Apply Now
+          </a>
+        </div>
+
+        <!-- Initiative 6: Webinars -->
+        <div class="initiative-card">
+          <div class="initiative-icon">🎓</div>
+          <h3>USABO Webinars</h3>
+          <div class="initiative-status">Active</div>
+          <p>Learn from experienced researchers and competitors. Regular sessions covering research methods, finding mentors, preparing for science fairs, and advanced biology topics. Hosted on Discord.</p>
+        </div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+        <button class="carousel-dot" onclick="goToSlide(1)"></button>
+        <button class="carousel-dot" onclick="goToSlide(2)"></button>
+        <button class="carousel-dot" onclick="goToSlide(3)"></button>
+        <button class="carousel-dot" onclick="goToSlide(4)"></button>
+        <button class="carousel-dot" onclick="goToSlide(5)"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitions Section -->
+  <section id="competitions">
+    <div class="competitions-container">
+      <div class="section-title">
+        <h2><span class="typing-line">Our Competitions</span></h2>
+        <p>Challenge yourself with USABO-style exams and more</p>
+      </div>
+
+      <!-- p+q Series -->
+      <div class="competition-main">
+        <div class="competition-header">
+          <h3><span class="typing-line">p+q Competition Series</span></h3>
+          <p style="color: var(--text-muted); font-size: 18px;">Annual USABO-style exams for students worldwide</p>
+          <p style="color: var(--text-muted); font-size: 16px; margin-top: 10px;">Open to high school students globally, our exams will take place online. They will be available to take all day. Explore the complete guidelines in our official rules document!</p>
+        </div>
+
+        <div class="p-q-grid">
+          <div class="p-q-round">
+            <div class="latex-formula">\(p + q = 1\)</div>
+            <h4>Open Round</h4>
+            <p>First round mirroring USABO Open difficulty. 50 multiple-choice questions in 50 minutes with 5 choices per question.</p>
+            <a href="https://forms.gle/7oaq31kiAhSstxwY6" target="_blank" class="btn btn-secondary">
+              Register
+            </a>
           </div>
-          <div>
-            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-purple)'}`>300+</p>
-            <p class="text-slate-700 mt-3 text-lg">Active Discord Community Members</p>
+
+          <div class="p-q-round">
+            <div class="latex-formula">\((p + q)^2 = 1\)</div>
+            <h4>Semifinal Round</h4>
+            <p>Second round corresponding to USABO Semifinals. 100 questions in 120 minutes: 65 multiple-choice and 35 multiple-true/false.</p>
+            <div style="margin-top: 15px; padding: 10px; background: rgba(154, 80, 216, 0.1); border-radius: 8px; color: var(--purple); font-size: 14px; font-weight: 600;">
+              ⭐ Qualification Required (Top performers from Open Round)
+            </div>
           </div>
         </div>
-      </Container>
-    </section>
 
-    <section class="bg-slate-50 py-16 md:py-24">
-      <Container>
-        <Sectionhead>
-          <Fragment slot="title">Our Initiatives:</Fragment>
-          <Fragment slot="desc">Key resources to power your biology journey.</Fragment>
-        </Sectionhead>
-        <div class="grid md:grid-cols-3 gap-8 mt-12">
-          <div class="initiative-card p-8">
-            <Icon name="uil:dna" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-blue)'}` />
-            <h3 class="text-xl font-bold mb-3">Exams</h3>
-            <p class="leading-relaxed text-slate-600">
-              We host our signature USABO-style mock exams each year, providing realistic practice.
-            </p>
+        <div style="text-align: center; margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://forms.gle/7oaq31kiAhSstxwY6" target="_blank" class="btn btn-primary">
+            Get Competition Updates
+          </a>
+          <a href="/assets/rules.pdf" target="_blank" class="btn btn-secondary">
+            Read the Rules
+          </a>
+        </div>
+      </div>
+
+      <!-- Other Competitions -->
+      <div class="other-competitions">
+        <div class="other-comp-card">
+          <div class="comp-icon">🎯</div>
+          <h4>BioBowl</h4>
+          <p>Science Bowl format adapted for biology. Fast-paced team competition testing your quick recall and deep understanding of biological concepts.</p>
+        </div>
+
+        <div class="other-comp-card">
+          <div class="comp-icon">📅</div>
+          <h4>Monthly Challenges</h4>
+          <p>New question sets released every month with varied difficulty. Practice consistently, discuss with the community, and track your improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partners">
+    <div class="partners-container">
+      <div class="section-title" style="margin-left: 0;">
+        <h2><span class="typing-line">Our Partners</span></h2>
+        <p>Thank you for helping us reach a wider audience</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card">
+          <img src="/partners/bods.png" alt="Biology Olympiads Discord Server Logo" />
+          <p>Biology Olympiads Discord Server</p>
+        </div>
+        <div class="partner-card">
+          <img src="/partners/pandorax.png" alt="Pandorax Logo" />
+          <p>PANDORAX</p>
+        </div>
+        <div class="partner-card">
+          <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" />
+          <p>ScioVirtual</p>
+        </div>
+        <div class="partner-card">
+          <img src="/partners/baologyLogo.png" alt="Biology Prep Logo" />
+          <p>Biology Prep</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team">
+    <div class="team-container">
+      <div class="section-title">
+        <h2><span class="typing-line">Meet Our Team</span></h2>
+        <p>Passionate students building resources for the biology community</p>
+      </div>
+
+      <!-- Leadership -->
+      <div class="leadership-tier">
+        <div class="tier-title">Leadership</div>
+        <div class="leadership-grid">
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/ethan-guo.jpg" alt="Ethan Guo" onerror="this.style.display='none'; this.parentElement.textContent='EG';">
+            </div>
+            <div class="member-name">Ethan Guo</div>
+            <div class="member-role">President</div>
           </div>
-          <div class="initiative-card p-8">
-            <Icon name="uil:brain" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-purple)'}` />
-            <h3 class="text-xl font-bold mb-3">USABO Guide</h3>
-            <p class="leading-relaxed text-slate-600">
-              Everything you need to know to effectively study for and succeed on the USABO exams.
-            </p>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/jake-rosenblum.jpg" alt="Jake Rosenblum" onerror="this.style.display='none'; this.parentElement.textContent='JR';">
+            </div>
+            <div class="member-name">Jake Rosenblum</div>
+            <div class="member-role">Vice President</div>
           </div>
-          <div class="initiative-card p-8">
-            <Icon name="uil:microscope" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-text)'}` />
-            <h3 class="text-xl font-bold mb-3">BioBlitz</h3>
-            <p class="leading-relaxed text-slate-600">
-              Our interactive biology practice platform helps sharpen your USABO and medicine skills in a competitive format.
-            </p>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/shriyan-junnuthulla.jpg" alt="Shriyan Junnuthulla" onerror="this.style.display='none'; this.parentElement.textContent='SJ';">
+            </div>
+            <div class="member-name">Shriyan Junnuthulla</div>
+            <div class="member-role">COO</div>
           </div>
         </div>
-      </Container>
-    </section>
+      </div>
 
-    <section class="bg-white py-16 md:py-24 border-y border-slate-200">
-      <Container>
-        <Sectionhead>
-          <Fragment slot="title">Thank You to Our Partners!</Fragment>
-          <Fragment slot="desc">You've helped us reach a wider audience, and we appreciate you.</Fragment>
-        </Sectionhead>
-        <div class="mt-12 flex flex-wrap justify-center items-center gap-x-12 sm:gap-x-20 gap-y-12">
-          <img src="/partners/bods.png" alt="BODS Logo" class="max-h-16 w-auto transition-transform duration-300 hover:scale-105" />
-          <img src="/partners/pandorax.png" alt="Pandorax Logo" class="max-h-16 w-auto transition-transform duration-300 hover:scale-105" />
-          <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" class="max-h-16 w-auto transition-transform duration-300 hover:scale-105" />
-          <img src="/partners/baologyLogo.png" alt="Baology Logo" class="max-h-20 w-auto transition-transform duration-300 hover:scale-105" />
+      <div class="org-connector"></div>
 
-        </div>
-      </Container>
-    </section>
-
-    <section class="join-team-section py-16 md:py-24">
-      <Container class="text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Join Our Team</h2>
-        <p class="text-lg md:text-xl mt-6 opacity-90">
-          Interested in our mission? Apply today. We are especially looking to expand our outreach team!
-        </p>
-        <div class="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-            <Link
-              href="https://forms.gle/jePabrYs13KvFSqt9"
-              target="_blank"
-              class:list={["link-primary inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm"]}
-              rel="noopener"
-            >
-              <Icon name="uil:file-alt" class="w-5 h-5 mr-2" />
-              Staff Application
-            </Link>
-            <Link
-              href="https://discord.gg/Sq3nTXyS6D"
-              target="_blank"
-              class:list={["link-primary inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm !bg-white/10 !text-white hover:!bg-white/20"]}
-              rel="noopener"
-            >
-              <Icon name="simple-icons:discord" class="w-5 h-5 mr-2" />
-              Join Our Discord
-            </Link>
+      <!-- Section Leads -->
+      <div class="leadership-tier">
+        <div class="tier-title">Section Leads</div>
+        <div class="leadership-grid">
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/srikar-reddy.jpg" alt="Srikar Reddy" onerror="this.style.display='none'; this.parentElement.textContent='SR';">
+            </div>
+            <div class="member-name">Srikar Reddy</div>
+            <div class="member-role">Head of Content</div>
           </div>
-      </Container>
-    </section>
-  </main>
-  
-  <footer class="py-8">
-    <p class="text-sm text-center">
-      &copy; {new Date().getFullYear()} Mitosisphere. All Rights Reserved. &bull;
-      <a href="/contact">Contact Us</a>
-    </p>
-  </footer>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/aarnav-suwal.jpg" alt="Aarnav Suwal" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
+            </div>
+            <div class="member-name">Aarnav Suwal</div>
+            <div class="member-role">CTO</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/candace-pun.jpg" alt="Candace Pun" onerror="this.style.display='none'; this.parentElement.textContent='CP';">
+            </div>
+            <div class="member-name">Candace Pun</div>
+            <div class="member-role">Head of Outreach</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-connector"></div>
+
+      <!-- Team Members -->
+      <div class="leadership-tier">
+        <div class="tier-title">Team Members</div>
+        <div class="team-grid">
+          <!-- Technology Team - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/vedanth-reddyvari.jpg" alt="Vedanth Reddyvari" onerror="this.style.display='none'; this.parentElement.textContent='VR';">
+            </div>
+            <div class="member-name">Vedanth Reddyvari</div>
+            <div class="member-role">Technology Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/dipisha-subedi.jpg" alt="Dipisha Subedi" onerror="this.style.display='none'; this.parentElement.textContent='DS';">
+            </div>
+            <div class="member-name">Dipisha Subedi</div>
+            <div class="member-role">Technology Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/yuva-gade.jpg" alt="Yuva Gade" onerror="this.style.display='none'; this.parentElement.textContent='YG';">
+            </div>
+            <div class="member-name">Yuva Gade</div>
+            <div class="member-role">Technology Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/ofir-savir.jpg" alt="Ofir Savir" onerror="this.style.display='none'; this.parentElement.textContent='OS';">
+            </div>
+            <div class="member-name">Ofir Savir</div>
+            <div class="member-role">Technology Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/dermot-lu.jpg" alt="Dermot Lu" onerror="this.style.display='none'; this.parentElement.textContent='DL';">
+            </div>
+            <div class="member-name">Dermot Lu</div>
+            <div class="member-role">Technology Team</div>
+          </div>
+
+          <!-- Content Team - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/donelly-qin.jpg" alt="Donelly Qin" onerror="this.style.display='none'; this.parentElement.textContent='DQ';">
+            </div>
+            <div class="member-name">Donelly Qin</div>
+            <div class="member-role">Content Team</div>
+          </div>
+
+          <!-- Outreach Team - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/dhruva-singu.jpg" alt="Dhruva Singu" onerror="this.style.display='none'; this.parentElement.textContent='DS';">
+            </div>
+            <div class="member-name">Dhruva Singu</div>
+            <div class="member-role">Outreach Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/cindy-cao.jpg" alt="Cindy Cao" onerror="this.style.display='none'; this.parentElement.textContent='CC';">
+            </div>
+            <div class="member-name">Cindy Cao</div>
+            <div class="member-role">Outreach Team</div>
+          </div>
+
+          <!-- Content & Outreach Teams - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/abdus-samad-shaik.jpg" alt="Abdus-Samad Shaik" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
+            </div>
+            <div class="member-name">Abdus-Samad Shaik</div>
+            <div class="member-role">Content & Outreach Teams</div>
+          </div>
+
+          <!-- Community Engagement Team - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/abbie-affum.jpg" alt="Abbie Affum" onerror="this.style.display='none'; this.parentElement.textContent='AA';">
+            </div>
+            <div class="member-name">Abbie Affum</div>
+            <div class="member-role">Community Engagement Team</div>
+          </div>
+
+          <!-- Branch Heads - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/deepak-praveen-kumar.jpg" alt="Deepak Praveen Kumar" onerror="this.style.display='none'; this.parentElement.textContent='DP';">
+            </div>
+            <div class="member-name">Deepak Praveen Kumar</div>
+            <div class="member-role">India Branch Head</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/tol-prasad.jpg" alt="Tol Prasad Kafle" onerror="this.style.display='none'; this.parentElement.textContent='TP';">
+            </div>
+            <div class="member-name">Tol Prasad Kafle</div>
+            <div class="member-role">Nepal Branch Head</div>
+          </div>
+
+          <!-- General Team Members - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/jason-yan.jpg" alt="Jason Yan" onerror="this.style.display='none'; this.parentElement.textContent='JY';">
+            </div>
+            <div class="member-name">Jason Yan</div>
+            <div class="member-role">Team Member</div>
+          </div>
+
+          <!-- Technology Team - WITHOUT PHOTOS (at bottom) -->
+          <div class="team-member">
+            <div class="member-avatar">EF</div>
+            <div class="member-name">Eli Feldman</div>
+            <div class="member-role">Technology Team</div>
+          </div>
+
+          <!-- Content Team - WITHOUT PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">AA</div>
+            <div class="member-name">Aryan Adappa</div>
+            <div class="member-role">Content Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">AG</div>
+            <div class="member-name">Aniketh Gudi</div>
+            <div class="member-role">Content Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">KP</div>
+            <div class="member-name">Krishiv Potluri</div>
+            <div class="member-role">Content Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">AA</div>
+            <div class="member-name">Anish Agarwal</div>
+            <div class="member-role">Content Team</div>
+          </div>
+
+          <!-- Outreach Team - WITHOUT PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">AD</div>
+            <div class="member-name">Arnav Dusad</div>
+            <div class="member-role">Outreach Team</div>
+          </div>
+
+          <!-- General Team Members - WITHOUT PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">KS</div>
+            <div class="member-name">Kedar Sukharamwala</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">BL</div>
+            <div class="member-name">Brian Lu</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">DZ</div>
+            <div class="member-name">Daniel Zou</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">EL</div>
+            <div class="member-name">Eric Liu</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">SV</div>
+            <div class="member-name">Siddhanth Venkatesan</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">SP</div>
+            <div class="member-name">Sarah Park</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">YM</div>
+            <div class="member-name">Yogan Mahesh</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">RL</div>
+            <div class="member-name">Rosa Lee</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">KS</div>
+            <div class="member-name">Kiaan Saraiya</div>
+            <div class="member-role">Team Member</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Join Team CTA -->
+      <div class="join-team-cta" style="margin-top: 80px;">
+        <h3>🎄 Join Our Team!</h3>
+        <p>Help us expand our outreach and create amazing resources. We're especially looking for content writers, web designers, and international branch leaders.</p>
+        <a href="https://forms.gle/jePabrYs13KvFSqt9" target="_blank" class="btn btn-primary">
+          Apply to Join Staff
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // TypeScript declarations
+    declare global {
+      interface Window {
+        goToSlide: (index: number) => void;
+        MathJax: any;
+      }
+    }
+
+    // Typing animation for hero
+    const text = "Multiplying Success, One Division at a Time.";
+    const typingElement = document.getElementById('typingText');
+    let charIndex = 0;
+
+    function typeText() {
+      if (charIndex < text.length) {
+        typingElement.textContent += text[charIndex];
+        charIndex++;
+        setTimeout(typeText, 80);
+      }
+    }
+
+    setTimeout(typeText, 500);
+
+    // Christmas snowflakes
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.innerHTML = ['❄', '❅', '❆'][Math.floor(Math.random() * 3)];
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
+      snowflake.style.opacity = `${Math.random() * 0.5 + 0.2}`;
+      snowflake.style.fontSize = (Math.random() * 0.8 + 0.5) + 'em';
+      document.body.appendChild(snowflake);
+
+      setTimeout(() => snowflake.remove(), 12000);
+    }
+
+    setInterval(createSnowflake, 400);
+
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Strong scroll snap - activate section when in view
+    const allSections = document.querySelectorAll('section');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          // Only remove if not hero
+          if (entry.target.id !== 'hero') {
+            entry.target.classList.remove('in-view');
+          }
+        }
+      });
+    }, {
+      threshold: 0.5,
+      rootMargin: '0px'
+    });
+
+    allSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Count-up animation
+    function animateCounter(element) {
+      const target = parseInt(element.dataset.target);
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + '+';
+        }
+      }, 16);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector('.stat-number');
+          if (counter && counter.textContent === '0') {
+            animateCounter(counter);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
+
+    // Auto-rotating carousel - 4 SECONDS
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.initiative-card');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.length;
+    let autoRotate;
+
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'prev', 'next');
+        
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
+          slide.classList.add('prev');
+        } else if (index === (currentSlide + 1) % totalSlides) {
+          slide.classList.add('next');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    window.goToSlide = function(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoRotate();
+    };
+
+    function startAutoRotate() {
+      autoRotate = setInterval(nextSlide, 7000); // Slowed down to 7 seconds
+    }
+
+    function resetAutoRotate() {
+      clearInterval(autoRotate);
+      startAutoRotate();
+    }
+
+    updateCarousel();
+    startAutoRotate();
+
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoRotate);
+      });
+      
+      carouselContainer.addEventListener('mouseleave', () => {
+        startAutoRotate();
+      });
+    }
+    
+    // MathJax config
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
 </Layout>
