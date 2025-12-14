@@ -1,8 +1,8 @@
-# Mitosisphere Website
+#🧬 Mitosisphere Website
 
-🧬 **Professional biology education platform** - Expert-designed resources for advanced biology competitions and education.
+**Professional biology education platform** - Expert-designed resources for advanced biology competitions and education.
 
-## 🌟 Features
+## Features
 
 - **Modern Design**: Beautiful gradient animations, DNA helix visuals, and cell division effects
 - **Responsive**: Fully responsive design that works on all devices
@@ -11,37 +11,7 @@
 - **Smooth Animations**: Typing effects, carousel, snowflakes (seasonal), and scroll-snap sections
 - **Performance**: Built with Astro for optimal performance and fast loading times
 
-## 🚀 Quick Start
-
-### 1. Install Dependencies
-
-```bash
-npm install
-```
-
-### 2. Run Development Server
-
-```bash
-npm run dev
-```
-
-Visit `http://localhost:4321` to see your site!
-
-### 3. Build for Production
-
-```bash
-npm run build
-```
-
-This creates a `dist/` folder with your static site ready for deployment.
-
-### 4. Preview Production Build
-
-```bash
-npm run preview
-```
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 /
@@ -62,7 +32,7 @@ npm run preview
 └── tsconfig.json         # TypeScript configuration
 ```
 
-## 🎨 Design Features
+## Design Features
 
 - **Color Palette**: Purple (#9A50D8), Blue (#3FB8D3), Indigo (#6A6AD4)
 - **Typography**: Epilogue for body text, JetBrains Mono for logo
@@ -75,14 +45,14 @@ npm run preview
   - Partners display
   - Team grid with leadership tiers
 
-## 🔧 Key Technologies
+## Key Technologies
 
 - **Astro**: Modern static site builder
 - **MathJax**: LaTeX formula rendering
 - **Google Analytics**: GA4 tracking (ID: G-MTGS0M0Q0Q)
 - **Structured Data**: JSON-LD for enhanced SEO
 
-## 📊 SEO Features
+## SEO Features
 
 - Meta descriptions and keywords
 - Open Graph tags for social media
@@ -91,14 +61,14 @@ npm run preview
 - Sitemap generation
 - Robots.txt configuration
 
-## 🌐 Deployment
+## Deployment
 
 The site is configured for deployment to:
 - **Domain**: mitosisphere.org (configured in CNAME)
 - **Build Command**: `npm run build`
 - **Output Directory**: `dist/`
 
-## 📝 Content Management
+## Content Management
 
 ### Adding Team Members
 
@@ -124,7 +94,7 @@ The initiatives carousel auto-rotates every 4 seconds. Each initiative card incl
 - Description
 - Optional CTA button
 
-## 🎯 Key Sections
+## Key Sections
 
 1. **Hero**: Eye-catching introduction with DNA helix animation
 2. **Stats**: Dynamic counter animation showing community reach
@@ -133,7 +103,7 @@ The initiatives carousel auto-rotates every 4 seconds. Each initiative card incl
 5. **Partners**: Partner organization logos with hover effects
 6. **Team**: Leadership and team member grid
 
-## 🔗 Important Links
+## Important Links
 
 - **Discord**: https://discord.gg/Sq3nTXyS6D
 - **Staff Application**: https://forms.gle/jePabrYs13KvFSqt9
@@ -141,9 +111,9 @@ The initiatives carousel auto-rotates every 4 seconds. Each initiative card incl
 - **BioBlitz Mailing List**: https://bioblitz.net/emailList.html
 - **Mentorship Application**: https://docs.google.com/forms/d/e/1FAIpQLSeNus46S6bVyhOg34M5q6AKYT6MIoIsTjNDT9EixfXXbRxBCw/viewform
 
-## 📄 License
+## License
 
-© 2024 Mitosisphere. All Rights Reserved.
+© 2025 Mitosisphere. All Rights Reserved.
 
 ---
 
