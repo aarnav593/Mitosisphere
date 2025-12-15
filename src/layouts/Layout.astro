@@ -256,6 +256,7 @@ const { title } = Astro.props;
     font-weight: 600;
     color: var(--purple);
     margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
   }
 
   @keyframes pulse {
@@ -278,6 +279,7 @@ const { title } = Astro.props;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite;
     display: inline;
   }
 
@@ -385,12 +387,13 @@ const { title } = Astro.props;
 
   .dna-helix {
     position: absolute;
-    right: 8%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 150px;
-    height: 700px;
-    opacity: 0.25;
+    right: 10%;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
   }
 
   .dna-strand {
