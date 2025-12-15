@@ -424,12 +424,13 @@ const { title } = Astro.props;
   }
 
   .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 100px;
+}
 
   .stat-card {
     text-align: center;
@@ -495,14 +496,6 @@ const { title } = Astro.props;
     gap: 12px;
   }
 
-  .discord-icon {
-    width: 20px;
-    height: 20px;
-    background: var(--purple);
-    border-radius: 50%;
-    display: inline-block;
-  }
-
   .cell-animation {
     position: absolute;
     width: 80px;
@@ -535,10 +528,18 @@ const { title } = Astro.props;
   }
 
   .section-title {
-    text-align: center;
-    margin-bottom: 60px;
-    margin-left: 80px;
-  }
+  text-align: left;
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  max-width: 400px;
+}
+
+#initiatives {
+  position: relative;
+}
 
   .section-title h2 {
     font-size: clamp(36px, 6vw, 64px);
