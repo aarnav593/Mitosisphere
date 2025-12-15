@@ -6,16 +6,16 @@ import Layout from '../layouts/Layout.astro';
   <!-- Navigation -->
   <nav id="nav">
     <div class="nav-content">
-      <div class="logo" onclick="scrollToSection('hero')">
+      <div class="logo">
         <img src="/logo.png" alt="Mitosisphere Logo">
-        Mitosisphere
+        mitosisphere.
       </div>
       <div class="nav-links">
-        <a onclick="scrollToSection('hero')">Home</a>
-        <a onclick="scrollToSection('initiatives')">Initiatives</a>
-        <a onclick="scrollToSection('competitions')">Competitions</a>
-        <a onclick="scrollToSection('partners')">Partners</a>
-        <a onclick="scrollToSection('team')">Team</a>
+        <a>Home</a>
+        <a>Initiatives</a>
+        <a>Competitions</a>
+        <a>Partners</a>
+        <a>Team</a>
       </div>
     </div>
   </nav>
@@ -42,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
     
     <div class="hero-content">
-      <div class="hero-badge">🎄 Happy Holidays from Mitosisphere!</div>
+      <div class="hero-badge">🎄 Season's Greetings from Mitosisphere</div>
       <div class="typing-title">
         <div class="typing-line" id="typingText"></div>
         <span class="cursor"></span>
@@ -113,9 +113,9 @@ import Layout from '../layouts/Layout.astro';
         <!-- Initiative 2: Lamhaj's Guide -->
         <div class="initiative-card">
           <div class="initiative-icon">📚</div>
-          <h3>Lamnhaj's Guide to USABO</h3>
-          <div class="initiative-status">Available Soon</div>
-          <p> 200 page textbook covering strategies, resources, test-taking techniques, and important topics for USABO success. Over 280 original, expertly crafted practice problems with full, detailed solutions.</p>
+          <h3>Lamhaj's Guide to USABO</h3>
+          <div class="initiative-status">Available Now</div>
+          <p>Comprehensive study guide covering strategies, resources, and test-taking techniques for USABO success. Created by lamhaj with expert insights and proven methods.</p>
         </div>
 
         <!-- Initiative 3: Monthly Challenges -->
@@ -130,8 +130,8 @@ import Layout from '../layouts/Layout.astro';
         <div class="initiative-card">
           <div class="initiative-icon">⚡</div>
           <h3>BioBlitz</h3>
-          <div class="initiative-status coming-soon">Available Soon</div>
-          <p>Competitive biology game launching January 4th.  Make studying competitive and fun while sharpening your skills against students worldwide.</p>
+          <div class="initiative-status coming-soon">Coming Soon</div>
+          <p>Fast-paced, Math Dash-style biology game launching January-February 2025. Make studying competitive and fun while sharpening your skills against students worldwide.</p>
           <a href="https://bioblitz.net/emailList.html" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
             Join Mailing List
           </a>
@@ -242,19 +242,15 @@ import Layout from '../layouts/Layout.astro';
       <div class="partners-grid">
         <div class="partner-card">
           <img src="/partners/bods.png" alt="Biology Olympiads Discord Server Logo" />
-          <p>Biology Olympiads Discord Server</p>
         </div>
         <div class="partner-card">
           <img src="/partners/pandorax.png" alt="Pandorax Logo" />
-          <p>PANDORAX</p>
         </div>
         <div class="partner-card">
           <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" />
-          <p>ScioVirtual</p>
         </div>
         <div class="partner-card">
           <img src="/partners/baologyLogo.png" alt="Biology Prep Logo" />
-          <p>Biology Prep</p>
         </div>
       </div>
     </div>
@@ -291,7 +287,7 @@ import Layout from '../layouts/Layout.astro';
               <img src="/assets/team/shriyan-junnuthulla.jpg" alt="Shriyan Junnuthulla" onerror="this.style.display='none'; this.parentElement.textContent='SJ';">
             </div>
             <div class="member-name">Shriyan Junnuthulla</div>
-            <div class="member-role">Chief Operating Officer</div>
+            <div class="member-role">COO</div>
           </div>
         </div>
       </div>
@@ -314,7 +310,7 @@ import Layout from '../layouts/Layout.astro';
               <img src="/assets/team/aarnav-suwal.jpg" alt="Aarnav Suwal" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
             </div>
             <div class="member-name">Aarnav Suwal</div>
-            <div class="member-role">Chief Technology Officer</div>
+            <div class="member-role">CTO</div>
           </div>
           <div class="team-member">
             <div class="member-avatar">
@@ -329,30 +325,17 @@ import Layout from '../layouts/Layout.astro';
       <div class="org-connector"></div>
 
       <!-- Team Members -->
-
-      
       <div class="leadership-tier">
         <div class="tier-title">Team Members</div>
         <div class="team-grid">
-
-            <!-- Content Team - WITH PHOTOS -->
-          <div class="team-member">
-            <div class="member-avatar">
-              <img src="/assets/team/donelly-qin.jpg" alt="Donelly Qin" onerror="this.style.display='none'; this.parentElement.textContent='DQ';">
-            </div>
-            <div class="member-name">Donelly Qin</div>
-            <div class="member-role">Content Team</div>
-          </div>
-
-          <div class="team-member">
-            <div class="member-avatar">
-              <img src="/assets/team/Sid.png" alt="Siddhanth Venkatesan" onerror="this.style.display='none'; this.parentElement.textContent='SV';">
-            </div>
-            <div class="member-name">Siddhanth Venkatesan</div>
-            <div class="member-role">Team Member</div>
-          </div>
-
           <!-- Technology Team - WITH PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/vedanth-reddyvari.jpg" alt="Vedanth Reddyvari" onerror="this.style.display='none'; this.parentElement.textContent='VR';">
+            </div>
+            <div class="member-name">Vedanth Reddyvari</div>
+            <div class="member-role">Technology Team</div>
+          </div>
           <div class="team-member">
             <div class="member-avatar">
               <img src="/assets/team/dipisha-subedi.jpg" alt="Dipisha Subedi" onerror="this.style.display='none'; this.parentElement.textContent='DS';">
@@ -367,7 +350,13 @@ import Layout from '../layouts/Layout.astro';
             <div class="member-name">Yuva Gade</div>
             <div class="member-role">Technology Team</div>
           </div>
-    
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="/assets/team/ofir-savir.jpg" alt="Ofir Savir" onerror="this.style.display='none'; this.parentElement.textContent='OS';">
+            </div>
+            <div class="member-name">Ofir Savir</div>
+            <div class="member-role">Technology Team</div>
+          </div>
           <div class="team-member">
             <div class="member-avatar">
               <img src="/assets/team/dermot-lu.jpg" alt="Dermot Lu" onerror="this.style.display='none'; this.parentElement.textContent='DL';">
@@ -376,43 +365,28 @@ import Layout from '../layouts/Layout.astro';
             <div class="member-role">Technology Team</div>
           </div>
 
+          <!-- Content Team - WITH PHOTOS -->
           <div class="team-member">
-            <div class="member-avatar">MK</div>
-            <div class="member-name">Mihir Kashyap</div>
-            <div class="member-role">Technology Team</div>
+            <div class="member-avatar">
+              <img src="/assets/team/donelly-qin.jpg" alt="Donelly Qin" onerror="this.style.display='none'; this.parentElement.textContent='DQ';">
+            </div>
+            <div class="member-name">Donelly Qin</div>
+            <div class="member-role">Content Team</div>
           </div>
-          
-
-        
 
           <!-- Outreach Team - WITH PHOTOS -->
-         
-          
-
           <div class="team-member">
             <div class="member-avatar">
-              <img src="/assets/team/yogan-mahesh.jpg" alt="Yogan Mahesh" onerror="this.style.display='none'; this.parentElement.textContent='YM';">
-            </div>            
-            <div class="member-name">Yogan Mahesh</div>
-            <div class="member-role">Team Member</div>
-          </div>
-
-          
-          
-             <!-- Outreach Team - WITHOUT PHOTOS -->
-          <div class="team-member">
-
-            <div class="member-avatar">
-              <img src="/assets/team/Arnav.png" alt="Arnav Dusad" onerror="this.style.display='none'; this.parentElement.textContent='AD';">
+              <img src="/assets/team/dhruva-singu.jpg" alt="Dhruva Singu" onerror="this.style.display='none'; this.parentElement.textContent='DS';">
             </div>
-            <div class="member-name">Arnav Dusad</div>
+            <div class="member-name">Dhruva Singu</div>
             <div class="member-role">Outreach Team</div>
           </div>
-
-
           <div class="team-member">
-            <div class="member-avatar">KS</div>
-            <div class="member-name">Kiaan Saraiya</div>
+            <div class="member-avatar">
+              <img src="/assets/team/cindy-cao.jpg" alt="Cindy Cao" onerror="this.style.display='none'; this.parentElement.textContent='CC';">
+            </div>
+            <div class="member-name">Cindy Cao</div>
             <div class="member-role">Outreach Team</div>
           </div>
 
@@ -424,7 +398,6 @@ import Layout from '../layouts/Layout.astro';
             <div class="member-name">Abdus-Samad Shaik</div>
             <div class="member-role">Content & Outreach Teams</div>
           </div>
-
 
           <!-- Community Engagement Team - WITH PHOTOS -->
           <div class="team-member">
@@ -468,48 +441,87 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <!-- Content Team - WITHOUT PHOTOS -->
-
+          <div class="team-member">
+            <div class="member-avatar">AA</div>
+            <div class="member-name">Aryan Adappa</div>
+            <div class="member-role">Content Team</div>
+          </div>
           <div class="team-member">
             <div class="member-avatar">AG</div>
             <div class="member-name">Aniketh Gudi</div>
             <div class="member-role">Content Team</div>
           </div>
-          
-         
+          <div class="team-member">
+            <div class="member-avatar">KP</div>
+            <div class="member-name">Krishiv Potluri</div>
+            <div class="member-role">Content Team</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">AA</div>
+            <div class="member-name">Anish Agarwal</div>
+            <div class="member-role">Content Team</div>
+          </div>
 
-       
+          <!-- Outreach Team - WITHOUT PHOTOS -->
+          <div class="team-member">
+            <div class="member-avatar">AD</div>
+            <div class="member-name">Arnav Dusad</div>
+            <div class="member-role">Outreach Team</div>
+          </div>
+
           <!-- General Team Members - WITHOUT PHOTOS -->
           <div class="team-member">
             <div class="member-avatar">KS</div>
             <div class="member-name">Kedar Sukharamwala</div>
             <div class="member-role">Team Member</div>
           </div>
-        
+          <div class="team-member">
+            <div class="member-avatar">BL</div>
+            <div class="member-name">Brian Lu</div>
+            <div class="member-role">Team Member</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">DZ</div>
+            <div class="member-name">Daniel Zou</div>
+            <div class="member-role">Team Member</div>
+          </div>
           <div class="team-member">
             <div class="member-avatar">EL</div>
             <div class="member-name">Eric Liu</div>
             <div class="member-role">Team Member</div>
           </div>
-          
+          <div class="team-member">
+            <div class="member-avatar">SV</div>
+            <div class="member-name">Siddhanth Venkatesan</div>
+            <div class="member-role">Team Member</div>
+          </div>
           <div class="team-member">
             <div class="member-avatar">SP</div>
             <div class="member-name">Sarah Park</div>
             <div class="member-role">Team Member</div>
           </div>
-          
+          <div class="team-member">
+            <div class="member-avatar">YM</div>
+            <div class="member-name">Yogan Mahesh</div>
+            <div class="member-role">Team Member</div>
+          </div>
           <div class="team-member">
             <div class="member-avatar">RL</div>
             <div class="member-name">Rosa Lee</div>
             <div class="member-role">Team Member</div>
           </div>
-          
+          <div class="team-member">
+            <div class="member-avatar">KS</div>
+            <div class="member-name">Kiaan Saraiya</div>
+            <div class="member-role">Team Member</div>
+          </div>
         </div>
       </div>
 
       <!-- Join Team CTA -->
       <div class="join-team-cta" style="margin-top: 80px;">
-        <h3>🧬 Join Our Team!</h3>
-        <p>Help us expand our outreach and help create amazing resources! Leadership positions will become vacant in a few months, and we will fill them from our staff :) If you have management or leadership ability (or are interested in marketing and outreach), we encourage you to join us!</p>
+        <h3>🎄 Join Our Team!</h3>
+        <p>Help us expand our outreach and create amazing resources. We're especially looking for content writers, web designers, and international branch leaders.</p>
         <a href="https://forms.gle/jePabrYs13KvFSqt9" target="_blank" class="btn btn-primary">
           Apply to Join Staff
         </a>
@@ -517,171 +529,209 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <script>
-    // TypeScript declarations
-    declare global {
-      interface Window {
-        goToSlide: (index: number) => void;
-        MathJax: any;
-      }
+<script>
+  declare global {
+    interface Window {
+      MathJax: any;
     }
+  }
+  
+  // Typing animation for hero
+  const text = "Multiplying Success, One Division at a Time.";
+  const typingElement = document.getElementById('typingText');
+  let charIndex = 0;
 
-    // Typing animation for hero
-    const text = "Multiplying Success, One Division at a Time.";
-    const typingElement = document.getElementById('typingText');
-    let charIndex = 0;
-
-    function typeText() {
-      if (charIndex < text.length) {
-        typingElement.textContent += text[charIndex];
-        charIndex++;
-        setTimeout(typeText, 80);
-      }
+  function typeText() {
+    if (charIndex < text.length) {
+      typingElement.textContent += text[charIndex];
+      charIndex++;
+      setTimeout(typeText, 80);
     }
+  }
 
-    setTimeout(typeText, 500);
+  setTimeout(typeText, 500);
 
-    // Christmas snowflakes
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.innerHTML = ['❄', '❅', '❆'][Math.floor(Math.random() * 3)];
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
-      snowflake.style.opacity = `${Math.random() * 0.5 + 0.2}`;
-      snowflake.style.fontSize = (Math.random() * 0.8 + 0.5) + 'em';
-      document.body.appendChild(snowflake);
+  // Christmas snowflakes
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.innerHTML = ['❄', '❅', '❆'][Math.floor(Math.random() * 3)];
+    snowflake.style.left = Math.random() * 100 + 'vw';
+    snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
+    snowflake.style.opacity = `${Math.random() * 0.5 + 0.2}`;
+    snowflake.style.fontSize = (Math.random() * 0.8 + 0.5) + 'em';
+    document.body.appendChild(snowflake);
 
-      setTimeout(() => snowflake.remove(), 12000);
-    }
+    setTimeout(() => snowflake.remove(), 12000);
+  }
 
-    setInterval(createSnowflake, 400);
+  setInterval(createSnowflake, 400);
 
-    // Smooth scroll to sections
-    function scrollToSection(id) {
-      const section = document.getElementById(id);
+  // Smooth scroll to sections
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
 
-    // Strong scroll snap - activate section when in view
-    const allSections = document.querySelectorAll('section');
-    
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        } else {
-          // Only remove if not hero
-          if (entry.target.id !== 'hero') {
-            entry.target.classList.remove('in-view');
-          }
-        }
+  // Add event listeners to navbar links
+  document.addEventListener('DOMContentLoaded', () => {
+    // Logo click
+    const logo = document.querySelector('.logo');
+    if (logo) {
+      logo.addEventListener('click', () => scrollToSection('hero'));
+    }
+
+    // Nav links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const section = this.textContent.toLowerCase();
+        const sectionMap = {
+          'home': 'hero',
+          'initiatives': 'initiatives',
+          'competitions': 'competitions',
+          'partners': 'partners',
+          'team': 'team'
+        };
+        scrollToSection(sectionMap[section]);
       });
-    }, {
-      threshold: 0.5,
-      rootMargin: '0px'
     });
 
-    allSections.forEach(section => {
-      sectionObserver.observe(section);
-    });
+    // Explore Resources button
+    const exploreBtn = document.querySelector('.hero-buttons a.btn-primary');
+    if (exploreBtn && exploreBtn.textContent.includes('Explore')) {
+      exploreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollToSection('initiatives');
+      });
+    }
+  });
 
-    // Count-up animation
-    function animateCounter(element) {
-      const target = parseInt(element.dataset.target);
-      const duration = 2000;
-      const increment = target / (duration / 16);
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          element.textContent = target + '+';
-          clearInterval(timer);
-        } else {
-          element.textContent = Math.floor(current) + '+';
+  // Strong scroll snap - activate section when in view
+  const allSections = document.querySelectorAll('section');
+  
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        if (entry.target.id !== 'hero') {
+          entry.target.classList.remove('in-view');
         }
-      }, 16);
-    }
-
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target.querySelector('.stat-number');
-          if (counter && counter.textContent === '0') {
-            animateCounter(counter);
-          }
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
-
-    // Auto-rotating carousel - 4 SECONDS
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.initiative-card');
-    const dots = document.querySelectorAll('.carousel-dot');
-    const totalSlides = slides.length;
-    let autoRotate;
-
-    function updateCarousel() {
-      slides.forEach((slide, index) => {
-        slide.classList.remove('active', 'prev', 'next');
-        
-        if (index === currentSlide) {
-          slide.classList.add('active');
-        } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
-          slide.classList.add('prev');
-        } else if (index === (currentSlide + 1) % totalSlides) {
-          slide.classList.add('next');
-        }
-      });
-
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateCarousel();
-    }
-
-    window.goToSlide = function(index) {
-      currentSlide = index;
-      updateCarousel();
-      resetAutoRotate();
-    };
-
-    function startAutoRotate() {
-      autoRotate = setInterval(nextSlide, 7000); // Slowed down to 7 seconds
-    }
-
-    function resetAutoRotate() {
-      clearInterval(autoRotate);
-      startAutoRotate();
-    }
-
-    updateCarousel();
-    startAutoRotate();
-
-    const carouselContainer = document.querySelector('.carousel-container');
-    if (carouselContainer) {
-      carouselContainer.addEventListener('mouseenter', () => {
-        clearInterval(autoRotate);
-      });
-      
-      carouselContainer.addEventListener('mouseleave', () => {
-        startAutoRotate();
-      });
-    }
-    
-    // MathJax config
-    window.MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']],
-        displayMath: [['\\[', '\\]']]
       }
-    };
-  </script>
+    });
+  }, {
+    threshold: 0.5,
+    rootMargin: '0px'
+  });
+
+  allSections.forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  // Count-up animation
+  function animateCounter(element) {
+    const target = parseInt(element.dataset.target);
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target + '+';
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current) + '+';
+      }
+    }, 16);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target.querySelector('.stat-number');
+        if (counter && counter.textContent === '0') {
+          animateCounter(counter);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
+
+  // Auto-rotating carousel - 7 SECONDS
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.initiative-card');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const totalSlides = slides.length;
+  let autoRotate;
+
+  function updateCarousel() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active', 'prev', 'next');
+      
+      if (index === currentSlide) {
+        slide.classList.add('active');
+      } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
+        slide.classList.add('prev');
+      } else if (index === (currentSlide + 1) % totalSlides) {
+        slide.classList.add('next');
+      }
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+    resetAutoRotate();
+  }
+
+  function startAutoRotate() {
+    autoRotate = setInterval(nextSlide, 7000);
+  }
+
+  function resetAutoRotate() {
+    clearInterval(autoRotate);
+    startAutoRotate();
+  }
+
+  // Add click handlers to dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+
+  updateCarousel();
+  startAutoRotate();
+
+  const carouselContainer = document.querySelector('.carousel-container');
+  if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoRotate);
+    });
+    
+    carouselContainer.addEventListener('mouseleave', () => {
+      startAutoRotate();
+    });
+  }
+  
+  // MathJax config
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']]
+    }
+  };
+</script>
 </Layout>
