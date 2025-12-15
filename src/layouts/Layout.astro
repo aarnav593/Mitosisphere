@@ -188,7 +188,7 @@ const { title } = Astro.props;
     align-items: center;
   }
 
- .logo {
+  .logo {
     font-family: 'JetBrains Mono', monospace;
     font-size: 20px;
     font-weight: 700;
@@ -424,13 +424,13 @@ const { title } = Astro.props;
   }
 
   .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
-  max-width: 100%;
-  width: 100%;
-  padding: 0 100px;
-}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 100px;
+  }
 
   .stat-card {
     text-align: center;
@@ -451,7 +451,7 @@ const { title } = Astro.props;
   .stat-card::after {
     content: '';
     position: absolute;
-    right: -20px;
+    right: -30px;
     top: 50%;
     transform: translateY(-50%);
     width: 2px;
@@ -528,18 +528,17 @@ const { title } = Astro.props;
   }
 
   .section-title {
-  text-align: left;
-  position: absolute;
-  left: 100px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0;
-  max-width: 400px;
-}
+    text-align: center;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
 
-#initiatives {
-  position: relative;
-}
+  #initiatives .section-title,
+  #competitions .section-title,
+  #partners .section-title {
+    text-align: left;
+    margin-left: 100px;
+  }
 
   .section-title h2 {
     font-size: clamp(36px, 6vw, 64px);
@@ -567,7 +566,7 @@ const { title } = Astro.props;
     height: 100%;
   }
 
- .initiative-card {
+  .initiative-card {
     position: absolute;
     width: 100%;
     max-width: 700px;
@@ -939,10 +938,9 @@ const { title } = Astro.props;
       display: none;
     }
 
-    .stats-grid,
-    .p-q-grid,
-    .other-competitions {
+    .stats-grid {
       grid-template-columns: 1fr;
+      padding: 0 20px;
     }
 
     .partners-grid {
