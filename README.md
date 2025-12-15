@@ -2,7 +2,7 @@
 
 🧬 **Professional biology education platform** - Expert-designed resources for advanced biology competitions and education.
 
-## 🌟 Features
+## Features
 
 - **Modern Design**: Beautiful gradient animations, DNA helix visuals, and cell division effects
 - **Responsive**: Fully responsive design that works on all devices
@@ -10,36 +10,6 @@
 - **Google Analytics**: Integrated tracking with GA4
 - **Smooth Animations**: Typing effects, carousel, snowflakes (seasonal), and scroll-snap sections
 - **Performance**: Built with Astro for optimal performance and fast loading times
-
-## 🚀 Quick Start
-
-### 1. Install Dependencies
-
-```bash
-npm install
-```
-
-### 2. Run Development Server
-
-```bash
-npm run dev
-```
-
-Visit `http://localhost:4321` to see your site!
-
-### 3. Build for Production
-
-```bash
-npm run build
-```
-
-This creates a `dist/` folder with your static site ready for deployment.
-
-### 4. Preview Production Build
-
-```bash
-npm run preview
-```
 
 ## 📁 Project Structure
 
@@ -75,13 +45,6 @@ npm run preview
   - Partners display
   - Team grid with leadership tiers
 
-## 🔧 Key Technologies
-
-- **Astro**: Modern static site builder
-- **MathJax**: LaTeX formula rendering
-- **Google Analytics**: GA4 tracking (ID: G-MTGS0M0Q0Q)
-- **Structured Data**: JSON-LD for enhanced SEO
-
 ## 📊 SEO Features
 
 - Meta descriptions and keywords
@@ -109,7 +72,7 @@ Team members are displayed in a flexible grid that auto-expands. To add a new me
 
 ### Updating Stats
 
-Current stats (as of Dec 2024):
+Current stats (as of Dec 2025):
 - 1000+ competition participants from 19 countries
 - 553+ Discord community members
 
@@ -143,7 +106,7 @@ The initiatives carousel auto-rotates every 4 seconds. Each initiative card incl
 
 ## 📄 License
 
-© 2024 Mitosisphere. All Rights Reserved.
+© 2025 Mitosisphere. All Rights Reserved.
 
 ---
 
