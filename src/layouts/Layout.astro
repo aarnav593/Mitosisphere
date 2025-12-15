@@ -386,14 +386,16 @@ const { title } = Astro.props;
   }
 
   .dna-helix {
-    position: absolute;
-    right: 10%;
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    height: 100%;
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 80vh;
+    max-height: 800px;
     opacity: 0.15;
     pointer-events: none;
+    z-index: 1;
   }
 
   .dna-strand {
