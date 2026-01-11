@@ -163,9 +163,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="carousel-container">
-      <button class="carousel-arrow carousel-arrow-left" id="prevBtn">‹</button>
-      <button class="carousel-arrow carousel-arrow-right" id="nextBtn">›</button>
-      
       <div class="carousel" id="carousel">
         <div class="initiative-card active">
           <div class="initiative-icon">🏆</div>
@@ -541,5 +538,295 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-<script is:inline src="/scripts/main.js"></script>
+<script is:inline>
+  (function() {
+    // FIREWORKS
+    function createFirework() {
+      const container = document.getElementById('fireworks-container');
+      if (!container) return;
+      
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * (window.innerHeight * 0.6) + (window.innerHeight * 0.1);
+      
+      const particleCount = 12 + Math.floor(Math.random() * 8);
+      const colors = ['#9A50D8', '#3FB8D3', '#6A6AD4', '#a855f7', '#60a5fa'];
+      const baseColor = colors[Math.floor(Math.random() * colors.length)];
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'firework-particle';
+        
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const velocity = 50 + Math.random() * 50;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        particle.style.background = baseColor;
+        particle.style.boxShadow = `0 0 8px ${baseColor}`;
+        
+        container.appendChild(particle);
+        setTimeout(() => particle.remove(), 2000);
+      }
+    }
+    
+    setInterval(createFirework, 3000);
+    
+    // PRESENT BOXES
+    function initPresentBoxes() {
+      const bioblitzBox = document.getElementById('present-bioblitz');
+      const guideBox = document.getElementById('present-guide');
+      const overlay = document.getElementById('popup-overlay');
+      const popupContent = document.getElementById('popup-content');
+      
+      function handleBoxClick(box, popupType) {
+        let clicks = parseInt(box.getAttribute('data-clicks'));
+        clicks++;
+        box.setAttribute('data-clicks', clicks);
+        
+        box.classList.add('shaking');
+        setTimeout(() => box.classList.remove('shaking'), 500);
+        
+        if (clicks >= 3) {
+          box.classList.add('opening');
+          setTimeout(() => {
+            showPopup(popupType);
+            box.style.display = 'none';
+          }, 800);
+        }
+      }
+      
+      function showPopup(type) {
+        const inner = popupContent.querySelector('.popup-inner');
+        
+        if (type === 'bioblitz') {
+          inner.innerHTML = `
+            <div class="popup-icon">⚡</div>
+            <h2>BioBlitz is Live!</h2>
+            <p>Our competitive biology game just launched! Challenge yourself, climb the ELO leaderboards, and compete with students worldwide.</p>
+            <a href="https://bioblitz.net" target="_blank" class="btn btn-primary">Play Now</a>
+          `;
+        } else {
+          inner.innerHTML = `
+            <div class="popup-icon">📚</div>
+            <h2>Lamnhaj's Guide Available!</h2>
+            <p>The ultimate USABO textbook is here! Featuring high-yield topics, proven strategies, and hundreds of practice problems.</p>
+            <a href="https://guide.mitosisphere.org" target="_blank" class="btn btn-primary">Read Now</a>
+          `;
+        }
+        
+        overlay.classList.add('show');
+        popupContent.classList.add('show');
+      }
+      
+      function closePopup(e) {
+        if (e.target === overlay || e.target.closest('.popup-inner') === null) {
+          overlay.classList.remove('show');
+          popupContent.classList.remove('show');
+        }
+      }
+      
+      if (bioblitzBox) {
+        bioblitzBox.addEventListener('click', () => handleBoxClick(bioblitzBox, 'bioblitz'));
+      }
+      
+      if (guideBox) {
+        guideBox.addEventListener('click', () => handleBoxClick(guideBox, 'guide'));
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', closePopup);
+      }
+    }
+    
+    // TYPING
+    const text = "Multiplying Success, One Division at a Time.";
+    let charIndex = 0;
+
+    function typeText() {
+      const typingElement = document.getElementById('typingText');
+      if (typingElement && charIndex < text.length) {
+        typingElement.textContent += text[charIndex];
+        charIndex++;
+        setTimeout(typeText, 80);
+      }
+    }
+
+    setTimeout(typeText, 500);
+
+    // SCROLL
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // COUNTER
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target') || '0');
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + '+';
+        }
+      }, 16);
+    }
+
+    // OBSERVERS
+    const allSections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          if (entry.target.id !== 'hero') {
+            entry.target.classList.remove('in-view');
+          }
+        }
+      });
+    }, {
+      threshold: 0.5,
+      rootMargin: '0px'
+    });
+
+    allSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector('.stat-number');
+          if (counter && counter.textContent === '0') {
+            animateCounter(counter);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
+
+    // CAROUSEL
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.initiative-card');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.length;
+    let autoRotate;
+
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'prev', 'next');
+        
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
+          slide.classList.add('prev');
+        } else if (index === (currentSlide + 1) % totalSlides) {
+          slide.classList.add('next');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoRotate();
+    }
+
+    function startAutoRotate() {
+      autoRotate = setInterval(nextSlide, 4600);
+    }
+
+    function resetAutoRotate() {
+      clearInterval(autoRotate);
+      startAutoRotate();
+    }
+
+    updateCarousel();
+    startAutoRotate();
+
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoRotate);
+      });
+      
+      carouselContainer.addEventListener('mouseleave', () => {
+        startAutoRotate();
+      });
+    }
+
+    // INIT
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEventListeners);
+    } else {
+      initEventListeners();
+    }
+
+    function initEventListeners() {
+      const logo = document.querySelector('.logo');
+      if (logo) {
+        logo.addEventListener('click', () => scrollToSection('hero'));
+      }
+
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const section = this.textContent.toLowerCase();
+          const sectionMap = {
+            'home': 'hero',
+            'initiatives': 'featured-guide',
+            'competitions': 'competitions',
+            'partners': 'partners',
+            'team': 'team'
+          };
+          scrollToSection(sectionMap[section]);
+        });
+      });
+
+      const exploreBtn = document.querySelector('.hero-buttons a.btn-primary');
+      if (exploreBtn && exploreBtn.textContent.includes('Explore')) {
+        exploreBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          scrollToSection('featured-guide');
+        });
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+
+      initPresentBoxes();
+    }
+    
+    if (typeof window !== 'undefined') {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        }
+      };
+    }
+  })();
+</script>
 </Layout>
