@@ -40,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
     
     <div class="hero-content">
-      <div class="hero-badge">🎄 Happy Holidays from Mitosisphere!</div>
+      <div class="hero-badge">🎉 Start Your Year Dividing & Conquering!</div>
       <div class="typing-title">
         <div class="typing-line" id="typingText"></div>
         <span class="cursor"></span>
@@ -52,7 +52,8 @@ import Layout from '../layouts/Layout.astro';
         <a class="btn btn-primary">
           Explore Resources →
         </a>
-        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">>
+        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">
+          <img src="/assets/icons/discord-logo.png" alt="Discord" style="width: 20px; height: 20px;">
           Join our Discord →
         </a>
       </div>
@@ -506,7 +507,7 @@ import Layout from '../layouts/Layout.astro';
      </div>
 
      <div class="join-team-cta" style="margin-top: 80px;">
-       <h3>🧬 Join Our Team!</h3>
+       <h3>🎉 Join Our Team!</h3>
        <p>Help us expand our outreach and help create amazing resources! Leadership positions will become vacant in a few months, and we will fill them from our staff. If you have management or leadership ability (or are interested in marketing and outreach), we encourage you to join us!</p>
        <a href="https://forms.gle/jePabrYs13KvFSqt9" target="_blank" class="btn btn-primary">
          Apply to Join Staff
@@ -575,21 +576,21 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
-    // Christmas snowflakes
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.innerHTML = ['❄', '❅', '❆'][Math.floor(Math.random() * 3)];
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
-      snowflake.style.opacity = String(Math.random() * 0.5 + 0.2);
-      snowflake.style.fontSize = (Math.random() * 0.8 + 0.5) + 'em';
-      document.body.appendChild(snowflake);
+    // New Year sparkles
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.innerHTML = ['✨', '⭐', '🎊'][Math.floor(Math.random() * 3)];
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      sparkle.style.opacity = String(Math.random() * 0.6 + 0.3);
+      sparkle.style.fontSize = (Math.random() * 0.8 + 0.6) + 'em';
+      document.body.appendChild(sparkle);
 
-      setTimeout(() => snowflake.remove(), 12000);
+      setTimeout(() => sparkle.remove(), 10000);
     }
 
-    setInterval(createSnowflake, 400);
+    setInterval(createSparkle, 600);
 
     // Smooth scroll to sections
     function scrollToSection(id) {
