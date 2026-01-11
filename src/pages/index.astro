@@ -4,6 +4,47 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Mitosisphere — Multiplying Success, One Division at a Time">
+  <!-- Firework Container -->
+  <div id="fireworks-container"></div>
+
+  <!-- Present Boxes -->
+  <div class="present-box" id="present-bioblitz" data-clicks="0">
+    <div class="box-3d">
+      <div class="box-face box-front"></div>
+      <div class="box-face box-back"></div>
+      <div class="box-face box-left"></div>
+      <div class="box-face box-right"></div>
+      <div class="box-face box-top"></div>
+      <div class="box-face box-bottom"></div>
+      <div class="ribbon ribbon-h"></div>
+      <div class="ribbon ribbon-v"></div>
+      <div class="bow"></div>
+    </div>
+  </div>
+
+  <div class="present-box present-box-2" id="present-guide" data-clicks="0">
+    <div class="box-3d">
+      <div class="box-face box-front"></div>
+      <div class="box-face box-back"></div>
+      <div class="box-face box-left"></div>
+      <div class="box-face box-right"></div>
+      <div class="box-face box-top"></div>
+      <div class="box-face box-bottom"></div>
+      <div class="ribbon ribbon-h"></div>
+      <div class="ribbon ribbon-v"></div>
+      <div class="bow"></div>
+    </div>
+  </div>
+
+  <!-- Popup Overlay -->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup-content" id="popup-content">
+      <div class="popup-inner">
+        <!-- Content will be inserted dynamically -->
+      </div>
+    </div>
+  </div>
+
   <nav id="nav">
     <div class="nav-content">
       <div class="logo">
@@ -89,70 +130,31 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-<section id="featured-guide" style="
-  position: relative; 
-  padding: 4rem 0; 
-  min-height: auto;
-  display: block;
-  height: auto;
-">
-  <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px; width: 100%;">
-    
-    <div class="section-title" style="margin-bottom: 30px;">
-      <h2><span class="typing-line">Featured Resource</span></h2>
-    </div>
+  <section id="featured-guide">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
+      <div class="section-title" style="margin-bottom: 40px;">
+        <h2><span class="typing-line">Featured Resources</span></h2>
+      </div>
 
-    <div style="
-      background: rgba(255, 255, 255, 0.03); 
-      border: 1px solid rgba(255, 255, 255, 0.1); 
-      border-radius: 24px; 
-      padding: 50px 20px; 
-      display: flex; 
-      flex-direction: column;
-      align-items: center; 
-      justify-content: center;
-      text-align: center;
-      gap: 25px; 
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-      width: 100%;
-    ">
-      
-        <div style="
-          background: linear-gradient(135deg, #6366f1, #a855f7); 
-          color: white; 
-          padding: 6px 16px; 
-          border-radius: 20px; 
-          font-size: 0.9rem; 
-          font-weight: 600;
-          display: inline-block;
-        ">First Edition out!</div>
-        
-        <h3 style="
-          font-size: clamp(2rem, 5vw, 2.5rem);
-          line-height: 1.2;
-          width: 100%;
-          margin: 0 auto;
-          background: linear-gradient(to right, #fff, #9ca3af);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        ">Lamnhaj's Guide to USABO</h3>
-        
-        <p style="
-          font-size: 1.15rem; 
-          color: #d1d5db; 
-          line-height: 1.7; 
-          max-width: 600px; 
-          margin: 0 auto;
-        ">
-          The ultimate USABO textbook, featuring high-yield topics, proven study strategies, and hundreds of practice problems with detailed solutions. Reviewed by top competitors to help you succeed!
-        </p>
-        
-        <a href="https://guide.mitosisphere.org" class="btn btn-primary" style="margin-top: 10px;">Read now</a>
+      <div class="featured-resources-grid">
+        <!-- Lamnhaj's Guide -->
+        <div class="featured-resource-card">
+          <div class="resource-badge">First Edition Out!</div>
+          <h3>Lamnhaj's Guide to USABO</h3>
+          <p>The ultimate USABO textbook, featuring high-yield topics, proven study strategies, and hundreds of practice problems with detailed solutions.</p>
+          <a href="https://guide.mitosisphere.org" class="btn btn-primary">Read Now</a>
+        </div>
 
+        <!-- BioBlitz -->
+        <div class="featured-resource-card">
+          <div class="resource-badge resource-badge-new">Just Released!</div>
+          <h3>BioBlitz</h3>
+          <p>Competitive biology game to sharpen your skills while climbing the ELO leaderboards. Challenge yourself and compete with students worldwide!</p>
+          <a href="https://bioblitz.net" target="_blank" class="btn btn-primary">Play Now</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="initiatives">
     <div class="section-title">
@@ -161,6 +163,9 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="carousel-container">
+      <button class="carousel-arrow carousel-arrow-left" id="prevBtn">‹</button>
+      <button class="carousel-arrow carousel-arrow-right" id="nextBtn">›</button>
+      
       <div class="carousel" id="carousel">
         <div class="initiative-card active">
           <div class="initiative-icon">🏆</div>
@@ -179,10 +184,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="initiative-card">
           <div class="initiative-icon">⚡</div>
           <h3>BioBlitz</h3>
-          <div class="initiative-status coming-soon">Coming Soon</div>
-          <p>Competitive biology game launching January 4th. Sharpen your skills while increasing your ELO and climbing the ranking leaderboards!</p>
+          <div class="initiative-status initiative-status-live">Live Now!</div>
+          <p>Competitive biology game now available! Sharpen your skills while increasing your ELO and climbing the ranking leaderboards.</p>
           <a href="https://bioblitz.net" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
-            Visit BioBlitz →
+            Play Now →
           </a>
         </div>
 
@@ -281,7 +286,6 @@ import Layout from '../layouts/Layout.astro';
        <p>Passionate students building resources for the biology community</p>
      </div>
 
-     <!-- Co-Presidents -->
      <div class="leadership-tier">
        <div class="tier-title">Co-Presidents</div>
        <div class="leadership-grid">
@@ -304,7 +308,6 @@ import Layout from '../layouts/Layout.astro';
 
      <div class="org-connector"></div>
 
-     <!-- Section Leads -->
      <div class="leadership-tier">
        <div class="tier-title">Section Leads</div>
        <div class="leadership-grid">
@@ -334,7 +337,6 @@ import Layout from '../layouts/Layout.astro';
 
      <div class="org-connector"></div>
 
-     <!-- Team Members -->
      <div class="leadership-tier">
        <div class="tier-title">Team Members</div>
        <div class="team-grid">
@@ -492,7 +494,6 @@ import Layout from '../layouts/Layout.astro';
 
      <div class="org-connector"></div>
 
-     <!-- Advisory Board -->
      <div class="leadership-tier">
        <div class="tier-title">Advisory Board</div>
        <div class="leadership-grid">
@@ -540,235 +541,5 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-<script is:inline>
-  (function() {
-    // Typing animation for hero
-    const text = "Multiplying Success, One Division at a Time.";
-    let charIndex = 0;
-
-    function typeText() {
-      const typingElement = document.getElementById('typingText');
-      if (typingElement && charIndex < text.length) {
-        typingElement.textContent += text[charIndex];
-        charIndex++;
-        setTimeout(typeText, 80);
-      }
-    }
-
-    setTimeout(typeText, 500);
-
-    // Fetch live Discord member count
-    async function updateDiscordCount() {
-      try {
-        const response = await fetch('https://discord.com/api/guilds/1313361584676143125/widget.json');
-        const data = await response.json();
-        
-        if (data.presence_count) {
-          const discordStat = document.querySelector('[data-target="553"]');
-          if (discordStat) {
-            discordStat.setAttribute('data-target', data.presence_count.toString());
-            discordStat.textContent = '0';
-            animateCounter(discordStat);
-          }
-        }
-      } catch (error) {
-        console.log('Discord widget not enabled, using static count');
-      }
-    }
-
-    // New Year sparkles
-    function createSparkle() {
-      const sparkle = document.createElement('div');
-      sparkle.classList.add('sparkle');
-      sparkle.innerHTML = ['✨', '⭐', '🎊'][Math.floor(Math.random() * 3)];
-      sparkle.style.left = Math.random() * 100 + 'vw';
-      sparkle.style.animationDuration = (Math.random() * 3 + 5) + 's';
-      sparkle.style.opacity = String(Math.random() * 0.6 + 0.3);
-      sparkle.style.fontSize = (Math.random() * 0.8 + 0.6) + 'em';
-      document.body.appendChild(sparkle);
-
-      setTimeout(() => sparkle.remove(), 10000);
-    }
-
-    setInterval(createSparkle, 600);
-
-    // Smooth scroll to sections
-    function scrollToSection(id) {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    // Count-up animation
-    function animateCounter(element) {
-      const target = parseInt(element.getAttribute('data-target') || '0');
-      const duration = 2000;
-      const increment = target / (duration / 16);
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          element.textContent = target + '+';
-          clearInterval(timer);
-        } else {
-          element.textContent = Math.floor(current) + '+';
-        }
-      }, 16);
-    }
-
-    // Section observer
-    const allSections = document.querySelectorAll('section');
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        } else {
-          if (entry.target.id !== 'hero') {
-            entry.target.classList.remove('in-view');
-          }
-        }
-      });
-    }, {
-      threshold: 0.5,
-      rootMargin: '0px'
-    });
-
-    allSections.forEach(section => {
-      sectionObserver.observe(section);
-    });
-
-    // Stats observer
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target.querySelector('.stat-number');
-          if (counter && counter.textContent === '0') {
-            animateCounter(counter);
-          }
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
-
-    // Auto-rotating carousel
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.initiative-card');
-    const dots = document.querySelectorAll('.carousel-dot');
-    const totalSlides = slides.length;
-    let autoRotate;
-
-    function updateCarousel() {
-      slides.forEach((slide, index) => {
-        slide.classList.remove('active', 'prev', 'next');
-        
-        if (index === currentSlide) {
-          slide.classList.add('active');
-        } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
-          slide.classList.add('prev');
-        } else if (index === (currentSlide + 1) % totalSlides) {
-          slide.classList.add('next');
-        }
-      });
-
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateCarousel();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateCarousel();
-      resetAutoRotate();
-    }
-
-    function startAutoRotate() {
-      autoRotate = setInterval(nextSlide, 7000);
-    }
-
-    function resetAutoRotate() {
-      clearInterval(autoRotate);
-      startAutoRotate();
-    }
-
-    updateCarousel();
-    startAutoRotate();
-
-    const carouselContainer = document.querySelector('.carousel-container');
-    if (carouselContainer) {
-      carouselContainer.addEventListener('mouseenter', () => {
-        clearInterval(autoRotate);
-      });
-      
-      carouselContainer.addEventListener('mouseleave', () => {
-        startAutoRotate();
-      });
-    }
-
-    // DOM-dependent event listeners
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initEventListeners);
-    } else {
-      initEventListeners();
-    }
-
-    function initEventListeners() {
-      // Logo click
-      const logo = document.querySelector('.logo');
-      if (logo) {
-        logo.addEventListener('click', () => scrollToSection('hero'));
-      }
-
-      // Nav links
-      const navLinks = document.querySelectorAll('.nav-links a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          const section = this.textContent.toLowerCase();
-          const sectionMap = {
-            'home': 'hero',
-            'initiatives': 'featured-guide',
-            'competitions': 'competitions',
-            'partners': 'partners',
-            'team': 'team'
-          };
-          scrollToSection(sectionMap[section]);
-        });
-      });
-
-      // Explore Resources button
-      const exploreBtn = document.querySelector('.hero-buttons a.btn-primary');
-      if (exploreBtn && exploreBtn.textContent.includes('Explore')) {
-        exploreBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          scrollToSection('featured-guide');
-        });
-      }
-
-      // Carousel dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-      });
-
-      // Update Discord count
-      setTimeout(updateDiscordCount, 1000);
-    }
-    
-    // MathJax config
-    if (typeof window !== 'undefined') {
-      window.MathJax = {
-        tex: {
-          inlineMath: [['\\(', '\\)']],
-          displayMath: [['\\[', '\\]']]
-        }
-      };
-    }
-  })();
-</script>
+<script is:inline src="/scripts/main.js"></script>
 </Layout>
