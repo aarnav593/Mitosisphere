@@ -1,1056 +1,774 @@
 ---
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+<Layout title="Mitosisphere — Multiplying Success, One Division at a Time">
+  <nav id="nav">
+    <div class="nav-content">
+      <div class="logo">
+        <img src="/logo.png" alt="Mitosisphere Logo">
+        Mitosisphere
+      </div>
+      <div class="nav-links">
+        <a>Home</a>
+        <a>Initiatives</a>
+        <a>Competitions</a>
+        <a>Team</a>
+        <a>Partners</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Mitosisphere provides expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO and biology competitions." />
-    <meta name="keywords" content="USABO, biology competition, science bowl, biology education, USABO preparation, biology resources, Mitosisphere" />
-    <meta name="author" content="Mitosisphere" />
+    <div class="dna-helix">
+      <div class="dna-strand">
+        <div class="base-pair" style="top: 0%; animation-delay: 0s;"></div>
+        <div class="base-pair" style="top: 10%; animation-delay: 0.2s;"></div>
+        <div class="base-pair" style="top: 20%; animation-delay: 0.4s;"></div>
+        <div class="base-pair" style="top: 30%; animation-delay: 0.6s;"></div>
+        <div class="base-pair" style="top: 40%; animation-delay: 0.8s;"></div>
+        <div class="base-pair" style="top: 50%; animation-delay: 1s;"></div>
+        <div class="base-pair" style="top: 60%; animation-delay: 1.2s;"></div>
+        <div class="base-pair" style="top: 70%; animation-delay: 1.4s;"></div>
+        <div class="base-pair" style="top: 80%; animation-delay: 1.6s;"></div>
+        <div class="base-pair" style="top: 90%; animation-delay: 1.8s;"></div>
+      </div>
+    </div>
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content="Expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO." />
-    <meta property="og:image" content="/logo.png" />
+    <div class="hero-content">
+      <div class="hero-badge">🎄 Happy Holidays from Mitosisphere!</div>
+      <div class="typing-title">
+        <div class="typing-line" id="typingText"></div>
+        <span class="cursor"></span>
+      </div>
+      <p class="hero-subtitle">
+        We create expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary">
+          Explore Resources →
+        </a>
+        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">
+          <img src="/assets/icons/discord-logo.png" alt="Discord" style="width: 20px; height: 20px;">
+          Join our Discord →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats">
+    <div class="cell-animation" style="left: 8%; top: 50%;">
+      <div class="cell" style="animation-delay: 0s;"></div>
+      <div class="cell" style="animation-delay: 1s; border-color: var(--blue);"></div>
+    </div>
+
+    <div class="stats-container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="1000">0</div>
+          <div class="stat-label">Competition Participants<br>from 19 Countries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="553">0</div>
+          <div class="stat-label">Active Community Members</div>
+          <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">
+            <span class="discord-icon"></span>
+            Join our Discord →
+          </a>
+        </div>
+      </div>
+    </div>
     
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content="Expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO." />
+    <div class="cell-animation" style="right: 8%; left: auto; top: 50%;">
+      <div class="cell" style="animation-delay: 0.5s; border-color: var(--indigo);"></div>
+      <div class="cell" style="animation-delay: 1.5s;"></div>
+    </div>
+  </section>
+
+<section id="featured-guide" style="
+  position: relative; 
+  padding: 4rem 0; 
+  min-height: auto;
+  display: block;
+  height: auto;
+">
+  <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px; width: 100%;">
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Epilogue:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    
-    <!-- MathJax for LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <!-- Google Analytics -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MTGS0M0Q0Q');
-    </script>
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "Mitosisphere",
-        "description": "Expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO.",
-        "url": "https://mitosisphere.org",
-        "logo": "https://mitosisphere.org/logo.png",
-        "sameAs": [
-          "https://discord.gg/Sq3nTXyS6D"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "category": "Education",
-          "availability": "https://schema.org/InStock",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
+    <div class="section-title" style="margin-bottom: 30px;">
+      <h2><span class="typing-line">Featured Resource</span></h2>
+    </div>
+
+    <div style="
+      background: rgba(255, 255, 255, 0.03); 
+      border: 1px solid rgba(255, 255, 255, 0.1); 
+      border-radius: 24px; 
+      padding: 50px 20px; 
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+      text-align: center;
+      gap: 25px; 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      width: 100%;
+    ">
+      
+        <div style="
+          background: linear-gradient(135deg, #6366f1, #a855f7); 
+          color: white; 
+          padding: 6px 16px; 
+          border-radius: 20px; 
+          font-size: 0.9rem; 
+          font-weight: 600;
+          display: inline-block;
+        ">First Edition out!</div>
+        
+        <h3 style="
+          font-size: clamp(2rem, 5vw, 2.5rem);
+          line-height: 1.2;
+          width: 100%;
+          margin: 0 auto;
+          background: linear-gradient(to right, #fff, #9ca3af);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        ">Lamnhaj's Guide to USABO</h3>
+        
+        <p style="
+          font-size: 1.15rem; 
+          color: #d1d5db; 
+          line-height: 1.7; 
+          max-width: 600px; 
+          margin: 0 auto;
+        ">
+          The ultimate USABO textbook, featuring high-yield topics, proven study strategies, and hundreds of practice problems with detailed solutions. Reviewed by top competitors to help you succeed!
+        </p>
+        
+        <a href="https://guide.mitosisphere.org" class="btn btn-primary" style="margin-top: 10px;">Read now</a>
+
+    </div>
+  </div>
+</section>
+
+  <section id="initiatives">
+    <div class="section-title">
+      <h2><span class="typing-line">Our Initiatives</span></h2>
+      <p>Comprehensive programs to power your biology journey</p>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
+        <div class="initiative-card active">
+          <div class="initiative-icon">🏆</div>
+          <h3>Competitions</h3>
+          <div class="initiative-status">Active</div>
+          <p>Challenge yourself with our comprehensive competition suite: p+q series (Open & Semifinals), BioBowl (Science Bowl format), and Monthly Challenges for continuous practice throughout the year.</p>
+        </div>
+
+        <div class="initiative-card">
+          <div class="initiative-icon">📅</div>
+          <h3>Monthly Challenges</h3>
+          <div class="initiative-status">Running</div>
+          <p>Stay sharp year-round! New question sets every month with varied difficulty levels, community discussions, and detailed solutions to keep your skills fresh.</p>
+        </div>
+
+        <div class="initiative-card">
+          <div class="initiative-icon">⚡</div>
+          <h3>BioBlitz</h3>
+          <div class="initiative-status coming-soon">Coming Soon</div>
+          <p>Competitive biology game launching January 4th. Sharpen your skills while increasing your ELO and climbing the ranking leaderboards!</p>
+          <a href="https://bioblitz.net" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
+            Visit BioBlitz →
+          </a>
+        </div>
+
+        <div class="initiative-card">
+          <div class="initiative-icon">🤝</div>
+          <h3>Mentorship Program</h3>
+          <div class="initiative-status">Active</div>
+          <p>Free personalized coaching from IBO medalists and ISEF finalists. Get expert guidance on USABO preparation, research competitions, internship applications, and more.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNus46S6bVyhOg34M5q6AKYT6MIoIsTjNDT9EixfXXbRxBCw/viewform" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
+            Apply Now
+          </a>
+        </div>
+
+        <div class="initiative-card">
+          <div class="initiative-icon">🎓</div>
+          <h3>USABO Webinars</h3>
+          <div class="initiative-status">Active</div>
+          <p>Learn from experienced researchers and competitors. Regular sessions covering research methods, finding mentors, preparing for science fairs, and advanced biology topics. Hosted on Discord.</p>
+        </div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-dot active"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="competitions">
+    <div class="competitions-container">
+      <div class="section-title">
+        <h2><span class="typing-line">Our Competitions</span></h2>
+        <p>Challenge yourself with USABO-style exams and more</p>
+      </div>
+
+      <div class="competition-main">
+        <div class="competition-header">
+          <h3><span class="typing-line">p+q Competition Series</span></h3>
+          <p style="color: var(--text-muted); font-size: 18px;">Annual USABO-style exams for students worldwide</p>
+          <p style="color: var(--text-muted); font-size: 16px; margin-top: 10px;">Open to high school students globally, our exams will take place online. They will be available to take all day. Explore the complete guidelines in our official rules document!</p>
+        </div>
+
+        <div class="p-q-grid">
+          <div class="p-q-round">
+            <div class="latex-formula">\(p + q = 1\)</div>
+            <h4>Open Round</h4>
+            <p>First round mirroring USABO Open difficulty. 50 multiple-choice questions in 50 minutes with 5 choices per question.</p>
+            <a href="https://forms.gle/7oaq31kiAhSstxwY6" target="_blank" class="btn btn-secondary">
+              Register
+            </a>
+          </div>
+
+          <div class="p-q-round">
+            <div class="latex-formula">\((p + q)^2 = 1\)</div>
+            <h4>Semifinal Round</h4>
+            <p>Second round corresponding to USABO Semifinals. 100 questions in 120 minutes: 65 multiple-choice and 35 multiple-true/false.</p>
+            <div style="margin-top: 15px; padding: 10px; background: rgba(154, 80, 216, 0.1); border-radius: 8px; color: var(--purple); font-size: 14px; font-weight: 600;">
+              ⭐ Qualification Required (Top performers from Open Round)
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://forms.gle/7oaq31kiAhSstxwY6" target="_blank" class="btn btn-primary">
+            Get Competition Updates
+          </a>
+          <a href="/assets/rules.pdf" target="_blank" class="btn btn-secondary">
+            Read the Rules
+          </a>
+        </div>
+      </div>
+
+      <div class="other-competitions">
+        <div class="other-comp-card">
+          <div class="comp-icon">🎯</div>
+          <h4>Mitosisphere BioBowl</h4>
+          <p>Science Bowl format adapted for biology. Fast-paced team competition testing your quick recall and deep understanding of biological concepts.</p>
+        </div>
+
+        <div class="other-comp-card">
+          <div class="comp-icon">📅</div>
+          <h4>Monthly Challenges</h4>
+          <p>New question sets released every month with varied difficulty. Practice consistently, discuss with the community, and track your improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+   <div class="team-container">
+     <div class="section-title">
+       <h2><span class="typing-line">Meet Our Team</span></h2>
+       <p>Passionate students building resources for the biology community</p>
+     </div>
+
+     <!-- Co-Presidents -->
+     <div class="leadership-tier">
+       <div class="tier-title">Co-Presidents</div>
+       <div class="leadership-grid">
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/jake-rosenblum.jpg" alt="Jake Rosenblum" onerror="this.style.display='none'; this.parentElement.textContent='JR';">
+           </div>
+           <div class="member-name">Jake Rosenblum</div>
+           <div class="member-role">Co-President</div>
+         </div>
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/shriyan-junnuthulla.jpg" alt="Shriyan Junnuthulla" onerror="this.style.display='none'; this.parentElement.textContent='SJ';">
+           </div>
+           <div class="member-name">Shriyan Junnuthulla</div>
+           <div class="member-role">Co-President</div>
+         </div>
+       </div>
+     </div>
+
+     <div class="org-connector"></div>
+
+     <!-- Section Leads -->
+     <div class="leadership-tier">
+       <div class="tier-title">Section Leads</div>
+       <div class="leadership-grid">
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/srikar-reddy.jpg" alt="Srikar Reddy" onerror="this.style.display='none'; this.parentElement.textContent='SR';">
+           </div>
+           <div class="member-name">Srikar Reddy</div>
+           <div class="member-role">Head of Content</div>
+         </div>
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/aarnav-suwal.jpg" alt="Aarnav Suwal" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
+           </div>
+           <div class="member-name">Aarnav Suwal</div>
+           <div class="member-role">Chief Technology Officer</div>
+         </div>
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/candace-pun.jpg" alt="Candace Pun" onerror="this.style.display='none'; this.parentElement.textContent='CP';">
+           </div>
+           <div class="member-name">Candace Pun</div>
+           <div class="member-role">Head of Outreach</div>
+         </div>
+       </div>
+     </div>
+
+     <div class="org-connector"></div>
+
+     <!-- Team Members -->
+     <div class="leadership-tier">
+       <div class="tier-title">Team Members</div>
+       <div class="team-grid">
+           <div class="team-member">
+            <div class="member-avatar">
+             <img src="/assets/team/eric-liu.jpg" alt="Eric Liu" onerror="this.style.display='none'; this.parentElement.textContent='EL';">
+           </div>
+           <div class="member-name">Eric Liu</div>
+           <div class="member-role">Content Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/donelly-qin.jpg" alt="Donelly Qin" onerror="this.style.display='none'; this.parentElement.textContent='DQ';">
+           </div>
+           <div class="member-name">Donelly Qin</div>
+           <div class="member-role">Content Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/Sid.png" alt="Siddhanth Venkatesan" onerror="this.style.display='none'; this.parentElement.textContent='SV';">
+           </div>
+           <div class="member-name">Siddhanth Venkatesan</div>
+           <div class="member-role">Content Team</div>
+         </div>
+
+          <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/aniketh_gudi.jpg" alt="Aniketh Gudi" onerror="this.style.display='none'; this.parentElement.textContent='AG';">
+           </div>
+           <div class="member-name">Aniketh Gudi</div>
+           <div class="member-role">Content Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/dipisha-subedi.jpg" alt="Dipisha Subedi" onerror="this.style.display='none'; this.parentElement.textContent='DS';">
+           </div>
+           <div class="member-name">Dipisha Subedi</div>
+           <div class="member-role">Technology Team</div>
+         </div>
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/elijah-feldman.jpg" alt="Elijah Feldman" onerror="this.style.display='none'; this.parentElement.textContent='EF';">
+           </div>
+           <div class="member-name">Elijah Feldman</div>
+           <div class="member-role">Technology Team</div>
+         </div>
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/yuva-gade.jpg" alt="Yuva Gade" onerror="this.style.display='none'; this.parentElement.textContent='YG';">
+           </div>
+           <div class="member-name">Yuva Gade</div>
+           <div class="member-role">Technology Team</div>
+         </div>
+  
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/dermot-lu.jpg" alt="Dermot Lu" onerror="this.style.display='none'; this.parentElement.textContent='DL';">
+           </div>
+           <div class="member-name">Dermot Lu</div>
+           <div class="member-role">Technology Team</div>
+         </div>
+
+         <div class="team-member">
+            <div class="member-avatar">
+             <img src="/assets/team/mihir_kashyap.jpg" alt="Mihir Kashyap" onerror="this.style.display='none'; this.parentElement.textContent='MK';">
+           </div>
+           <div class="member-name">Mihir Kashyap</div>
+           <div class="member-role">Technology Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/yogan-mahesh.jpg" alt="Yogan Mahesh" onerror="this.style.display='none'; this.parentElement.textContent='YM';">
+           </div>           
+           <div class="member-name">Yogan Mahesh</div>
+           <div class="member-role">Outreach Team</div>
+         </div>
+
+         <div class="team-member">
+            <div class="member-avatar">
+             <img src="/assets/team/kiaan-saraiya.jpg" alt="Kiaan Saraiya" onerror="this.style.display='none'; this.parentElement.textContent='KS';">
+           </div>                
+           <div class="member-name">Kiaan Saraiya</div>
+           <div class="member-role">Outreach Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/rosa-lee.jpg" alt="Rosa Lee" onerror="this.style.display='none'; this.parentElement.textContent='RL';">
+           </div>    
+           <div class="member-name">Rosa Lee</div>
+           <div class="member-role">Outreach Team</div>
+         </div>
+
+            <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/Arnav.png" alt="Arnav Dusad" onerror="this.style.display='none'; this.parentElement.textContent='AD';">
+           </div>
+           <div class="member-name">Arnav Dusad</div>
+           <div class="member-role">Outreach Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/abdus-samad-shaik.jpg" alt="Abdus-Samad Shaik" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
+           </div>
+           <div class="member-name">Abdus-Samad Shaik</div>
+           <div class="member-role">Content & Outreach Teams</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/abbie-affum.jpg" alt="Abbie Affum" onerror="this.style.display='none'; this.parentElement.textContent='AA';">
+           </div>
+           <div class="member-name">Abbie Affum</div>
+           <div class="member-role">Community Engagement Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/sarah-park.jpg" alt="Sarah Park" onerror="this.style.display='none'; this.parentElement.textContent='SP';">
+           </div>
+           <div class="member-name">Sarah Park</div>
+           <div class="member-role">Community Engagement Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/tol-prasad.jpg" alt="Tol Prasad Kafle" onerror="this.style.display='none'; this.parentElement.textContent='TP';">
+           </div>
+           <div class="member-name">Tol Prasad Kafle</div>
+           <div class="member-role">Nepal Branch Head</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/jason-yan.jpg" alt="Jason Yan" onerror="this.style.display='none'; this.parentElement.textContent='JY';">
+           </div>
+           <div class="member-name">Jason Yan</div>
+           <div class="member-role">Outreach Team</div>
+         </div>
+
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/deepak-praveen-kumar.png" alt="Deepak Praveen Kumar" onerror="this.style.display='none'; this.parentElement.textContent='DP';">
+           </div>
+           <div class="member-name">Deepak Praveen Kumar</div>
+           <div class="member-role">India Branch Head</div>
+         </div>
+       </div>
+     </div>
+
+     <div class="org-connector"></div>
+
+     <!-- Advisory Board -->
+     <div class="leadership-tier">
+       <div class="tier-title">Advisory Board</div>
+       <div class="leadership-grid">
+         <div class="team-member">
+           <div class="member-avatar">
+             <img src="/assets/team/ethan-guo.jpg" alt="Ethan Guo" onerror="this.style.display='none'; this.parentElement.textContent='EG';">
+           </div>
+           <div class="member-name">Ethan Guo</div>
+           <div class="member-role">Founder & Advisor</div>
+         </div>
+       </div>
+     </div>
+
+     <div class="join-team-cta" style="margin-top: 80px;">
+       <h3>🧬 Join Our Team!</h3>
+       <p>Help us expand our outreach and help create amazing resources! Leadership positions will become vacant in a few months, and we will fill them from our staff. If you have management or leadership ability (or are interested in marketing and outreach), we encourage you to join us!</p>
+       <a href="https://forms.gle/jePabrYs13KvFSqt9" target="_blank" class="btn btn-primary">
+         Apply to Join Staff
+       </a>
+     </div>
+   </div>
+ </section>
+
+   <section id="partners">
+    <div class="partners-container">
+      <div class="section-title" style="margin-left: 0;">
+        <h2><span class="typing-line">Our Partners</span></h2>
+        <p>Thank you for helping us reach a wider audience</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card">
+          <img src="/partners/bods.png" alt="Biology Olympiads Discord Server Logo" />
+        </div>
+        <div class="partner-card">
+          <img src="/partners/pandorax.png" alt="Pandorax Logo" />
+        </div>
+        <div class="partner-card">
+          <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" />
+        </div>
+        <div class="partner-card">
+          <img src="/partners/baologyLogo.png" alt="Biology Prep Logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script is:inline>
+  (function() {
+    // Typing animation for hero
+    const text = "Multiplying Success, One Division at a Time.";
+    let charIndex = 0;
+
+    function typeText() {
+      const typingElement = document.getElementById('typingText');
+      if (typingElement && charIndex < text.length) {
+        typingElement.textContent += text[charIndex];
+        charIndex++;
+        setTimeout(typeText, 80);
       }
-    </script>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
-
-<style is:global>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --purple: #9A50D8;
-    --blue: #3FB8D3;
-    --indigo: #6A6AD4;
-    --bg-dark: #0a0e1a;
-    --bg-darker: #050810;
-    --bg-card: #13182b;
-    --text: #e8eaf0;
-    --text-muted: #a8b0c8;
-    --border: rgba(154, 80, 216, 0.2);
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Epilogue', sans-serif;
-    background: var(--bg-darker);
-    color: var(--text);
-    overflow-x: hidden;
-    height: 100vh;
-    overflow-y: scroll;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(154, 80, 216, 0.15), transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(63, 184, 211, 0.12), transparent 50%);
-    animation: bgFloat 20s ease-in-out infinite alternate;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  @keyframes bgFloat {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.1) translate(-10px, -10px); }
-  }
-
-  section {
-    min-height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 20px 40px;
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  }
-
-  section.in-view {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  #hero {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .snowflake {
-    position: fixed;
-    top: -10px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2em;
-    pointer-events: none;
-    z-index: 9999;
-    animation: fall linear forwards;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  }
-
-  @keyframes fall {
-    to {
-      transform: translateY(110vh) rotate(360deg);
-      opacity: 0;
     }
-  }
 
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    backdrop-filter: blur(20px);
-    background: rgba(10, 14, 26, 0.9);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 40px;
-  }
+    setTimeout(typeText, 500);
 
-  .nav-content {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
- .logo {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-left: -20px;
-  }
-
-  .logo img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    margin-left: -20px;
-  }
-
-  @media (max-width: 768px) {
-  .nav-content {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-  }
-
-  .nav-links {
-    gap: 15px;
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-@media (max-width: 768px) {
-  .hero-content {
-    max-width: 100%;
-    padding: 0 20px;
-    text-align: center;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  #featured-guide > div > div {
-    padding: 20px !important;
-  }
-
-  #featured-guide .section-title {
-    text-align: center;
-  }
-
-  #featured-guide div[style*="display: flex"] {
-    flex-direction: column !important;
-  }
-  
-  #featured-guide div[style*="max-width: 350px"] {
-    width: 100% !important;
-    max-width: 250px !important; 
-  }
-}
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr; 
-    gap: 20px;
-    padding: 0 20px;
-  }
-
-  .cell-animation {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .leadership-grid, 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .leadership-grid, 
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-  .nav-links {
-    display: flex;
-    gap: 35px;
-  }
-
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.3s ease;
-    cursor: pointer;
-    position: relative;
-  }
-
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--purple), var(--blue));
-    transition: width 0.3s ease;
-  }
-
-  .nav-links a:hover {
-    color: var(--text);
-  }
-
-  .nav-links a:hover::after {
-    width: 100%;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1000px;
-    text-align: center;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 8px 20px;
-    background: rgba(154, 80, 216, 0.15);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--purple);
-    margin-bottom: 30px;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  .typing-title {
-    font-size: clamp(48px, 8vw, 96px);
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 30px;
-    letter-spacing: -2px;
-    min-height: 220px;
-  }
-
-  .typing-line {
-    background: linear-gradient(135deg, var(--purple), var(--blue), var(--indigo));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% 200%;
-    display: inline;
-  }
-
-  .cursor {
-    display: inline-block;
-    width: 4px;
-    height: 1em;
-    background: var(--purple);
-    margin-left: 4px;
-    animation: blink 1s step-end infinite;
-    vertical-align: bottom;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  .hero-subtitle {
-    font-size: clamp(18px, 3vw, 24px);
-    color: var(--text-muted);
-    margin-bottom: 40px;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    padding: 16px 32px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    color: white;
-    box-shadow: 0 10px 30px rgba(154, 80, 216, 0.3);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(154, 80, 216, 0.4);
-  }
-
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.4;
-    animation: float 15s ease-in-out infinite;
-  }
-
-  .orb1 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, var(--purple), transparent);
-    top: 10%;
-    left: 10%;
-  }
-
-  .orb2 {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, var(--blue), transparent);
-    bottom: 20%;
-    right: 15%;
-    animation-delay: 2s;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(30px, -30px); }
-    66% { transform: translate(-20px, 20px); }
-  }
-
-  .dna-helix {
-    position: absolute;
-    right: 5%;
-    top: 66%;
-    transform: translateY(-53%);
-    width: 120px;
-    height: 400px;
-    opacity: 0.3;
-  }
-
-  .base-pair {
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    background: linear-gradient(90deg, var(--purple), var(--blue));
-    border-radius: 4px;
-    animation: rotate 4s linear infinite;
-    transform-origin: center;
-  }
-
-  @keyframes rotate {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
-  }
-
-  #stats {
-    background: var(--bg-dark);
-    padding: 60px 20px !important;
-    min-height: auto !important;
-  }
-
-  .stats-container {
-    max-width: 900px;
-    width: 100%;
-    background: linear-gradient(135deg, rgba(154, 80, 216, 0.1), rgba(63, 184, 211, 0.1));
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 50px 60px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-  }
-
-  .stats-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--purple), var(--blue), var(--indigo));
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 80px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stat-card {
-    text-align: center;
-    position: relative;
-  }
-
-  .stat-card::after {
-    content: '';
-    position: absolute;
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 80px;
-    background: linear-gradient(180deg, transparent, var(--purple), var(--blue), transparent);
-  }
-
-  .stat-card:last-child::after {
-    display: none;
-  }
-
-  .stat-number {
-    font-size: 72px;
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: 'JetBrains Mono', monospace;
-    margin-bottom: 12px;
-    line-height: 1;
-  }
-
-  .stat-label {
-    color: var(--text-muted);
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 15px;
-    line-height: 1.4;
-  }
-
-  .stat-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--purple);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    padding: 8px 16px;
-    background: rgba(154, 80, 216, 0.1);
-    border-radius: 100px;
-    border: 1px solid rgba(154, 80, 216, 0.3);
-  }
-
-  .stat-link:hover {
-    color: var(--blue);
-    gap: 12px;
-    background: rgba(63, 184, 211, 0.15);
-    border-color: var(--blue);
-    transform: translateY(-2px);
-  }
-
-  .discord-icon {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    background: url('/assets/icons/discord-logo.png') center/contain no-repeat;
-  }
-
-  .cell-animation {
-    position: absolute;
-    transform: translateY(-50%);
-    width: 100px;
-    height: 100px;
-    opacity: 0.25;
-    z-index: 0;
-  }
-
-  .cell {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border: 2px solid var(--purple);
-    border-radius: 50%;
-    animation: divide 4s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(154, 80, 216, 0.3);
-  }
-
-  @keyframes divide {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 1;
+    // Fetch live Discord member count
+    async function updateDiscordCount() {
+      try {
+        const response = await fetch('https://discord.com/api/guilds/1313361584676143125/widget.json');
+        const data = await response.json();
+        
+        if (data.presence_count) {
+          const discordStat = document.querySelector('[data-target="553"]');
+          if (discordStat) {
+            discordStat.setAttribute('data-target', data.presence_count.toString());
+            discordStat.textContent = '0';
+            animateCounter(discordStat);
+          }
+        }
+      } catch (error) {
+        console.log('Discord widget not enabled, using static count');
+      }
     }
-    50% {
-      transform: translate(15px, 0) scale(0.7);
-      opacity: 0.4;
+
+    // Christmas snowflakes
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.innerHTML = ['❄', '❅', '❆'][Math.floor(Math.random() * 3)];
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
+      snowflake.style.opacity = String(Math.random() * 0.5 + 0.2);
+      snowflake.style.fontSize = (Math.random() * 0.8 + 0.5) + 'em';
+      document.body.appendChild(snowflake);
+
+      setTimeout(() => snowflake.remove(), 12000);
     }
-  }
 
-  .section-title {
-    text-align: center;
-    margin-bottom: 60px;
-    margin-left: 0; /* Fixes the off-center alignment */
-    width: 100%;    /* Ensures it spans full width to center correctly */
-  }
+    setInterval(createSnowflake, 400);
 
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Count-up animation
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target') || '0');
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + '+';
+        }
+      }, 16);
+    }
+
+    // Section observer
+    const allSections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          if (entry.target.id !== 'hero') {
+            entry.target.classList.remove('in-view');
+          }
+        }
+      });
+    }, {
+      threshold: 0.5,
+      rootMargin: '0px'
+    });
+
+    allSections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Stats observer
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector('.stat-number');
+          if (counter && counter.textContent === '0') {
+            animateCounter(counter);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-card').forEach(el => statsObserver.observe(el));
+
+    // Auto-rotating carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.initiative-card');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.length;
+    let autoRotate;
+
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'prev', 'next');
+        
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
+          slide.classList.add('prev');
+        } else if (index === (currentSlide + 1) % totalSlides) {
+          slide.classList.add('next');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoRotate();
+    }
+
+    function startAutoRotate() {
+      autoRotate = setInterval(nextSlide, 7000);
+    }
+
+    function resetAutoRotate() {
+      clearInterval(autoRotate);
+      startAutoRotate();
+    }
+
+    updateCarousel();
+    startAutoRotate();
+
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoRotate);
+      });
+      
+      carouselContainer.addEventListener('mouseleave', () => {
+        startAutoRotate();
+      });
+    }
+
+    // DOM-dependent event listeners
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEventListeners);
+    } else {
+      initEventListeners();
+    }
+
+    function initEventListeners() {
+      // Logo click
+      const logo = document.querySelector('.logo');
+      if (logo) {
+        logo.addEventListener('click', () => scrollToSection('hero'));
+      }
+
+      // Nav links
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const section = this.textContent.toLowerCase();
+          const sectionMap = {
+            'home': 'hero',
+            'initiatives': 'featured-guide',
+            'competitions': 'competitions',
+            'partners': 'partners',
+            'team': 'team'
+          };
+          scrollToSection(sectionMap[section]);
+        });
+      });
+
+      // Explore Resources button
+      const exploreBtn = document.querySelector('.hero-buttons a.btn-primary');
+      if (exploreBtn && exploreBtn.textContent.includes('Explore')) {
+        exploreBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          scrollToSection('featured-guide');
+        });
+      }
+
+      // Carousel dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+
+      // Update Discord count
+      setTimeout(updateDiscordCount, 1000);
+    }
     
-  #initiatives {
-    padding-top: 40px;
-  }
- 
-  .section-title h2 {
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 900;
-    margin-bottom: 15px;
-    letter-spacing: -1px;
-  }
-
-  .section-title p {
-    color: var(--text-muted);
-    font-size: 18px;
-  }
-
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    height: 550px;
-  }
-
-  .carousel {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
- .initiative-card {
-    position: absolute;
-    width: 100%;
-    max-width: 700px;
-    left: 52%;
-    top: 50%;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 50px 50px 50px 80px;
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-  }
-
-  .initiative-card.active {
-    opacity: 1;
-    pointer-events: all;
-    z-index: 10;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .initiative-card.prev {
-    opacity: 0.2;
-    transform: translate(-50%, -50%) translateX(-150%) scale(0.85);
-    filter: blur(3px);
-  }
-
-  .initiative-card.next {
-    opacity: 0.2;
-    transform: translate(-50%, -50%) translateX(150%) scale(0.85);
-    filter: blur(3px);
-  }
-
-  .initiative-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    margin-bottom: 25px;
-  }
-
-  .initiative-card h3 {
-    font-size: 32px;
-    margin-bottom: 15px;
-    font-weight: 800;
-  }
-
-  .initiative-status {
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(45, 159, 111, 0.2);
-    color: #2d9f6f;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-
-  .initiative-status.coming-soon {
-    background: rgba(244, 162, 97, 0.2);
-    color: #f4a261;
-  }
-
-  .initiative-card p {
-    color: var(--text-muted);
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
-  .carousel-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 40px;
-  }
-
-  .carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-  }
-
-  .carousel-dot.active {
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    width: 40px;
-    border-radius: 10px;
-  }
-
-  #competitions {
-    background: var(--bg-dark);
-  }
-
-  .competitions-container {
-    max-width: 1200px;
-    width: 100%;
-  }
-
-  .competition-main {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 50px;
-    margin-bottom: 40px;
-  }
-
-  .competition-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .competition-header h3 {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 15px;
-  }
-
-  .p-q-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin-bottom: 40px;
-  }
-
-  .p-q-round {
-    text-align: center;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(154, 80, 216, 0.15);
-    border-radius: 16px;
-    transition: all 0.3s ease;
-  }
-
-  .p-q-round:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--purple);
-    transform: translateY(-5px);
-  }
-
-  .latex-formula {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--text);
-  }
-
-  .p-q-round h4 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--purple);
-  }
-
-  .p-q-round p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .other-competitions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
-  .other-comp-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 35px;
-    transition: all 0.3s ease;
-  }
-
-  .other-comp-card:hover {
-    border-color: var(--purple);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(154, 80, 216, 0.2);
-  }
-
-  .comp-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-
-  .other-comp-card h4 {
-    font-size: 24px;
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-
-  .other-comp-card p {
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  .team-container {
-    width: 100%;
-    max-width: 1400px;
-  }
-
-  .leadership-tier {
-    margin-bottom: 60px;
-    text-align: center;
-  }
-
-  .tier-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--purple);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 30px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .team-member {
-    text-align: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .team-member:hover {
-    transform: translateY(-8px);
-  }
-
-  .member-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto 12px;
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: 700;
-    border: 3px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .member-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .member-name {
-    font-weight: 700;
-    margin-bottom: 4px;
-    font-size: 15px;
-  }
-
-  .member-role {
-    color: var(--text-muted);
-    font-size: 13px;
-    line-height: 1.3;
-  }
-
-  .org-connector {
-    width: 2px;
-    height: 40px;
-    background: linear-gradient(180deg, var(--purple), transparent);
-    margin: 0 auto 20px;
-  }
-
-  .join-team-cta {
-    background: linear-gradient(135deg, rgba(154, 80, 216, 0.2), rgba(63, 184, 211, 0.2));
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 60px 40px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .join-team-cta h3 {
-    font-size: 36px;
-    margin-bottom: 15px;
-  }
-
-  .join-team-cta p {
-    color: var(--text-muted);
-    font-size: 18px;
-    margin-bottom: 30px;
-    line-height: 2;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Partners Section Styles */
-  .partners-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-    justify-items: center;
-  }
-  
-  .partners-grid .partner-card:last-child:nth-child(4) {
-  grid-column: 2;  /* Center the 4th card in middle column */
-  }
-
-  .partner-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .partner-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--purple);
-    box-shadow: 0 20px 50px rgba(154, 80, 216, 0.2);
-  }
-
-  .partner-card img {
-    max-height: 80px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    filter: brightness(0.9);
-    transition: filter 0.3s ease;
-  }
-
-  .partner-card:hover img {
-    filter: brightness(1.1);
-  }
-
-  .partner-card p {
-    color: var(--text-muted);
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
+    // MathJax config
+    if (typeof window !== 'undefined') {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        }
+      };
     }
-
-    .stats-grid,
-    .p-q-grid,
-    .other-competitions {
-      grid-template-columns: 1fr;
-    }
-
-    .partners-grid {
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-
-    .stat-card::after {
-      display: none;
-    }
-
-    .dna-helix,
-    .cell-animation {
-      display: none;
-    }
-  }
-</style>
+  })();
+</script>
+</Layout>
