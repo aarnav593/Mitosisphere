@@ -111,7 +111,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="featured-resource-card">
           <div class="resource-badge">First Edition Out!</div>
           <h3>Lamnhaj's Guide to USABO</h3>
-          <p>The ultimate USABO textbook, featuring high-yield topics, proven study strategies, and hundreds of practice problems with detailed solutions. Version 2 with over 200 extra practice problems releasing January 28th!</p>
+          <p>The ultimate USABO textbook, featuring high-yield topics, proven study strategies, and hundreds of practice problems with detailed solutions. Version 2 with over 200 extra practice problems releasing Feburary 4th! We apologize for the delays, review issues have stretched out the timeline.</p>
           <a href="https://guide.mitosisphere.org" class="btn btn-primary">Read Now</a>
         </div>
 
@@ -253,25 +253,36 @@ import Layout from '../layouts/Layout.astro';
        <p>Passionate students building resources for the biology community</p>
      </div>
 
-     <div class="leadership-tier">
-       <div class="tier-title">Presidents</div>
-       <div class="leadership-grid">
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/jake-rosenblum.jpg" alt="Jake Rosenblum" onerror="this.style.display='none'; this.parentElement.textContent='JR';">
-           </div>
-           <div class="member-name">Jake Rosenblum</div>
-           <div class="member-role">Co-President</div>
-         </div>
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/shriyan-junnuthulla.jpg" alt="Shriyan Junnuthulla" onerror="this.style.display='none'; this.parentElement.textContent='SJ';">
-           </div>
-           <div class="member-name">Shriyan Junnuthulla</div>
-           <div class="member-role">Co-President</div>
-         </div>
-       </div>
-     </div>
+    <center> <div class="tier-title">Presidents</div></center>
+<div class="leadership-grid"
+     style="display:grid; grid-template-columns: repeat(3, 1fr); justify-items:center; align-items:start;">
+
+  <!-- Jake (between col 1 & 2) -->
+  <div class="team-member"
+       style="grid-column: 1 / span 2; grid-row: 1; justify-self:center;">
+    <div class="member-avatar">
+      <img src="/assets/team/jake-rosenblum.jpg" alt="Jake Rosenblum"
+           onerror="this.style.display='none'; this.parentElement.textContent='JR';">
+    </div>
+    <div class="member-name">Jake Rosenblum</div>
+    <div class="member-role">Co-President</div>
+  </div>
+
+  <!-- Shriyan (between col 2 & 3) -->
+  <div class="team-member"
+       style="grid-column: 2 / span 2; grid-row: 1; justify-self:center;">
+    <div class="member-avatar">
+      <img src="/assets/team/shriyan-junnuthulla.jpg" alt="Shriyan Junnuthulla"
+           onerror="this.style.display='none'; this.parentElement.textContent='SJ';">
+    </div>
+    <div class="member-name">Shriyan Junnuthulla</div>
+    <div class="member-role">Co-President</div>
+  </div>
+
+</div>
+
+
+
 
      <div class="org-connector"></div>
 
