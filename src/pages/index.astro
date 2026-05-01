@@ -1,545 +1,284 @@
 ---
-import { Image } from 'astro:assets';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
+import Contactform from "@components/contactform.astro";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import '../styles/global.css';
 ---
 
-<Layout title="Mitosisphere — Multiplying Success, One Division at a Time">
-  <!-- Firework Container -->
-  <div id="fireworks-container"></div>
+<Layout title="Mitosisphere: Multiplying Success, One Division at a Time">
+  <style>
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    }
 
-  <!-- Present Boxes -->
-  <div class="present-box" id="present-bioblitz" data-clicks="0">
-    <div class="box-3d">
-      <div class="box-face box-front"></div>
-      <div class="box-face box-back"></div>
-      <div class="box-face box-left"></div>
-      <div class="box-face box-right"></div>
-      <div class="box-face box-top"></div>
-      <div class="box-face box-bottom"></div>
-      <div class="ribbon ribbon-h"></div>
-      <div class="ribbon ribbon-v"></div>
-      <div class="bow"></div>
-    </div>
-  </div>
+    :root {
+      --primary-purple: #8b5cf6; 
+      --primary-blue: #3b82f6;   
+      --light-purple: #c4b5fd;   
+      --light-blue: #93c5fd;    
+      --dark-bg: #111827;        
+      --text-dark: #1f2937;
+      --text-light: #d1d5db;     
+    }
 
-  <div class="present-box present-box-2" id="present-guide" data-clicks="0">
-    <div class="box-3d">
-      <div class="box-face box-front"></div>
-      <div class="box-face box-back"></div>
-      <div class="box-face box-left"></div>
-      <div class="box-face box-right"></div>
-      <div class="box-face box-top"></div>
-      <div class="box-face box-bottom"></div>
-      <div class="ribbon ribbon-h"></div>
-      <div class="ribbon ribbon-v"></div>
-      <div class="bow"></div>
-    </div>
-  </div>
-
-  <!-- Popup Overlay -->
-  <div class="popup-overlay" id="popup-overlay">
-    <div class="popup-content" id="popup-content">
-      <div class="popup-inner">
-        <!-- Content will be inserted dynamically -->
-      </div>
-    </div>
-  </div>
-
-  <nav id="nav">
-    <div class="nav-content">
-      <div class="logo">
-        <img src="/logo.png" alt="Mitosisphere Logo">
-        Mitosisphere
-      </div>
-      <div class="nav-links">
-        <a>Home</a>
-        <a>Initiatives</a>
-        <a>Competitions</a>
-        <a>Team</a>
-        <a>Partners</a>
-      </div>
-    </div>
-  </nav>
-
-  <section id="hero">
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
+    .link-primary {
+      background-color: var(--primary-purple);
+      color: white;
+      transition: background-color 0.2s ease-in-out;
+      border: 1px solid transparent;
+    }
+    .link-primary:hover {
+      background-color: var(--primary-blue);
+    }
     
-    <div class="dna-helix">
-      <div class="dna-strand">
-        <div class="base-pair" style="top: 0%; animation-delay: 0s;"></div>
-        <div class="base-pair" style="top: 10%; animation-delay: 0.2s;"></div>
-        <div class="base-pair" style="top: 20%; animation-delay: 0.4s;"></div>
-        <div class="base-pair" style="top: 30%; animation-delay: 0.6s;"></div>
-        <div class="base-pair" style="top: 40%; animation-delay: 0.8s;"></div>
-        <div class="base-pair" style="top: 50%; animation-delay: 1s;"></div>
-        <div class="base-pair" style="top: 60%; animation-delay: 1.2s;"></div>
-        <div class="base-pair" style="top: 70%; animation-delay: 1.4s;"></div>
-        <div class="base-pair" style="top: 80%; animation-delay: 1.6s;"></div>
-        <div class="base-pair" style="top: 90%; animation-delay: 1.8s;"></div>
-      </div>
-    </div>
+    .glow-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0) 70%);
+      filter: blur(40px);
+      z-index: 0;
+    }
     
-    <div class="hero-content">
-      <div class="hero-badge">🎉 Start Your Year Dividing & Conquering!</div>
-      <div class="typing-title">
-        <div class="typing-line" id="typingText"></div>
-        <span class="cursor"></span>
-      </div>
-      <p class="hero-subtitle">
-        We create expert-designed resources for advanced biology. Join 1000+ students from 19 countries mastering USABO.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn btn-primary">
-          Explore Resources →
-        </a>
-        <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">
-          <img src="/assets/icons/discord-logo.png" alt="Discord" style="width: 20px; height: 20px;">
-          Join our Discord →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="stats">
-    <div class="cell-animation" style="left: 8%; top: 50%;">
-      <div class="cell" style="animation-delay: 0s;"></div>
-      <div class="cell" style="animation-delay: 1s; border-color: var(--blue);"></div>
-    </div>
-
-    <div class="stats-container">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number" data-target="1000">0</div>
-          <div class="stat-label">Competition Participants<br>from 19 Countries</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="553">0</div>
-          <div class="stat-label">Active Community Members</div>
-          <a href="https://discord.gg/Sq3nTXyS6D" target="_blank" class="stat-link">
-            <span class="discord-icon"></span>
-            Join our Discord →
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cell-animation" style="right: 8%; left: auto; top: 50%;">
-      <div class="cell" style="animation-delay: 0.5s; border-color: var(--indigo);"></div>
-      <div class="cell" style="animation-delay: 1.5s;"></div>
-    </div>
-  </section>
-
-  <section id="featured-guide">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%;">
-      <div class="section-title" style="margin-bottom: 40px;">
-        <h2><span class="typing-line">Featured Resources</span></h2>
-      </div>
-
-      <div class="featured-resources-grid">
-        <!-- Lamnhaj's Guide -->
-        <div class="featured-resource-card">
-          <div class="resource-badge">First Edition Out!</div>
-          <h3>Lamnhaj's Guide to USABO</h3>
-          <p>The ultimate USABO textbook, featuring high-yield topics, proven study strategies, and hundreds of practice problems with detailed solutions.</p>
-          <a href="https://guide.mitosisphere.org" class="btn btn-primary">Read Now</a>
-        </div>
-
-        <!-- BioBlitz -->
-        <div class="featured-resource-card">
-          <div class="resource-badge resource-badge-new">Just Released!</div>
-          <h3>BioBlitz</h3>
-          <p>Competitive biology game to sharpen your skills while climbing the ELO leaderboards. Challenge yourself and compete with students worldwide!</p>
-          <a href="https://bioblitz.net" target="_blank" class="btn btn-primary">Play Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="initiatives">
-    <div class="section-title">
-      <h2><span class="typing-line">Our Initiatives</span></h2>
-      <p>Comprehensive programs to power your biology journey</p>
-    </div>
-
-    <div class="carousel-container">
-      <button class="carousel-arrow carousel-arrow-left" id="prevBtn">‹</button>
-      <button class="carousel-arrow carousel-arrow-right" id="nextBtn">›</button>
-      
-      <div class="carousel" id="carousel">
-        <div class="initiative-card active">
-          <div class="initiative-icon">🏆</div>
-          <h3>Competitions</h3>
-          <div class="initiative-status">Active</div>
-          <p>Challenge yourself with our comprehensive competition suite: p+q series (Open & Semifinals), BioBowl (Science Bowl format), and Monthly Challenges for continuous practice throughout the year.</p>
-        </div>
-
-        <div class="initiative-card">
-          <div class="initiative-icon">📅</div>
-          <h3>Monthly Challenges</h3>
-          <div class="initiative-status">Running</div>
-          <p>Stay sharp year-round! New question sets every month with varied difficulty levels, community discussions, and detailed solutions to keep your skills fresh.</p>
-        </div>
-
-        <div class="initiative-card">
-          <div class="initiative-icon">⚡</div>
-          <h3>BioBlitz</h3>
-          <div class="initiative-status initiative-status-live">Live Now!</div>
-          <p>Competitive biology game now available! Sharpen your skills while increasing your ELO and climbing the ranking leaderboards.</p>
-          <a href="https://bioblitz.net" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
-            Play Now →
-          </a>
-        </div>
-
-        <div class="initiative-card">
-          <div class="initiative-icon">🤝</div>
-          <h3>Mentorship Program</h3>
-          <div class="initiative-status">Active</div>
-          <p>Free personalized coaching from IBO medalists and ISEF finalists. Get expert guidance on USABO preparation, research competitions, internship applications, and more.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNus46S6bVyhOg34M5q6AKYT6MIoIsTjNDT9EixfXXbRxBCw/viewform" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
-            Apply Now
-          </a>
-        </div>
-
-        <div class="initiative-card">
-          <div class="initiative-icon">🎓</div>
-          <h3>USABO Webinars</h3>
-          <div class="initiative-status">Active</div>
-          <p>Learn from experienced researchers and competitors. Regular sessions covering research methods, finding mentors, preparing for science fairs, and advanced biology topics. Hosted on Discord.</p>
-        </div>
-      </div>
-
-      <div class="carousel-nav">
-        <button class="carousel-dot active"></button>
-        <button class="carousel-dot"></button>
-        <button class="carousel-dot"></button>
-        <button class="carousel-dot"></button>
-        <button class="carousel-dot"></button>
-      </div>
-    </div>
-  </section>
-
-  <section id="competitions">
-    <div class="competitions-container">
-      <div class="section-title">
-        <h2><span class="typing-line">Our Competitions</span></h2>
-        <p>Challenge yourself with USABO-style exams and more</p>
-      </div>
-
-      <div class="competition-main">
-        <div class="competition-header">
-          <h3><span class="typing-line">p+q Competition Series</span></h3>
-          <p style="color: var(--text-muted); font-size: 18px;">Annual USABO-style exams for students worldwide</p>
-          <p style="color: var(--text-muted); font-size: 16px; margin-top: 10px;">Open to high school students globally, our exams will take place online. They will be available to take all day. Explore the complete guidelines in our official rules document!</p>
-        </div>
-
-        <div class="p-q-grid">
-          <div class="p-q-round">
-            <div class="latex-formula">\(p + q = 1\)</div>
-            <h4>Open Round</h4>
-            <p>First round mirroring USABO Open difficulty. 50 multiple-choice questions in 50 minutes with 5 choices per question.</p>
-            <a href="https://forms.gle/7oaq31kiAhSstxwY6" target="_blank" class="btn btn-secondary">
-              Register
-            </a>
-          </div>
-
-          <div class="p-q-round">
-            <div class="latex-formula">\((p + q)^2 = 1\)</div>
-            <h4>Semifinal Round</h4>
-            <p>Second round corresponding to USABO Semifinals. 100 questions in 120 minutes: 65 multiple-choice and 35 multiple-true/false.</p>
-            <div style="margin-top: 15px; padding: 10px; background: rgba(154, 80, 216, 0.1); border-radius: 8px; color: var(--purple); font-size: 14px; font-weight: 600;">
-              ⭐ Qualification Required (Top performers from Open Round)
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://forms.gle/7oaq31kiAhSstxwY6" target="_blank" class="btn btn-primary">
-            Get Competition Updates
-          </a>
-          <a href="/assets/rules.pdf" target="_blank" class="btn btn-secondary">
-            Read the Rules
-          </a>
-        </div>
-      </div>
-
-      <div class="other-competitions">
-        <div class="other-comp-card">
-          <div class="comp-icon">🎯</div>
-          <h4>Mitosisphere BioBowl</h4>
-          <p>Science Bowl format adapted for biology. Fast-paced team competition testing your quick recall and deep understanding of biological concepts.</p>
-        </div>
-
-        <div class="other-comp-card">
-          <div class="comp-icon">📅</div>
-          <h4>Monthly Challenges</h4>
-          <p>New question sets released every month with varied difficulty. Practice consistently, discuss with the community, and track your improvement.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="team">
-   <div class="team-container">
-     <div class="section-title">
-       <h2><span class="typing-line">Meet Our Team</span></h2>
-       <p>Passionate students building resources for the biology community</p>
-     </div>
-
-     <div class="leadership-tier">
-       <div class="tier-title">Co-Presidents</div>
-       <div class="leadership-grid">
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/jake-rosenblum.jpg" alt="Jake Rosenblum" onerror="this.style.display='none'; this.parentElement.textContent='JR';">
-           </div>
-           <div class="member-name">Jake Rosenblum</div>
-           <div class="member-role">Co-President</div>
-         </div>
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/shriyan-junnuthulla.jpg" alt="Shriyan Junnuthulla" onerror="this.style.display='none'; this.parentElement.textContent='SJ';">
-           </div>
-           <div class="member-name">Shriyan Junnuthulla</div>
-           <div class="member-role">Co-President</div>
-         </div>
-       </div>
-     </div>
-
-     <div class="org-connector"></div>
-
-     <div class="leadership-tier">
-       <div class="tier-title">Section Leads</div>
-       <div class="leadership-grid">
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/srikar-reddy.jpg" alt="Srikar Reddy" onerror="this.style.display='none'; this.parentElement.textContent='SR';">
-           </div>
-           <div class="member-name">Srikar Reddy</div>
-           <div class="member-role">Head of Content</div>
-         </div>
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/aarnav-suwal.jpg" alt="Aarnav Suwal" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
-           </div>
-           <div class="member-name">Aarnav Suwal</div>
-           <div class="member-role">Chief Technology Officer</div>
-         </div>
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/candace-pun.jpg" alt="Candace Pun" onerror="this.style.display='none'; this.parentElement.textContent='CP';">
-           </div>
-           <div class="member-name">Candace Pun</div>
-           <div class="member-role">Head of Outreach</div>
-         </div>
-       </div>
-     </div>
-
-     <div class="org-connector"></div>
-
-     <div class="leadership-tier">
-       <div class="tier-title">Team Members</div>
-       <div class="team-grid">
-           <div class="team-member">
-            <div class="member-avatar">
-             <img src="/assets/team/eric-liu.jpg" alt="Eric Liu" onerror="this.style.display='none'; this.parentElement.textContent='EL';">
-           </div>
-           <div class="member-name">Eric Liu</div>
-           <div class="member-role">Content Team</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/donelly-qin.jpg" alt="Donelly Qin" onerror="this.style.display='none'; this.parentElement.textContent='DQ';">
-           </div>
-           <div class="member-name">Donelly Qin</div>
-           <div class="member-role">Content Team</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/Sid.png" alt="Siddhanth Venkatesan" onerror="this.style.display='none'; this.parentElement.textContent='SV';">
-           </div>
-           <div class="member-name">Siddhanth Venkatesan</div>
-           <div class="member-role">Content Team</div>
-         </div>
-
-          <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/aniketh_gudi.jpg" alt="Aniketh Gudi" onerror="this.style.display='none'; this.parentElement.textContent='AG';">
-           </div>
-           <div class="member-name">Aniketh Gudi</div>
-           <div class="member-role">Content Team</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/dipisha-subedi.jpg" alt="Dipisha Subedi" onerror="this.style.display='none'; this.parentElement.textContent='DS';">
-           </div>
-           <div class="member-name">Dipisha Subedi</div>
-           <div class="member-role">Technology Team</div>
-         </div>
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/elijah-feldman.jpg" alt="Elijah Feldman" onerror="this.style.display='none'; this.parentElement.textContent='EF';">
-           </div>
-           <div class="member-name">Elijah Feldman</div>
-           <div class="member-role">Technology Team</div>
-         </div>
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/yuva-gade.jpg" alt="Yuva Gade" onerror="this.style.display='none'; this.parentElement.textContent='YG';">
-           </div>
-           <div class="member-name">Yuva Gade</div>
-           <div class="member-role">Technology Team</div>
-         </div>
+    .title-sheen {
+       background: linear-gradient(
+        100deg,
+        #d1d5db 20%,
+        #ffffff 50%,
+        #d1d5db 80%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
   
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/dermot-lu.jpg" alt="Dermot Lu" onerror="this.style.display='none'; this.parentElement.textContent='DL';">
-           </div>
-           <div class="member-name">Dermot Lu</div>
-           <div class="member-role">Technology Team</div>
-         </div>
 
-         <div class="team-member">
-            <div class="member-avatar">
-             <img src="/assets/team/mihir_kashyap.jpg" alt="Mihir Kashyap" onerror="this.style.display='none'; this.parentElement.textContent='MK';">
-           </div>
-           <div class="member-name">Mihir Kashyap</div>
-           <div class="member-role">Technology Team</div>
-         </div>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<body>
 
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/yogan-mahesh.jpg" alt="Yogan Mahesh" onerror="this.style.display='none'; this.parentElement.textContent='YM';">
-           </div>           
-           <div class="member-name">Yogan Mahesh</div>
-           <div class="member-role">Outreach Team</div>
-         </div>
+  <!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-         <div class="team-member">
-            <div class="member-avatar">
-             <img src="/assets/team/kiaan-saraiya.jpg" alt="Kiaan Saraiya" onerror="this.style.display='none'; this.parentElement.textContent='KS';">
-           </div>                
-           <div class="member-name">Kiaan Saraiya</div>
-           <div class="member-role">Outreach Team</div>
-         </div>
+  gtag('config', 'G-MTGS0M0Q0Q');
+</script>
 
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/rosa-lee.jpg" alt="Rosa Lee" onerror="this.style.display='none'; this.parentElement.textContent='RL';">
-           </div>    
-           <div class="member-name">Rosa Lee</div>
-           <div class="member-role">Outreach Team</div>
-         </div>
 
-            <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/Arnav.png" alt="Arnav Dusad" onerror="this.style.display='none'; this.parentElement.textContent='AD';">
-           </div>
-           <div class="member-name">Arnav Dusad</div>
-           <div class="member-role">Outreach Team</div>
-         </div>
 
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/abdus-samad-shaik.jpg" alt="Abdus-Samad Shaik" onerror="this.style.display='none'; this.parentElement.textContent='AS';">
-           </div>
-           <div class="member-name">Abdus-Samad Shaik</div>
-           <div class="member-role">Content & Outreach Teams</div>
-         </div>
 
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/abbie-affum.jpg" alt="Abbie Affum" onerror="this.style.display='none'; this.parentElement.textContent='AA';">
-           </div>
-           <div class="member-name">Abbie Affum</div>
-           <div class="member-role">Community Engagement Team</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/sarah-park.jpg" alt="Sarah Park" onerror="this.style.display='none'; this.parentElement.textContent='SP';">
-           </div>
-           <div class="member-name">Sarah Park</div>
-           <div class="member-role">Community Engagement Team</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/tol-prasad.jpg" alt="Tol Prasad Kafle" onerror="this.style.display='none'; this.parentElement.textContent='TP';">
-           </div>
-           <div class="member-name">Tol Prasad Kafle</div>
-           <div class="member-role">Nepal Branch Head</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/jason-yan.jpg" alt="Jason Yan" onerror="this.style.display='none'; this.parentElement.textContent='JY';">
-           </div>
-           <div class="member-name">Jason Yan</div>
-           <div class="member-role">Outreach Team</div>
-         </div>
-
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/deepak-praveen-kumar.png" alt="Deepak Praveen Kumar" onerror="this.style.display='none'; this.parentElement.textContent='DP';">
-           </div>
-           <div class="member-name">Deepak Praveen Kumar</div>
-           <div class="member-role">India Branch Head</div>
-         </div>
-       </div>
-     </div>
-
-     <div class="org-connector"></div>
-
-     <div class="leadership-tier">
-       <div class="tier-title">Advisory Board</div>
-       <div class="leadership-grid">
-         <div class="team-member">
-           <div class="member-avatar">
-             <img src="/assets/team/ethan-guo.jpg" alt="Ethan Guo" onerror="this.style.display='none'; this.parentElement.textContent='EG';">
-           </div>
-           <div class="member-name">Ethan Guo</div>
-           <div class="member-role">Founder & Advisor</div>
-         </div>
-       </div>
-     </div>
-
-     <div class="join-team-cta" style="margin-top: 80px;">
-       <h3>🎉 Join Our Team!</h3>
-       <p>Help us expand our outreach and help create amazing resources! Leadership positions will become vacant in a few months, and we will fill them from our staff. If you have management or leadership ability (or are interested in marketing and outreach), we encourage you to join us!</p>
-       <a href="https://forms.gle/jePabrYs13KvFSqt9" target="_blank" class="btn btn-primary">
-         Apply to Join Staff
-       </a>
-     </div>
-   </div>
- </section>
-
-   <section id="partners">
-    <div class="partners-container">
-      <div class="section-title" style="margin-left: 0;">
-        <h2><span class="typing-line">Our Partners</span></h2>
-        <p>Thank you for helping us reach a wider audience</p>
-      </div>
-
-      <div class="partners-grid">
-        <div class="partner-card">
-          <img src="/partners/bods.png" alt="Biology Olympiads Discord Server Logo" />
+  <div class="relative overflow-hidden bg-gray-900 text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/50 to-blue-900/50"></div>
+    <div class="glow-effect"></div>
+    <Container class="relative z-10">
+      <main class="text-center py-24 md:py-32">
+        <div class="mb-4">
+          <img src="/logo.png" alt="Mitosisphere Logo" class="mx-auto w-28 h-28 md:w-36 md:h-36" />
         </div>
-        <div class="partner-card">
-          <img src="/partners/pandorax.png" alt="Pandorax Logo" />
-        </div>
-        <div class="partner-card">
-          <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" />
-        </div>
-        <div class="partner-card">
-          <img src="/partners/baologyLogo.png" alt="Biology Prep Logo" />
-        </div>
-      </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight title-sheen">
+          Mitosisphere
+        </h1>
+        
+        <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-gray-300 mt-6">
+          Multiplying Success, One Division at a Time.
+        </p>
+      </main>
+    </Container>
+  </div>
+
+
+
+
+<div class="bg-[#E2E8F0]">
+<main class = "pt-16 pb-8">
+
+
+      <Sectionhead>
+        <Fragment slot="title"><span class="text-gray-800 text-5xl">We are Mitosisphere</span></Fragment>
+        <Fragment slot="desc"><span class="text-gray-600 text-3xl">
+          We create high quality resources for the United States Biology Olympiad (USABO) exam.
+
+        </span>
+          </Fragment>
+
+      </Sectionhead>
+
+          
+  <Fragment slot="title">
+    <div class = "flex flex-col items-center gap-y-8">
+      <span class="text-gray-800 text-4xl">1000+ Exam Competitors, from 19 Different Countries</span>
+
+      <span class="text-gray-800 text-4xl">300+ Active Discord Users</span>  
+
     </div>
-  </section>
+  </Fragment>
 
-<script is:inline src="/scripts/main.js"></script>
+
+
+  <Fragment slot="title">
+<div class="pt-16 flex justify-center items-center gap-x-12 sm:gap-x-24">
+
+</div> 
+
+
+  </Fragment>
+      
+
+
+
+  </main>
+  </div>
+
+
+
+      
+    
+  <div class="bg-white">
+      <Container>
+      <main class="py-16">
+        <Sectionhead>
+          <Fragment slot="title"><span class="text-gray-800 text-4xl">Our Initiatives</span></Fragment>
+          <Fragment slot="desc" class="text-gray-600">
+            Resources Powering your USABO Journey
+          </Fragment>
+        </Sectionhead>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+          <div class="bg-purple-50 p-8 rounded-lg text-center border border-purple-200 shadow-sm">
+            <Icon name="uil:dna" class="w-12 h-12 mx-auto mb-4 text-purple-600" />
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Exams</h3>
+            <p class="text-gray-600">
+              We host our signature open and semifinal exams each year.
+            </p>
+          </div>
+          <div class="bg-blue-50 p-8 rounded-lg text-center border border-blue-200 shadow-sm">
+            <Icon name="uil:brain" class="w-12 h-12 mx-auto mb-4 text-blue-600" />
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">USABO guide</h3>
+            <p class="text-gray-600">
+              Everything you need to know to study for and succeed on the USABO exams.
+            </p>
+          </div>
+          <div class="bg-indigo-50 p-8 rounded-lg text-center border border-indigo-200 shadow-sm">
+            <Icon name="uil:microscope" class="w-12 h-12 mx-auto mb-4 text-indigo-600" />
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">bioblitz</h3>
+            <p class="text-gray-600">
+              Our biology practice platform, helping you sharpen your biology skills in a competitive environment.
+            </p>
+          </div>
+        </div>
+      </main>
+    </Container>
+  </div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="bg-[#F1F5F9] p-8 rounded-lg">
+<Container>
+
+  <Sectionhead>
+          <Fragment slot="title"><span class="text-gray-800 text-5xl">Thank you to our partners!</span></Fragment>
+
+
+  </Sectionhead>
+
+<div class="flex justify-center items-center gap-x-12 sm:gap-x-24">
+
+  <img src="/partners/arbcLogo.png" alt="ARBC Logo" class="w-1/3 h-auto max-w-xs">
+  <img src="/partners/bods.png" alt="BODS Logo" class="w-1/3 h-auto max-w-sm">
+
+</div>
+
+<div class="mt-24 flex justify-center items-center gap-x-12 sm:gap-x-24">
+
+  <img src="/partners/pandorax.png" alt="Pandorax Logo" class="w-1/3 h-auto max-w-xs">
+  <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" class="w-1/3 h-auto max-w-xs">
+
+</div>
+
+
+</Container>
+
+</div>
+
+
+
+
+
+
+
+
+  
+
+  <div class="bg-[#E2E8F0]">
+    <Container class>
+      <main class="pt-20 text-center">
+        <Sectionhead>
+          <Fragment slot="title"><span class="text-gray-800">Join Us!</span></Fragment>
+          <Fragment slot="desc" class="text-gray-600">
+            We are always looking for passionate individuals to join our team.
+          </Fragment>
+        </Sectionhead>
+        <div class="max-w-3xl mx-auto mt-8">
+          <p class="text-lg leading-relaxed text-gray-700">
+            Interested in joining our team? We are welcoming new members, especially <b>web designers</b> and <b>international branches</b> to expand our reach.
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-gray-700">
+            Be part of a global movement to inspire and support future biologists. There are plenty of core leadership positions available!
+          </p>
+          <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
+            <Link
+              href="https://forms.gle/jePabrYs13KvFSqt9"
+              target="_blank"
+              class:list={["superround link-primary"]}
+              rel="noopener"
+            >
+              <Icon name="uil:file-alt" class="w-5 h-5 mr-2" />
+              Staff Form
+            </Link>
+            <Link
+              href="https://discord.gg/Sq3nTXyS6D"
+              target="_blank"
+              class:list={["superround link-primary"]}
+              rel="noopener"
+            >
+              <Icon name="simple-icons:discord" class="w-5 h-5 mr-2" />
+              Join our Discord
+            </Link>
+          </div>
+        </div>
+      </main>
+    </Container>
+  </div>
+  
+
+
+
+  </body>
+ 
+<footer class="w-full text-center pt-16 border-t border-gray-200">
+  <p class="text-sm text-gray-500">
+    &copy; {new Date().getFullYear()} Mitosisphere. All Rights Reserved. &bull;
+    <a href="/contact" class="hover:underline">Contact Us</a>
+  </p>
+</footer>
+  
+
 </Layout>
