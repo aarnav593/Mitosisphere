@@ -9,7 +9,7 @@ import Layout from '@layouts/Layout.astro';
 
 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
     <div class="text-center">
-      <h1 class="text-6xl lg:text-7xl font-bold text-[#000000] drop-shadow-lg">404</h1>
+      <h1 class="text-6xl lg:text-7xl font-bold text-[#000000] drop-shadow-lg">404 (You're in the Wrong Place)</h1>
       <p class="text-xl mt-4 text-[#000000] drop-shadow-md">Maybe you were looking for one of my sister cells?</p>
     </div>
   </div>
@@ -34,7 +34,19 @@ import Layout from '@layouts/Layout.astro';
     height: 100px;
     will-change: transform; 
   }
+
 </style>
+  <!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MTGS0M0Q0Q');
+</script>
+
+
 
 <script>
   
