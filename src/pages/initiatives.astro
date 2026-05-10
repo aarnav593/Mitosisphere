@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Link from "@components/ui/link.astro";
-import { Icon } from "astro-icon/components";
 import Container from "@components/container.astro";
 import '../styles/global.css';
 
@@ -13,13 +12,13 @@ import '../styles/global.css';
       --color-logo-purple: #9A50D8;
       --color-logo-blue: #3FB8D3;
       --color-logo-text: #6A6AD4;
-      --color-bg: #F8FAFC;
-      --color-card-bg: #FFFFFF;
-      --color-heading: #1E293B;
-      --color-body: #475569;
-      --color-subtle-text: #94A3B8;
-      --color-border: #E2E8F0;
-      --color-accent-border: #CBD5E1;
+      --color-bg: #111827;
+      --color-card-bg: #1F2937;
+      --color-heading: #F9FAFB;
+      --color-body: #9CA3AF;
+      --color-subtle-text: #6B7280;
+      --color-border: #374151;
+      --color-accent-border: #4B5563;
     }
 
     body {
@@ -44,51 +43,20 @@ import '../styles/global.css';
     .initiative-card:hover {
       transform: translateY(-5px);
       border-color: var(--color-accent-border);
-      box-shadow: 0 10px 30px -10px rgba(30, 41, 59, 0.1);
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 3px 12px;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .status-active {
-      background-color: #dcfce7;
-      color: #15803d;
-    }
-
-    .status-live {
-      background-color: #dcfce7;
-      color: #15803d;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    .status-running {
-      background-color: #dbeafe;
-      color: #1d4ed8;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.3); }
-      50% { box-shadow: 0 0 0 6px rgba(21, 128, 61, 0); }
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
     .hero-button {
       background-color: var(--color-logo-text);
       color: white;
-      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.3);
+      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.35);
       transition: all 0.3s ease;
     }
 
     .hero-button:hover {
       transform: translateY(-2px);
       background-color: #5555C3;
-      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.35);
+      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.45);
     }
   </style>
 
@@ -104,31 +72,70 @@ import '../styles/global.css';
     gtag('config', 'G-MTGS0M0Q0Q');
   </script>
 
-  <div class="bg-slate-50 border-b border-slate-200">
+  <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
     <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
-      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-800">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-50">
         Our Initiatives
       </h1>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto text-slate-600 mt-6">
-        Comprehensive programs designed to power your biology journey — from competitions to mentorship.
+      <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
+        Comprehensive resources designed to power your biology journey, from competitions to mentorship.
       </p>
     </Container>
   </div>
 
   <main>
-    <section class="bg-white py-16 md:py-24">
+    <section class="py-16 md:py-24" style="background-color: var(--color-card-bg);">
       <Container>
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+          <!-- Lamnahj -->
+          <div class="initiative-card p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">📖</span>
+              <h3 class="text-2xl font-bold text-gray-100">Lamnhaj's Guide to USABO</h3>
+            </div>
+            <p class="text-gray-400 leading-relaxed">
+              A camper-reviewed 200-page textbook with detailed topic guides, and nearly 300 practice problems.
+            </p>
+            <div class="mt-6">
+              <Link
+                href="guide.mitosisphere.org"
+                target="_blank"
+                rel="noopener"
+                class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
+                Open Lamnhaj →
+              </Link>
+            </div>
+          </div>
+
+          <!-- BioBlitz -->
+          <div class="initiative-card p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">⚡</span>
+              <h3 class="text-2xl font-bold text-gray-100">BioBlitz</h3>
+            </div>
+            <p class="text-gray-400 leading-relaxed">
+              Competitive biology game now available! Sharpen your skills while increasing your ELO and climbing the ranking leaderboards. Challenge yourself and compete with students worldwide.
+            </p>
+            <div class="mt-6">
+              <Link
+                href="https://bioblitz.net"
+                target="_blank"
+                rel="noopener"
+                class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
+                Play Now →
+              </Link>
+            </div>
+          </div>
 
           <!-- Competitions -->
           <div class="initiative-card p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-3xl">🏆</span>
-              <h3 class="text-2xl font-bold text-slate-800">Competitions</h3>
+              <h3 class="text-2xl font-bold text-gray-100">Competitions</h3>
             </div>
-            <span class="status-badge status-active mb-4 inline-block">Active</span>
-            <p class="text-slate-600 leading-relaxed">
-              Challenge yourself with our comprehensive competition suite: the p+q series (Open &amp; Semifinals mirroring USABO difficulty), Mitosisphere BioBowl (Science Bowl format), and Monthly Challenges for continuous practice throughout the year.
+            <p class="text-gray-400 leading-relaxed">
+              Challenge yourself with our comprehensive competition suite: the P + Q series (Opens &amp; Semifinals mirroring USABO difficulty), Mitosisphere BioBowl (Science Bowl format), and Monthly Challenges for continuous practice throughout the year.
             </p>
             <div class="mt-6">
               <Link
@@ -143,10 +150,9 @@ import '../styles/global.css';
           <div class="initiative-card p-8">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-3xl">📅</span>
-              <h3 class="text-2xl font-bold text-slate-800">Monthly Challenges</h3>
+              <h3 class="text-2xl font-bold text-gray-100">Monthly Challenges</h3>
             </div>
-            <span class="status-badge status-running mb-4 inline-block">Running</span>
-            <p class="text-slate-600 leading-relaxed">
+            <p class="text-gray-400 leading-relaxed">
               Stay sharp year-round! New question sets released every month with varied difficulty levels, community discussions, and detailed solutions to keep your skills fresh between competition seasons.
             </p>
             <div class="mt-6">
@@ -160,35 +166,13 @@ import '../styles/global.css';
             </div>
           </div>
 
-          <!-- BioBlitz -->
-          <div class="initiative-card p-8">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">⚡</span>
-              <h3 class="text-2xl font-bold text-slate-800">BioBlitz</h3>
-            </div>
-            <span class="status-badge status-live mb-4 inline-block">🟢 Live Now!</span>
-            <p class="text-slate-600 leading-relaxed">
-              Competitive biology game now available! Sharpen your skills while increasing your ELO and climbing the ranking leaderboards. Challenge yourself and compete with students worldwide.
-            </p>
-            <div class="mt-6">
-              <Link
-                href="https://bioblitz.net"
-                target="_blank"
-                rel="noopener"
-                class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Play Now →
-              </Link>
-            </div>
-          </div>
-
           <!-- Mentorship Program -->
-          <div class="initiative-card p-8">
+          <div class="initiative-card p-8 md:col-span-2">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-3xl">🤝</span>
-              <h3 class="text-2xl font-bold text-slate-800">Mentorship Program</h3>
+              <h3 class="text-2xl font-bold text-gray-100">Mentorship Program</h3>
             </div>
-            <span class="status-badge status-active mb-4 inline-block">Active</span>
-            <p class="text-slate-600 leading-relaxed">
+            <p class="text-gray-400 leading-relaxed max-w-3xl">
               Free personalized coaching from IBO medalists and ISEF finalists. Get expert guidance on USABO preparation, research competitions, internship applications, and more.
             </p>
             <div class="mt-6">
@@ -198,27 +182,6 @@ import '../styles/global.css';
                 rel="noopener"
                 class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
                 Apply Now →
-              </Link>
-            </div>
-          </div>
-
-          <!-- USABO Webinars -->
-          <div class="initiative-card p-8 md:col-span-2">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">🎓</span>
-              <h3 class="text-2xl font-bold text-slate-800">USABO Webinars</h3>
-            </div>
-            <span class="status-badge status-active mb-4 inline-block">Active</span>
-            <p class="text-slate-600 leading-relaxed max-w-3xl">
-              Learn from experienced researchers and competitors. Regular sessions covering research methods, finding mentors, preparing for science fairs, and advanced biology topics. All webinars are hosted on our Discord server — join to get notified of upcoming sessions.
-            </p>
-            <div class="mt-6">
-              <Link
-                href="https://discord.gg/Sq3nTXyS6D"
-                target="_blank"
-                rel="noopener"
-                class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Join Discord for Updates →
               </Link>
             </div>
           </div>

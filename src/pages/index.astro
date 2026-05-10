@@ -10,21 +10,20 @@ import '../styles/global.css';
 
 <Layout title="Mitosisphere: Multiplying Success, One Division at a Time">
   <style>
-    /* NEW: Elegant & Academic Modern Palette */
     :root {
       --color-logo-purple: #9A50D8;
       --color-logo-blue: #3FB8D3;
       --color-logo-text: #6A6AD4;
 
-      --color-bg: #F8FAFC;         /* A very light, cool gray (slate-50) */
-      --color-card-bg: #FFFFFF;     /* Pure white for cards to lift them */
-      
-      --color-heading: #1E293B;      /* A deep, rich slate for headings (slate-800) */
-      --color-body: #475569;         /* A softer slate for body text (slate-600) */
-      --color-subtle-text: #94A3B8;  /* A lighter slate for muted text (slate-400) */
+      --color-bg: #111827;
+      --color-card-bg: #1F2937;
 
-      --color-border: #E2E8F0;       /* A subtle border color (slate-200) */
-      --color-accent-border: #CBD5E1; /* A slightly stronger border for hover (slate-300) */
+      --color-heading: #F9FAFB;
+      --color-body: #9CA3AF;
+      --color-subtle-text: #6B7280;
+
+      --color-border: #374151;
+      --color-accent-border: #4B5563;
     }
 
     body {
@@ -38,17 +37,17 @@ import '../styles/global.css';
       color: var(--color-heading);
       font-weight: 700;
     }
-    
+
     .hero-button {
       background-color: var(--color-logo-text);
       color: white;
-      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.3);
+      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.35);
       transition: all 0.3s ease;
     }
     .hero-button:hover {
       transform: translateY(-2px);
-      background-color: #5555C3; /* A slightly darker shade of the logo text color */
-      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.35);
+      background-color: #5555C3;
+      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.45);
     }
 
     .hero-secondary-button {
@@ -62,7 +61,7 @@ import '../styles/global.css';
       border-color: var(--color-logo-text);
       transform: translateY(-2px);
     }
-    
+
     .initiative-card {
       background-color: var(--color-card-bg);
       border: 1px solid var(--color-border);
@@ -72,11 +71,11 @@ import '../styles/global.css';
     .initiative-card:hover {
       transform: translateY(-5px);
       border-color: var(--color-accent-border);
-      box-shadow: 0 10px 30px -10px rgba(30, 41, 59, 0.1);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
-    
+
     .join-team-section {
-      background-color: #312E81; /* A deep, elegant indigo */
+      background-color: #1E1B4B;
     }
     .join-team-section h2,
     .join-team-section p {
@@ -84,12 +83,12 @@ import '../styles/global.css';
     }
     .join-team-section .link-primary {
       background-color: white;
-      color: #312E81;
+      color: #1E1B4B;
       font-weight: 700;
-      box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+      box-shadow: 0 4px 14px 0 rgba(0,0,0,0.2);
     }
     .join-team-section .link-primary:hover {
-       background-color: #F0F2FF;
+       background-color: #E0E7FF;
     }
 
     footer {
@@ -122,13 +121,13 @@ import '../styles/global.css';
     gtag('config', 'G-MTGS0M0Q0Q');
   </script>
 
-  <div class="bg-slate-50">
+  <div style="background-color: var(--color-bg);">
     <Container class="text-center pt-16 pb-16 md:pt-24 md:pb-24">
       <img src="/logo.png" alt="Mitosisphere Logo" class="mx-auto w-40 h-40 md:w-52 md:h-52 mb-8" />
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-slate-800">
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-gray-50">
         Empowering the Next Generation of <span style=`color: ${'var(--color-logo-text)'}`>Scholars</span>.
       </h1>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto text-slate-600 mt-6">
+      <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
         Mitosisphere provides expert-designed resources for advanced biology.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -149,65 +148,58 @@ import '../styles/global.css';
   </div>
 
   <main>
-    <section class="bg-white py-16 md:py-24 border-y border-slate-200">
+    <section class="py-16 md:py-24 border-y border-gray-700" style="background-color: var(--color-card-bg);">
       <Container>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-4xl mx-auto">
           <div>
-            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-blue)'}`>1000+</p>
-            <p class="text-slate-700 mt-3 text-lg">Exam Competitors from 19 Countries</p>
+            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-blue)'}`>1500+</p>
+            <p class="text-gray-300 mt-3 text-lg">Exam Competitors from 19 Countries</p>
           </div>
           <div>
-            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-purple)'}`>300+</p>
-            <p class="text-slate-700 mt-3 text-lg">Active Discord Community Members</p>
+            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-purple)'}`>600+</p>
+            <p class="text-gray-300 mt-3 text-lg">Active Discord Community Members</p>
           </div>
         </div>
       </Container>
     </section>
 
-    <section class="bg-slate-50 py-16 md:py-24">
+    <section class="py-16 md:py-24" style="background-color: var(--color-bg);">
       <Container>
         <Sectionhead>
           <Fragment slot="title">Our Initiatives:</Fragment>
           <Fragment slot="desc">Key resources to power your biology journey.</Fragment>
         </Sectionhead>
         <div class="grid md:grid-cols-3 gap-8 mt-12">
-          <div class="initiative-card p-8">
+          <div class="initiative-card p-8 flex flex-col">
             <Icon name="uil:dna" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-blue)'}` />
-            <h3 class="text-xl font-bold mb-3">Exams</h3>
-            <p class="leading-relaxed text-slate-600">
+            <h3 class="text-xl font-bold mb-3 text-gray-100">Exams</h3>
+            <p class="leading-relaxed text-gray-400 flex-grow">
               We host our signature USABO-style mock exams each year, providing realistic practice.
             </p>
+            <a href="/rules.pdf" target="_blank" rel="noopener" class="mt-5 self-start inline-flex items-center px-4 py-1.5 text-sm font-medium rounded-md border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-200 transition-colors duration-200">
+              View Rules
+            </a>
           </div>
-          <div class="initiative-card p-8">
+          <div class="initiative-card p-8 flex flex-col">
             <Icon name="uil:brain" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-purple)'}` />
-            <h3 class="text-xl font-bold mb-3">USABO Guide</h3>
-            <p class="leading-relaxed text-slate-600">
+            <h3 class="text-xl font-bold mb-3 text-gray-100">Lamnhaj's Guide to USABO</h3>
+            <p class="leading-relaxed text-gray-400 flex-grow">
               Everything you need to know to effectively study for and succeed on the USABO exams.
             </p>
+            <a href="https://guide.mitosisphere.org" target="_blank" rel="noopener" class="mt-5 self-start inline-flex items-center px-4 py-1.5 text-sm font-medium rounded-md border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-200 transition-colors duration-200">
+              Open Textbook
+            </a>
           </div>
-          <div class="initiative-card p-8">
-            <Icon name="uil:microscope" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-text)'}` />
-            <h3 class="text-xl font-bold mb-3">BioBlitz</h3>
-            <p class="leading-relaxed text-slate-600">
+          <div class="initiative-card p-8 flex flex-col">
+            <Icon name="uil:bolt" class="w-10 h-10 mb-5" style="color: #EAB308;" />
+            <h3 class="text-xl font-bold mb-3 text-gray-100">BioBlitz</h3>
+            <p class="leading-relaxed text-gray-400 flex-grow">
               Our interactive biology practice platform helps sharpen your USABO and medicine skills in a competitive format.
             </p>
+            <a href="https://bioblitz.net" target="_blank" rel="noopener" class="mt-5 self-start inline-flex items-center px-4 py-1.5 text-sm font-medium rounded-md border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-200 transition-colors duration-200">
+              Open BioBlitz
+            </a>
           </div>
-        </div>
-      </Container>
-    </section>
-
-    <section class="bg-white py-16 md:py-24 border-y border-slate-200">
-      <Container>
-        <Sectionhead>
-          <Fragment slot="title">Thank You to Our Partners!</Fragment>
-          <Fragment slot="desc">You've helped us reach a wider audience, and we appreciate you.</Fragment>
-        </Sectionhead>
-        <div class="mt-12 flex flex-wrap justify-center items-center gap-x-12 sm:gap-x-20 gap-y-12">
-          <img src="/partners/bods.png" alt="BODS Logo" class="max-h-16 w-auto transition-transform duration-300 hover:scale-105" />
-          <img src="/partners/pandorax.png" alt="Pandorax Logo" class="max-h-16 w-auto transition-transform duration-300 hover:scale-105" />
-          <img src="/partners/sciovirtual.png" alt="ScioVirtual Logo" class="max-h-16 w-auto transition-transform duration-300 hover:scale-105" />
-          <img src="/partners/baologyLogo.png" alt="Baology Logo" class="max-h-20 w-auto transition-transform duration-300 hover:scale-105" />
-
         </div>
       </Container>
     </section>
@@ -241,7 +233,7 @@ import '../styles/global.css';
       </Container>
     </section>
   </main>
-  
+
   <footer class="py-8">
     <p class="text-sm text-center">
       &copy; {new Date().getFullYear()} Mitosisphere. All Rights Reserved. &bull;

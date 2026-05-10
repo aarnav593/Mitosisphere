@@ -1,0 +1,113 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import '../styles/global.css';
+---
+
+<Layout title="Contact - Mitosisphere">
+  <style>
+    :root {
+      --color-logo-purple: #9A50D8;
+      --color-logo-blue: #3FB8D3;
+      --color-logo-text: #6A6AD4;
+      --color-bg: #111827;
+      --color-card-bg: #1F2937;
+      --color-heading: #F9FAFB;
+      --color-body: #9CA3AF;
+      --color-subtle-text: #6B7280;
+      --color-border: #374151;
+      --color-accent-border: #4B5563;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-body);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-heading);
+      font-weight: 700;
+    }
+
+    .contact-card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--color-accent-border);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .email-link {
+      color: var(--color-logo-text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .email-link:hover {
+      color: #8B8BED;
+    }
+  </style>
+
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MTGS0M0Q0Q');
+  </script>
+
+  <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
+    <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-50">
+        Contact Us
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mt-6">
+        Have a question or want to get in touch? Reach out to the right team below.
+      </p>
+    </Container>
+  </div>
+
+  <main>
+    <section class="py-16 md:py-24" style="background-color: var(--color-card-bg);">
+      <Container>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+          <div class="contact-card p-8">
+            <div class="mb-5">
+              <span class="text-3xl">✉️</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-100 mb-2">General Inquiries & Partnerships</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              For general questions, collaboration opportunities, or partnership requests, reach out to our main team.
+            </p>
+            <a href="mailto:mitosisphere@gmail.com" class="email-link">
+              mitosisphere@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-card p-8">
+            <div class="mb-5">
+              <span class="text-3xl">🛠️</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-100 mb-2">Technical Problems & Other Concerns</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              For website issues, technical bugs, or any other concerns not covered above, contact our technical team.
+            </p>
+            <a href="mailto:aarnavsuwal@gmail.com" class="email-link">
+              aarnavsuwal@gmail.com
+            </a>
+          </div>
+
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
