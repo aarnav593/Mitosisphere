@@ -1,77 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
 import Container from "@components/container.astro";
 import '../styles/global.css';
 
 ---
 
 <Layout title="Mitosisphere - Initiatives">
-  <style>
-    :root {
-      --color-logo-purple: #9A50D8;
-      --color-logo-blue: #3FB8D3;
-      --color-logo-text: #6A6AD4;
-      --color-bg: #111827;
-      --color-card-bg: #1F2937;
-      --color-heading: #F9FAFB;
-      --color-body: #9CA3AF;
-      --color-subtle-text: #6B7280;
-      --color-border: #374151;
-      --color-accent-border: #4B5563;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-body);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--color-heading);
-      font-weight: 700;
-    }
-
-    .initiative-card {
-      background-color: var(--color-card-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 0.75rem;
-      transition: all 0.3s ease;
-    }
-
-    .initiative-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--color-accent-border);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-button {
-      background-color: var(--color-logo-text);
-      color: white;
-      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.35);
-      transition: all 0.3s ease;
-    }
-
-    .hero-button:hover {
-      transform: translateY(-2px);
-      background-color: #5555C3;
-      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.45);
-    }
-  </style>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MTGS0M0Q0Q');
-  </script>
-
   <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
     <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
       <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-50">
@@ -89,9 +25,9 @@ import '../styles/global.css';
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
           <!-- Lamnahj -->
-          <div class="initiative-card p-8">
+          <div class="card p-8">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">📖</span>
+              <Icon name="uil:book-open" class="w-8 h-8 flex-shrink-0" style="color: var(--color-logo-purple);" />
               <h3 class="text-2xl font-bold text-gray-100">Lamnhaj's Guide to USABO</h3>
             </div>
             <p class="text-gray-400 leading-relaxed">
@@ -103,15 +39,15 @@ import '../styles/global.css';
                 target="_blank"
                 rel="noopener"
                 class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Open Lamnhaj →
+                Open Lamnhaj &rarr;
               </Link>
             </div>
           </div>
 
           <!-- BioBlitz -->
-          <div class="initiative-card p-8">
+          <div class="card p-8">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">⚡</span>
+              <Icon name="uil:bolt" class="w-8 h-8 flex-shrink-0" style="color: #EAB308;" />
               <h3 class="text-2xl font-bold text-gray-100">BioBlitz</h3>
             </div>
             <p class="text-gray-400 leading-relaxed">
@@ -123,15 +59,15 @@ import '../styles/global.css';
                 target="_blank"
                 rel="noopener"
                 class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Play Now →
+                Play Now &rarr;
               </Link>
             </div>
           </div>
 
           <!-- Competitions -->
-          <div class="initiative-card p-8">
+          <div class="card p-8">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">🏆</span>
+              <Icon name="uil:trophy" class="w-8 h-8 flex-shrink-0" style="color: var(--color-logo-blue);" />
               <h3 class="text-2xl font-bold text-gray-100">Competitions</h3>
             </div>
             <p class="text-gray-400 leading-relaxed">
@@ -141,15 +77,15 @@ import '../styles/global.css';
               <Link
                 href="/competitions"
                 class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Learn More →
+                Learn More &rarr;
               </Link>
             </div>
           </div>
 
           <!-- Monthly Challenges -->
-          <div class="initiative-card p-8">
+          <div class="card p-8">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">📅</span>
+              <Icon name="uil:calendar-alt" class="w-8 h-8 flex-shrink-0" style="color: var(--color-logo-purple);" />
               <h3 class="text-2xl font-bold text-gray-100">Monthly Challenges</h3>
             </div>
             <p class="text-gray-400 leading-relaxed">
@@ -157,19 +93,19 @@ import '../styles/global.css';
             </p>
             <div class="mt-6">
               <Link
-                href="https://discord.gg/Sq3nTXyS6D"
+                href="https://discord.com/invite/Sq3nTXyS6D"
                 target="_blank"
                 rel="noopener"
                 class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Join Discord →
+                Join Discord &rarr;
               </Link>
             </div>
           </div>
 
           <!-- Mentorship Program -->
-          <div class="initiative-card p-8 md:col-span-2">
+          <div class="card p-8 md:col-span-2">
             <div class="flex items-center gap-3 mb-3">
-              <span class="text-3xl">🤝</span>
+              <Icon name="uil:users-alt" class="w-8 h-8 flex-shrink-0" style="color: var(--color-logo-blue);" />
               <h3 class="text-2xl font-bold text-gray-100">Mentorship Program</h3>
             </div>
             <p class="text-gray-400 leading-relaxed max-w-3xl">
@@ -181,7 +117,7 @@ import '../styles/global.css';
                 target="_blank"
                 rel="noopener"
                 class:list={["inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg hero-button"]}>
-                Apply Now →
+                Apply Now &rarr;
               </Link>
             </div>
           </div>

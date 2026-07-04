@@ -10,70 +10,6 @@ import '../styles/global.css';
 
 <Layout title="Mitosisphere: Multiplying Success, One Division at a Time">
   <style>
-    :root {
-      --color-logo-purple: #9A50D8;
-      --color-logo-blue: #3FB8D3;
-      --color-logo-text: #6A6AD4;
-
-      --color-bg: #111827;
-      --color-card-bg: #1F2937;
-
-      --color-heading: #F9FAFB;
-      --color-body: #9CA3AF;
-      --color-subtle-text: #6B7280;
-
-      --color-border: #374151;
-      --color-accent-border: #4B5563;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-body);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--color-heading);
-      font-weight: 700;
-    }
-
-    .hero-button {
-      background-color: var(--color-logo-text);
-      color: white;
-      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.35);
-      transition: all 0.3s ease;
-    }
-    .hero-button:hover {
-      transform: translateY(-2px);
-      background-color: #5555C3;
-      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.45);
-    }
-
-    .hero-secondary-button {
-      background-color: transparent;
-      color: var(--color-logo-text);
-      border: 1px solid var(--color-border);
-      transition: all 0.3s ease;
-    }
-    .hero-secondary-button:hover {
-      background-color: var(--color-card-bg);
-      border-color: var(--color-logo-text);
-      transform: translateY(-2px);
-    }
-
-    .initiative-card {
-      background-color: var(--color-card-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 0.75rem;
-      transition: all 0.3s ease;
-    }
-    .initiative-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--color-accent-border);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    }
-
     .join-team-section {
       background-color: #1E1B4B;
     }
@@ -90,42 +26,13 @@ import '../styles/global.css';
     .join-team-section .link-primary:hover {
        background-color: #E0E7FF;
     }
-
-    footer {
-      background-color: var(--color-card-bg);
-      border-top: 1px solid var(--color-border);
-      color: var(--color-subtle-text);
-    }
-    footer a {
-      color: var(--color-body);
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: var(--color-logo-text);
-      text-decoration: underline;
-    }
-
   </style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MTGS0M0Q0Q');
-  </script>
-
   <div style="background-color: var(--color-bg);">
-    <Container class="text-center pt-16 pb-16 md:pt-24 md:pb-24">
+    <Container class="text-center pt-16 pb-16 md:pt-24 md:pb-20">
       <img src="/logo.png" alt="Mitosisphere Logo" class="mx-auto w-40 h-40 md:w-52 md:h-52 mb-8" />
       <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-gray-50">
-        Empowering the Next Generation of <span style=`color: ${'var(--color-logo-text)'}`>Scholars</span>.
+        Empowering the Next Generation of <span style="color: var(--color-logo-text);">Scholars</span>.
       </h1>
       <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
         Mitosisphere provides expert-designed resources for advanced biology.
@@ -148,15 +55,49 @@ import '../styles/global.css';
   </div>
 
   <main>
+    <section class="pb-16 md:pb-24" style="background-color: var(--color-bg);">
+      <Container>
+        <div class="featured-card p-8 md:p-12 max-w-5xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-50">Summer Challenge</h2>
+          <p class="text-sm font-semibold tracking-wider mt-3" style="color: var(--color-logo-blue);">
+            Registration open now!
+          </p>
+          <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+            Test your biology knowledge from July 18 to 25 with 50 multiple-choice questions in the
+            USABO Open format. Open to all students, with certificates and cash prizes.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://tinyurl.com/4b55fd4x"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-button"
+            >
+              Register Now
+            </Link>
+            <Link
+              href="https://discord.com/invite/Sq3nTXyS6D"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-secondary-button"
+            >
+              <Icon name="simple-icons:discord" class="w-5 h-5 mr-2" />
+              Join the Discord
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </section>
+
     <section class="py-16 md:py-24 border-y border-gray-700" style="background-color: var(--color-card-bg);">
       <Container>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-4xl mx-auto">
           <div>
-            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-blue)'}`>1500+</p>
+            <p class="text-5xl font-extrabold" style="color: var(--color-logo-blue);">1500+</p>
             <p class="text-gray-300 mt-3 text-lg">Exam Competitors from 19 Countries</p>
           </div>
           <div>
-            <p class="text-5xl font-extrabold" style=`color: ${'var(--color-logo-purple)'}`>600+</p>
+            <p class="text-5xl font-extrabold" style="color: var(--color-logo-purple);">600+</p>
             <p class="text-gray-300 mt-3 text-lg">Active Discord Community Members</p>
           </div>
         </div>
@@ -170,8 +111,8 @@ import '../styles/global.css';
           <Fragment slot="desc">Key resources to power your biology journey.</Fragment>
         </Sectionhead>
         <div class="grid md:grid-cols-3 gap-8 mt-12">
-          <div class="initiative-card p-8 flex flex-col">
-            <Icon name="uil:dna" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-blue)'}` />
+          <div class="card p-8 flex flex-col">
+            <Icon name="uil:dna" class="w-10 h-10 mb-5" style="color: var(--color-logo-blue);" />
             <h3 class="text-xl font-bold mb-3 text-gray-100">Exams</h3>
             <p class="leading-relaxed text-gray-400 flex-grow">
               We host our signature USABO-style mock exams each year, providing realistic practice.
@@ -180,8 +121,8 @@ import '../styles/global.css';
               View Rules
             </a>
           </div>
-          <div class="initiative-card p-8 flex flex-col">
-            <Icon name="uil:brain" class="w-10 h-10 mb-5" style=`color: ${'var(--color-logo-purple)'}` />
+          <div class="card p-8 flex flex-col">
+            <Icon name="uil:brain" class="w-10 h-10 mb-5" style="color: var(--color-logo-purple);" />
             <h3 class="text-xl font-bold mb-3 text-gray-100">Lamnhaj's Guide to USABO</h3>
             <p class="leading-relaxed text-gray-400 flex-grow">
               Everything you need to know to effectively study for and succeed on the USABO exams.
@@ -190,7 +131,7 @@ import '../styles/global.css';
               Open Textbook
             </a>
           </div>
-          <div class="initiative-card p-8 flex flex-col">
+          <div class="card p-8 flex flex-col">
             <Icon name="uil:bolt" class="w-10 h-10 mb-5" style="color: #EAB308;" />
             <h3 class="text-xl font-bold mb-3 text-gray-100">BioBlitz</h3>
             <p class="leading-relaxed text-gray-400 flex-grow">
@@ -221,7 +162,7 @@ import '../styles/global.css';
               Staff Application
             </Link>
             <Link
-              href="https://discord.gg/Sq3nTXyS6D"
+              href="https://discord.com/invite/Sq3nTXyS6D"
               target="_blank"
               class:list={["link-primary inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm !bg-white/10 !text-white hover:!bg-white/20"]}
               rel="noopener"
@@ -233,11 +174,4 @@ import '../styles/global.css';
       </Container>
     </section>
   </main>
-
-  <footer class="py-8">
-    <p class="text-sm text-center">
-      &copy; {new Date().getFullYear()} Mitosisphere. All Rights Reserved. &bull;
-      <a href="/contact">Contact Us</a>
-    </p>
-  </footer>
 </Layout>

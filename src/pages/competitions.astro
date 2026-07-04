@@ -9,73 +9,7 @@ import '../styles/global.css';
 ---
 
 <Layout title="Mitosisphere - Competitions">
-  <style>
-    :root {
-      --color-logo-purple: #9A50D8;
-      --color-logo-blue: #3FB8D3;
-      --color-logo-text: #6A6AD4;
-
-      --color-bg: #111827;
-      --color-card-bg: #1F2937;
-
-      --color-heading: #F9FAFB;
-      --color-body: #9CA3AF;
-      --color-subtle-text: #6B7280;
-
-      --color-border: #374151;
-      --color-accent-border: #4B5563;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-body);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--color-heading);
-      font-weight: 700;
-    }
-
-    .hero-button {
-      background-color: var(--color-logo-text);
-      color: white;
-      box-shadow: 0 4px 14px 0 rgba(106, 106, 212, 0.35);
-      transition: all 0.3s ease;
-    }
-    .hero-button:hover {
-      transform: translateY(-2px);
-      background-color: #5555C3;
-      box-shadow: 0 6px 20px 0 rgba(106, 106, 212, 0.45);
-    }
-
-    .competition-card {
-      background-color: var(--color-card-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 0.75rem;
-      transition: all 0.3s ease;
-      text-align: left;
-    }
-    .competition-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--color-accent-border);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    }
-  </style>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <script is:inline id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MTGS0M0Q0Q');
-  </script>
 
   <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
     <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
@@ -83,7 +17,7 @@ import '../styles/global.css';
         Our Competitions
       </h1>
       <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
-        We run two annual competitions analogous to the USABO Open and Semifinal exams. Testing info for the 2025 season will be released later this year.
+        We run two annual competitions analogous to the USABO Open and Semifinal exams, and registration for our 2026 Summer Challenge is open now.
       </p>
     </Container>
   </div>
@@ -93,7 +27,60 @@ import '../styles/global.css';
       <Container>
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-50">
-            Rules & Information
+            Summer Challenge
+          </h2>
+          <p class="text-sm font-semibold tracking-wider mt-3" style="color: var(--color-logo-blue);">
+            Registration open now!
+          </p>
+          <p class="mt-4 text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            Test your biology knowledge from July 18 to 25, 2026. The exam is available to take any
+            time during the competition window.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+            <div class="card p-6 text-center">
+              <Icon name="uil:file-question-alt" class="w-8 h-8 mx-auto mb-3" style="color: var(--color-logo-blue);" />
+              <p class="text-2xl font-extrabold text-gray-50">50 MCQs</p>
+              <p class="text-gray-400 mt-1 text-sm">USABO Open format</p>
+            </div>
+            <div class="card p-6 text-center">
+              <Icon name="uil:globe" class="w-8 h-8 mx-auto mb-3" style="color: var(--color-logo-purple);" />
+              <p class="text-2xl font-extrabold text-gray-50">Open</p>
+              <p class="text-gray-400 mt-1 text-sm">To all students</p>
+            </div>
+            <div class="card p-6 text-center">
+              <Icon name="uil:trophy" class="w-8 h-8 mx-auto mb-3" style="color: #EAB308;" />
+              <p class="text-2xl font-extrabold text-gray-50">Prizes</p>
+              <p class="text-gray-400 mt-1 text-sm">Certificates and cash</p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://tinyurl.com/4b55fd4x"
+              target="_blank"
+              class:list={["inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-button"]}
+              rel="noopener">
+              Register Now
+            </Link>
+            <Link
+              href="https://discord.com/invite/Sq3nTXyS6D"
+              target="_blank"
+              class:list={["inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-secondary-button"]}
+              rel="noopener">
+              <Icon name="simple-icons:discord" class="w-5 h-5 mr-2" />
+              Join the Discord
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="py-16 md:py-24 border-t border-gray-700" style="background-color: var(--color-bg);">
+      <Container>
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-50">
+            Rules &amp; Information
           </h2>
           <p class="mt-6 text-lg text-gray-400 leading-relaxed">
             Open to high school students globally, our exams will take place online. They will be available to take all day. Explore the complete guidelines in our official rules document!
@@ -118,7 +105,7 @@ import '../styles/global.css';
       </Container>
     </section>
 
-    <section class="py-16 md:py-24 border-t border-gray-700" style="background-color: var(--color-bg);">
+    <section class="py-16 md:py-24 border-t border-gray-700" style="background-color: var(--color-card-bg);">
       <Container>
         <Sectionhead>
           <Fragment slot="title">Competition Rounds</Fragment>
@@ -126,9 +113,9 @@ import '../styles/global.css';
         </Sectionhead>
 
         <div class="mt-12 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <div class="competition-card p-8">
+          <div class="card p-8 text-left">
             <div class="flex items-center gap-4 mb-4">
-              <Icon name="uil:file-alt" class="w-8 h-8 flex-shrink-0" style=`color: ${'var(--color-logo-blue)'}` />
+              <Icon name="uil:file-alt" class="w-8 h-8 flex-shrink-0" style="color: var(--color-logo-blue);" />
               <h3 class="text-2xl md:text-3xl font-bold text-gray-100">
                 \(p+q=1\)
               </h3>
@@ -138,9 +125,9 @@ import '../styles/global.css';
             </p>
           </div>
 
-          <div class="competition-card p-8">
+          <div class="card p-8 text-left">
             <div class="flex items-center gap-4 mb-4">
-              <Icon name="uil:file-check-alt" class="w-8 h-8 flex-shrink-0" style=`color: ${'var(--color-logo-purple)'}` />
+              <Icon name="uil:file-check-alt" class="w-8 h-8 flex-shrink-0" style="color: var(--color-logo-purple);" />
               <h3 class="text-2xl md:text-3xl font-bold text-gray-100">
                 \((p+q)^2=1\)
               </h3>

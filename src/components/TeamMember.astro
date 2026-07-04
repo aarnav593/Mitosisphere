@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  name: string;
+  role: string;
+  imgSrc?: string;
+  /* CSS object-position override for photos that need reframing */
+  photoPosition?: string;
+}
+
+const { name, role, imgSrc, photoPosition } = Astro.props;
+
+const initials = name
+  .split(' ')
+  .filter(Boolean)
+  .map(w => w[0].toUpperCase())
+  .slice(0, 2)
+  .join('');
+---
+<div class="text-center">
+  {imgSrc ? (
+    <Image
+      src={imgSrc}
+      alt={`Profile photo of ${name}`}
+      width={160}
+      height={160}
+      format="webp"
+      loading="lazy"
+      class="mx-auto avatar-photo"
+      style={photoPosition ? `object-position: ${photoPosition};` : undefined}
+    />
+  ) : (
+    <div class="avatar-fallback mx-auto" aria-hidden="true">{initials}</div>
+  )}
+  <h3 class="text-xl font-bold mt-4 text-gray-100">{name}</h3>
+  <p class="text-base font-semibold" style="color: var(--color-logo-text);">{role}</p>
+</div>

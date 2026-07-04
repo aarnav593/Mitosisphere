@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
-import { Image } from 'astro:assets';
+import TeamMember from "@components/TeamMember.astro";
 import '../styles/global.css';
 
 const leadershipTeam = [
@@ -19,14 +19,14 @@ const leadershipTeam = [
 
 const sectionLeads = [
   {
-    name: 'Anish Agarwal',
+    name: 'Anish Kunapareddy',
     role: 'Head of Content',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=AA'
   },
   {
     name: 'Candace Pun',
     role: 'Head of Outreach',
-    imgSrc: '/Staff_Photos/Staff photos/Candace.png'
+    imgSrc: '/Staff_Photos/Staff photos/Candace.png',
+    photoPosition: 'center 15%'
   },
 ];
 
@@ -39,7 +39,6 @@ const generalTeam = [
   {
     name: 'Aryan Adappa',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=AA'
   },
   {
     name: 'Vedanth Reddyvari',
@@ -52,69 +51,56 @@ const generalTeam = [
     imgSrc: '/Staff_Photos/Staff photos/Donelly.png'
   },
   {
-    name: 'Cade Cunningham',
+    name: 'Justin Yuan',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=CC'
   },
   {
     name: 'Eric Liu',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=EL'
   },
   {
     name: 'Manasvi Nalasani',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=MN'
   },
   {
     name: 'Malachi Dawson',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=MD'
   },
   {
     name: 'Janus Kinase',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=JK'
   },
   {
-    name: 'Sid',
+    name: 'Siddanth Venkatesan',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=S'
   },
   {
     name: 'Hungry',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=H'
   },
   {
-    name: 'zook1234',
+    name: 'Ken Zeng',
     role: 'Content Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=Z'
   },
   {
     name: 'Arnav Dusad',
     role: 'Outreach Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=AD'
   },
   {
     name: 'Yogan Mahesh',
     role: 'Outreach Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=YM'
   },
   {
     name: 'Max',
     role: 'Outreach Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=M'
   },
   {
     name: 'Kiaan Saraiya',
     role: 'Outreach Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=KS'
   },
   {
     name: 'Jason Yan',
     role: 'Outreach Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=JY'
   },
   {
     name: 'Dipisha Subedi',
@@ -124,17 +110,14 @@ const generalTeam = [
   {
     name: 'Eli Feldman',
     role: 'Technology Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=EF'
   },
   {
     name: 'Sarah Park',
     role: 'Technology Team',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=SP'
   },
   {
     name: 'Deepak Praveen Kumar',
     role: 'India Branch Head',
-    imgSrc: 'https://placehold.co/400x400/374151/9CA3AF?text=DK'
   },
   {
     name: 'Abbie Affum',
@@ -153,62 +136,13 @@ const advisoryBoard = [
 ---
 
 <Layout title="Our Team - Mitosisphere">
-  <style>
-    :root {
-      --color-logo-purple: #9A50D8;
-      --color-logo-blue: #3FB8D3;
-      --color-logo-text: #6A6AD4;
-      --color-bg: #111827;
-      --color-card-bg: #1F2937;
-      --color-heading: #F9FAFB;
-      --color-body: #9CA3AF;
-      --color-subtle-text: #6B7280;
-      --color-border: #374151;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-body);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--color-heading);
-      font-weight: 700;
-    }
-
-    img {
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 9999px;
-    }
-
-    img[alt="Profile photo of Candace Pun"] {
-      object-position: center 15%;
-    }
-  </style>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script is:inline id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MTGS0M0Q0Q"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MTGS0M0Q0Q');
-  </script>
-
   <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
     <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
       <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-50">
         Our Team
       </h1>
       <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
-        Meet the <span style=`color: ${'var(--color-logo-purple)'}`>people</span> behind this organization.
+        Meet the <span style="color: var(--color-logo-purple);">people</span> behind this organization.
       </p>
     </Container>
   </div>
@@ -220,21 +154,7 @@ const advisoryBoard = [
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-4 text-gray-50">Leadership Team</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto mt-12">
-          {leadershipTeam.map(member => (
-            <div class="text-center">
-              <Image
-                src={member.imgSrc}
-                alt={`Profile photo of ${member.name}`}
-                width={160}
-                height={160}
-                format="webp"
-                loading="lazy"
-                class="mx-auto"
-              />
-              <h3 class="text-xl font-bold mt-4 text-gray-100">{member.name}</h3>
-              <p class="text-base font-semibold" style="color: var(--color-logo-text);">{member.role}</p>
-            </div>
-          ))}
+          {leadershipTeam.map(member => <TeamMember {...member} />)}
         </div>
       </Container>
     </section>
@@ -245,21 +165,7 @@ const advisoryBoard = [
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-4 text-gray-50">Section Leads</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto mt-12">
-          {sectionLeads.map(member => (
-            <div class="text-center">
-              <Image
-                src={member.imgSrc}
-                alt={`Profile photo of ${member.name}`}
-                width={160}
-                height={160}
-                format="webp"
-                loading="lazy"
-                class="mx-auto"
-              />
-              <h3 class="text-xl font-bold mt-4 text-gray-100">{member.name}</h3>
-              <p class="text-base font-semibold" style="color: var(--color-logo-text);">{member.role}</p>
-            </div>
-          ))}
+          {sectionLeads.map(member => <TeamMember {...member} />)}
         </div>
       </Container>
     </section>
@@ -270,21 +176,7 @@ const advisoryBoard = [
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-4 text-gray-50">Team Members</h2>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 max-w-6xl mx-auto mt-12">
-          {generalTeam.map(member => (
-            <div class="text-center">
-              <Image
-                src={member.imgSrc}
-                alt={`Profile photo of ${member.name}`}
-                width={160}
-                height={160}
-                format="webp"
-                loading="lazy"
-                class="mx-auto"
-              />
-              <h3 class="text-xl font-bold mt-4 text-gray-100">{member.name}</h3>
-              <p class="text-base font-semibold" style="color: var(--color-logo-text);">{member.role}</p>
-            </div>
-          ))}
+          {generalTeam.map(member => <TeamMember {...member} />)}
         </div>
       </Container>
     </section>
@@ -295,21 +187,7 @@ const advisoryBoard = [
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-4 text-gray-50">Advisory Board</h2>
         </div>
         <div class="grid grid-cols-1 gap-8 max-w-xs mx-auto mt-12">
-          {advisoryBoard.map(member => (
-            <div class="text-center">
-              <Image
-                src={member.imgSrc}
-                alt={`Profile photo of ${member.name}`}
-                width={160}
-                height={160}
-                format="webp"
-                loading="lazy"
-                class="mx-auto"
-              />
-              <h3 class="text-xl font-bold mt-4 text-gray-100">{member.name}</h3>
-              <p class="text-base font-semibold" style="color: var(--color-logo-text);">{member.role}</p>
-            </div>
-          ))}
+          {advisoryBoard.map(member => <TeamMember {...member} />)}
         </div>
       </Container>
     </section>
