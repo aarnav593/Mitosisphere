@@ -1,0 +1,100 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
+import Container from "@components/container.astro";
+import '../styles/global.css';
+
+interface Paper {
+  title: string;
+  exam?: string;
+  solutions?: string;
+}
+
+const monthlyChallenges: Paper[] = [
+  { title: "April 2026 Challenge", exam: "/archives/2026-04-monthly-exam.pdf", solutions: "/archives/2026-04-monthly-solutions.pdf" },
+  { title: "September 2025 Challenge", exam: "/archives/2025-09-monthly-exam.pdf", solutions: "/archives/2025-09-monthly-solutions.pdf" },
+  { title: "August 2025 Challenge", exam: "/archives/2025-08-monthly-exam.pdf", solutions: "/archives/2025-08-monthly-solutions.pdf" },
+  { title: "July 2025 Challenge", exam: "/archives/2025-07-monthly-exam.pdf", solutions: "/archives/2025-07-monthly-solutions.pdf" },
+  { title: "June 2025 Challenge", exam: "/archives/2025-06-monthly-exam.pdf", solutions: "/archives/2025-06-monthly-solutions.pdf" },
+  { title: "May 2025 Challenge", exam: "/archives/2025-05-monthly-exam.pdf", solutions: "/archives/2025-05-monthly-solutions.pdf" },
+];
+
+const pastExams: Paper[] = [
+  { title: "2026 (P+Q)²=1", exam: "/archives/2026-pq2-exam.pdf", solutions: "/archives/2026-pq2-solutions.pdf" },
+  { title: "2025 Fall P+Q=1", exam: "/archives/2025-fall-pq-exam.pdf", solutions: "/archives/2025-fall-pq-solutions.pdf" },
+  { title: "2025 Summer P+Q=1", exam: "/archives/2025-pq-set2-exam.pdf", solutions: "/archives/2025-pq-set2-solutions.pdf" },
+  { title: "P+Q=1 Practice Exam", exam: "/archives/practice-sample-exam.pdf", solutions: "/archives/practice-sample-solutions.pdf" },
+];
+
+const bioBowlPackets = "https://drive.google.com/drive/folders/1gE4E0yDEKsnk9jYXM4ORd59xIVn2EmE4?usp=sharing";
+
+const sections = [
+  { heading: "Monthly Challenges", icon: "uil:calendar-alt", color: "var(--color-logo-purple)", papers: monthlyChallenges },
+  { heading: "P+Q=1 and (P+Q)²=1 Exams", icon: "uil:file-alt", color: "var(--color-logo-blue)", papers: pastExams },
+];
+
+const btn = "inline-flex items-center justify-center px-5 py-2 text-sm font-semibold rounded-lg";
+---
+
+<Layout title="Mitosisphere - Archives">
+  <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
+    <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-50">
+        Archives
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
+        Past exams and solutions from our monthly challenges, P+Q=1 and (P+Q)²=1 competitions, and BioBowl.
+      </p>
+    </Container>
+  </div>
+
+  <main>
+    <section class="py-16 md:py-24" style="background-color: var(--color-card-bg);">
+      <Container>
+        <div class="max-w-4xl mx-auto space-y-16">
+          {sections.map(section => (
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <Icon name={section.icon} class="w-8 h-8 flex-shrink-0" style={`color: ${section.color};`} />
+                <h2 class="text-3xl font-bold tracking-tight text-gray-50">{section.heading}</h2>
+              </div>
+              <div class="space-y-4">
+                {section.papers.map(paper => (
+                  <div class="card p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <h3 class="text-lg font-semibold text-gray-100">{paper.title}</h3>
+                    <div class="flex gap-3">
+                      {paper.exam && (
+                        <Link href={paper.exam} target="_blank" rel="noopener" class:list={[btn, "hero-button"]}>
+                          Exam
+                        </Link>
+                      )}
+                      {paper.solutions && (
+                        <Link href={paper.solutions} target="_blank" rel="noopener" class:list={[btn, "hero-secondary-button"]}>
+                          Solutions
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <Icon name="uil:bolt-alt" class="w-8 h-8 flex-shrink-0" style="color: #EAB308;" />
+              <h2 class="text-3xl font-bold tracking-tight text-gray-50">BioBowl Packets</h2>
+            </div>
+            <div class="card p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <h3 class="text-lg font-semibold text-gray-100">All BioBowl packets</h3>
+              <Link href={bioBowlPackets} target="_blank" rel="noopener" class:list={[btn, "hero-button"]}>
+                Open Packets &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
