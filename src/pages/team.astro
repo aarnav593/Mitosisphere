@@ -23,6 +23,12 @@ const sectionLeads = [
     role: 'Head of Content',
   },
   {
+    name: 'Aarnav Suwal',
+    role: 'Chief Technology Officer',
+    imgSrc: '/Staff_Photos/Staff photos/Aarnav.jpeg',
+    photoPosition: 'center 30%'
+  },
+  {
     name: 'Candace Pun',
     role: 'Head of Outreach',
     imgSrc: '/Staff_Photos/Staff photos/Candace.png',
@@ -61,22 +67,16 @@ const generalTeam = [
   {
     name: 'Manasvi Nalasani',
     role: 'Content Team',
+    imgSrc: '/Staff_Photos/Staff photos/Manasvi.png'
   },
   {
     name: 'Malachi Dawson',
     role: 'Content Team',
   },
   {
-    name: 'Janus Kinase',
-    role: 'Content Team',
-  },
-  {
     name: 'Siddanth Venkatesan',
     role: 'Content Team',
-  },
-  {
-    name: 'Hungry',
-    role: 'Content Team',
+    imgSrc: '/Staff_Photos/Staff photos/sid_venk.png'
   },
   {
     name: 'Ken Zeng',
@@ -85,10 +85,12 @@ const generalTeam = [
   {
     name: 'Arnav Dusad',
     role: 'Outreach Team',
+    imgSrc: '/Staff_Photos/Staff photos/Arnav_dusad.png'
   },
   {
     name: 'Yogan Mahesh',
     role: 'Outreach Team',
+    imgSrc: '/Staff_Photos/Staff photos/Yogan.png'
   },
   {
     name: 'Max',
@@ -97,10 +99,12 @@ const generalTeam = [
   {
     name: 'Kiaan Saraiya',
     role: 'Outreach Team',
+    imgSrc: '/Staff_Photos/Staff photos/kiaan-saraiya.jpg'
   },
   {
     name: 'Jason Yan',
     role: 'Outreach Team',
+    imgSrc: '/Staff_Photos/Staff photos/JasonYan.png'
   },
   {
     name: 'Dipisha Subedi',
@@ -110,14 +114,17 @@ const generalTeam = [
   {
     name: 'Eli Feldman',
     role: 'Technology Team',
+    imgSrc: '/Staff_Photos/Staff photos/Eli.png'
   },
   {
     name: 'Sarah Park',
     role: 'Technology Team',
+    imgSrc: '/Staff_Photos/Staff photos/sarah-park.jpg'
   },
   {
     name: 'Deepak Praveen Kumar',
     role: 'India Branch Head',
+    imgSrc: '/Staff_Photos/Staff photos/DeepakPraveenKumar.png'
   },
   {
     name: 'Abbie Affum',
@@ -164,7 +171,7 @@ const advisoryBoard = [
         <div class="text-center">
           <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-4 text-gray-50">Section Leads</h2>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto mt-12">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
           {sectionLeads.map(member => <TeamMember {...member} />)}
         </div>
       </Container>

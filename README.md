@@ -91,7 +91,7 @@ The initiatives carousel auto-rotates every 4 seconds. Each initiative card incl
 
 1. **Hero**: Eye-catching introduction with DNA helix animation
 2. **Stats**: Dynamic counter animation showing community reach
-3. **Initiatives**: Carousel showcasing programs (Competitions, USABO Guide, BioBlitz, etc.)
+3. **Initiatives**: Carousel showcasing programs (Competitions, USABO Guide, etc.)
 4. **Competitions**: p+q series details with LaTeX formulas
 5. **Partners**: Partner organization logos with hover effects
 6. **Team**: Leadership and team member grid
@@ -101,7 +101,6 @@ The initiatives carousel auto-rotates every 4 seconds. Each initiative card incl
 - **Discord**: https://discord.gg/Sq3nTXyS6D
 - **Staff Application**: https://forms.gle/jePabrYs13KvFSqt9
 - **Competition Registration**: https://forms.gle/7oaq31kiAhSstxwY6
-- **BioBlitz Mailing List**: https://bioblitz.net/emailList.html
 - **Mentorship Application**: https://docs.google.com/forms/d/e/1FAIpQLSeNus46S6bVyhOg34M5q6AKYT6MIoIsTjNDT9EixfXXbRxBCw/viewform
 
 ## 📄 License
