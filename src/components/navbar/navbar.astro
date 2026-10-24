@@ -1,6 +1,9 @@
 ---
 import Container from "@components/container.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { Icon } from "astro-icon/components";
+
+const instagramUrl = "https://www.instagram.com/mitosisphere/";
 
 const menuitems = [
   {
@@ -23,6 +26,10 @@ const menuitems = [
   {
     title: "Team",
     path: "/team",
+  },
+  {
+    title: "Testimonials",
+    path: "/testimonials",
   },
   {
     title: "Contact",
@@ -51,7 +58,10 @@ const menuitems = [
               Mitosisphere
             </span>
           </a>
-          <div class="block lg:hidden">
+          <div class="flex items-center gap-4 lg:hidden">
+            <a href={instagramUrl} target="_blank" rel="noopener" aria-label="Mitosisphere on Instagram" class="text-gray-400 hover:text-gray-100 transition-colors duration-200">
+              <Icon name="uil:instagram" class="w-6 h-6" />
+            </a>
             <MenuIcon class="w-6 h-6 text-gray-300" />
           </div>
         </div>
@@ -71,6 +81,11 @@ const menuitems = [
                 </li>
               ))
             }
+            <li class="hidden lg:flex items-center ml-2">
+              <a href={instagramUrl} target="_blank" rel="noopener" aria-label="Mitosisphere on Instagram" class="flex p-2 rounded-md text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition-colors duration-200">
+                <Icon name="uil:instagram" class="w-5 h-5" />
+              </a>
+            </li>
           </ul>
         </MenuItems>
       </Astronav>

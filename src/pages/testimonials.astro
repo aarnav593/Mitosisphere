@@ -1,0 +1,48 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import '../styles/global.css';
+
+const testimonials = [
+  {
+    name: 'Ajay Sawant',
+    quote: "Mitosisphere introduced me to a warm and welcoming biology community that really helped to cultivate my love and appreciation for the biological world. I first learned about Mitosisphere through the monthly challenges, which helped me to prepare for the USABO Open and Semifinal exams by introducing me to a plethora of topics with the necessary depth to appreciate and understand them. Lamnhaj's Guide to USABO also helps greatly with this; it not only provides practice questions like the monthly challenges, but also provides a structured curriculum on all the topics. Additionally, the staff and community have an infectious passion for biology, which helped me to connect with the content on a deeper level."
+  },
+  {
+    name: 'Theenash Sengupta',
+    quote: "Combining creative question writers, a polished training platform, and airtight competition schedules, Mitosisphere is an organization like few others. Each one of their problems helped me see biology from a new angle, elegantly integrating concepts from every corner of the textbook canon and helping build confidence in problem-solving. I strongly recommend checking out their long list of resources for anyone interested in beginning a journey in competitive biology!"
+  },
+];
+---
+
+<Layout title="Testimonials - Mitosisphere">
+  <div class="border-b border-gray-700" style="background-color: var(--color-bg);">
+    <Container class="text-center pt-24 pb-16 md:pt-32 md:pb-20">
+      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-50">
+        Testimonials
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-400 mt-6">
+        Hear from the <span style="color: var(--color-logo-purple);">students</span> who have been part of our community.
+      </p>
+    </Container>
+  </div>
+
+  <main>
+    <section class="py-16 md:py-24" style="background-color: var(--color-card-bg);">
+      <Container>
+        <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-8 max-w-6xl mx-auto">
+          {testimonials.map(testimonial => (
+            <figure class="card p-8 md:p-10">
+              <blockquote class="text-gray-300 leading-relaxed text-lg">
+                &ldquo;{testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption class="mt-6 font-semibold" style="color: var(--color-logo-text);">
+                &mdash; {testimonial.name}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
