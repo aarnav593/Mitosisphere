@@ -6,6 +6,18 @@ import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import '../styles/global.css';
 
+const testimonials = [
+  {
+    name: 'Ajay Sawant',
+    title: '2026 USABO Finalist',
+    quote: "Mitosisphere introduced me to a warm and welcoming biology community that really helped to cultivate my love and appreciation for the biological world. I first learned about Mitosisphere through the monthly challenges, which helped me to prepare for the USABO Open and Semifinal exams by introducing me to a plethora of topics with the necessary depth to appreciate and understand them. Lamnhaj's Guide to USABO also helps greatly with this; it not only provides practice questions like the monthly challenges, but also provides a structured curriculum on all the topics. Additionally, the staff and community have an infectious passion for biology, which helped me to connect with the content on a deeper level."
+  },
+  {
+    name: 'Theenash Sengupta',
+    title: '2026 USABO Finalist',
+    quote: "Combining creative question writers, a polished training platform, and airtight competition schedules, Mitosisphere is an organization like few others. Each one of their problems helped me see biology from a new angle, elegantly integrating concepts from every corner of the textbook canon and helping build confidence in problem-solving. I strongly recommend checking out their long list of resources for anyone interested in beginning a journey in competitive biology!"
+  },
+];
 ---
 
 <Layout title="Mitosisphere: Multiplying Success, One Division at a Time">
@@ -76,13 +88,13 @@ import '../styles/global.css';
               Register Now
             </Link>
             <Link
-              href="https://discord.com/invite/Sq3nTXyS6D"
+              href="/rules.pdf"
               target="_blank"
               rel="noopener"
               class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg shadow-sm hero-secondary-button"
             >
-              <Icon name="simple-icons:discord" class="w-5 h-5 mr-2" />
-              Join the Discord
+              <Icon name="uil:file-alt" class="w-5 h-5 mr-2" />
+              Read the Rules
             </Link>
           </div>
         </div>
@@ -104,34 +116,23 @@ import '../styles/global.css';
       </Container>
     </section>
 
-    <section class="py-16 md:py-24" style="background-color: var(--color-bg);">
+    <section id="testimonials" class="py-16 md:py-24" style="background-color: var(--color-bg);">
       <Container>
         <Sectionhead>
-          <Fragment slot="title">Our Initiatives:</Fragment>
-          <Fragment slot="desc">Key resources to power your biology journey.</Fragment>
+          <Fragment slot="title">Testimonials</Fragment>
+          <Fragment slot="desc">Hear from the <span style="color: var(--color-logo-purple);">students</span> who have been part of our community.</Fragment>
         </Sectionhead>
-        <div class="grid md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
-          <div class="card p-8 flex flex-col">
-            <Icon name="uil:dna" class="w-10 h-10 mb-5" style="color: var(--color-logo-blue);" />
-            <h3 class="text-xl font-bold mb-3 text-gray-100">Exams</h3>
-            <p class="leading-relaxed text-gray-400 flex-grow">
-              We host our signature USABO-style mock exams each year, providing realistic practice.
-            </p>
-            <a href="/rules.pdf" target="_blank" rel="noopener" class="mt-5 self-start inline-flex items-center px-4 py-1.5 text-sm font-medium rounded-md border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-200 transition-colors duration-200">
-              View Rules
-            </a>
-          </div>
-          <div class="card p-8 flex flex-col">
-            <Icon name="uil:brain" class="w-10 h-10 mb-5" style="color: var(--color-logo-purple);" />
-            <h3 class="text-xl font-bold mb-3 text-gray-100">Lamnhaj's Guide to USABO</h3>
-            <p class="leading-relaxed text-gray-400 flex-grow">
-              Everything you need to know to effectively study for and succeed on the USABO exams.
-            </p>
-            <a href="https://guide.mitosisphere.org" target="_blank" rel="noopener" class="mt-5 self-start inline-flex items-center px-4 py-1.5 text-sm font-medium rounded-md border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-200 transition-colors duration-200">
-              Open Textbook
-            </a>
-          </div>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-8 mt-12 max-w-6xl mx-auto">
+          {testimonials.map(testimonial => (
+            <figure class="card p-8 md:p-10">
+              <blockquote class="text-gray-300 leading-relaxed text-lg">
+                &ldquo;{testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption class="mt-6 font-semibold" style="color: var(--color-logo-text);">
+                &mdash; {testimonial.name}, <span class="text-gray-400 font-medium">{testimonial.title}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </Container>
     </section>

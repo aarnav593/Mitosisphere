@@ -7,5 +7,8 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://mitosisphere.org",
+  redirects: {
+    "/testimonials": "/#testimonials",
+  },
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
